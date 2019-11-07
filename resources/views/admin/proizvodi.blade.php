@@ -1,0 +1,94 @@
+@extends('admin.layout.app')
+
+@section('page-header')
+<h2 class="page-header">Proizvodi <small>Lista svih proizvoda</small></h2>
+@endsection
+
+@section('content')
+
+<div class="card mb-3">
+  <div class="card-header">
+    <form action="/admin/pretragaProizvodi" method="get">
+      <div class="row">
+        <div class="col-md-3 pull-right">
+          <div class="input-group">
+            <input type="text" name="str" class="form-control" placeholder="Pretraga proizvoda"
+              value="{{ $_GET['str'] ?? '' }}">
+            <span class="input-group-btn">
+              <button class="btn btn-default">Traži!</button>
+            </span>
+          </div>
+          <p class="help-block">Pretraga proizvoda po nazivu.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      @if (count($proizvodi) > 0)
+      <table class="table table-striped tabProizvodi" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Naziv</th>
+            <th>Slika</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th>Napomena</th>
+            <th style="text-align:center;">Akcija</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Naziv</th>
+            <th>Slika</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th>Napomena</th>
+            <th style="text-align:center;">Akcija</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          @foreach ($proizvodi as $proizvod)
+          <tr>
+            <td><a href="/admin/proizvodi/{{ $proizvod->id }}" title="Detaljnije...">{{ $proizvod->naziv }}</a></td>
+            <td style="width:250px;">
+              <a href="/admin/proizvodi/{{ $proizvod->id }}" style="text-decoration:none;" title="Detaljnije....">
+                @foreach ($proizvod->slike as $slika)
+                <img src="/images/{{$slika->slika }}" alt="{{ $proizvod->naziv }}" class="mala_slika">
+                @endforeach
+              </a>
+            </td>
+            <td>{{ $proizvod->opis }}</td>
+            <td>{{ $proizvod->cena }} din</td>
+            <td>{{ $proizvod->napomena }}</td>
+            <td style="text-align:center; width:180px;">
+              <form action="/admin/proizvodi/{{$proizvod->id}}" method="post">
+                @csrf
+                @method('DELETE')
+                <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-primary"
+                  title="Izmeni proizvod">Izmeni</a>
+                <button class="btn btn-danger" title="Obriši proizvod">Obriši</button>
+              </form>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      @else
+      <p>Traženi proizvod <strong>
+          @if(isset($_GET['str']))
+          {{ $_GET['str'] }}
+          @endif
+        </strong> ne postoji u bazi!</p>
+      @endif
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        {{ $proizvodi->appends(['str' => $_GET['str'] ?? ''])->links()}}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer"><a href="{{ route('noviProizvod') }}" class=" btn btn-primary"
+      title="Dodaj novi proizvod">Dodaj novi proizvod</a href=""></div>
+</div>
+@endsection

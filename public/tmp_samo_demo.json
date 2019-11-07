@@ -1,0 +1,157 @@
+[
+  {
+    "id": 6,
+    "naziv": "asdasdasd",
+    "tip_obuce": "plitka23",
+    "materijali": "Koža",
+    "djon": "asd",
+    "opis": "asdasdasd",
+    "sex": "Ženske",
+    "sezona": "leto23",
+    "napomena": "qweqweqwe",
+    "cena": "3333.00",
+    "created_at": "2019-11-03 18:42:45",
+    "updated_at": "2019-11-03 18:43:02",
+    "slike": [
+      {
+        "id": 16,
+        "proizvod_id": 6,
+        "slika": "1572895820_slika_3.jpg"
+      },
+      {
+        "id": 17,
+        "proizvod_id": 6,
+        "slika": "1572895827_slika_4.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "naziv": "Cipele 2",
+    "tip_obuce": "plitka",
+    "materijali": "platno",
+    "djon": "đon",
+    "opis": "asda sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd",
+    "sex": "Ženske",
+    "sezona": "leto",
+    "napomena": "sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd sdasd adqwd asd",
+    "cena": "155.00",
+    "created_at": "2019-11-03 17:55:28",
+    "updated_at": "2019-11-04 19:04:46",
+    "slike": [
+      {
+        "id": 7,
+        "proizvod_id": 4,
+        "slika": "1572803728_slika_4.jpg"
+      },
+      {
+        "id": 10,
+        "proizvod_id": 4,
+        "slika": "1572883898_muga.jpg"
+      },
+      {
+        "id": 11,
+        "proizvod_id": 4,
+        "slika": "1572883904_muga1.png"
+      },
+      {
+        "id": 12,
+        "proizvod_id": 4,
+        "slika": "1572893651_slika_22.jpg"
+      },
+      {
+        "id": 13,
+        "proizvod_id": 4,
+        "slika": "1572893656_slika_22.jpg"
+      },
+      {
+        "id": 14,
+        "proizvod_id": 4,
+        "slika": "1572894293_slika_22.jpg"
+      },
+      {
+        "id": 15,
+        "proizvod_id": 4,
+        "slika": "1572894299_slika_21.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "naziv": "Cipele 1",
+    "tip_obuce": "plitka",
+    "materijali": "Koža",
+    "djon": "đon",
+    "opis": "asd asd asd",
+    "sex": "Ženske",
+    "sezona": "leto",
+    "napomena": "asd asd asd",
+    "cena": "444.00",
+    "created_at": "2019-11-03 17:54:43",
+    "updated_at": "2019-11-03 18:38:43",
+    "slike": [
+      {
+        "id": 6,
+        "proizvod_id": 3,
+        "slika": "1572803683_slika_3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "naziv": "Patike 1",
+    "tip_obuce": "Duboke",
+    "materijali": "Koža",
+    "djon": "Guma",
+    "opis": "bla bla bla",
+    "sex": "Uniseks",
+    "sezona": "jesen\/zima",
+    "napomena": "bla bla bla",
+    "cena": "333.00",
+    "created_at": "2019-11-03 17:51:36",
+    "updated_at": "2019-11-03 17:51:36",
+    "slike": [
+      {
+        "id": 3,
+        "proizvod_id": 2,
+        "slika": "1572803496_slika_2.jpg"
+      },
+      {
+        "id": 4,
+        "proizvod_id": 2,
+        "slika": "1572803504_slika_21.jpg"
+      },
+      {
+        "id": 5,
+        "proizvod_id": 2,
+        "slika": "1572803510_slika_22.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "naziv": "Proizvod 1",
+    "tip_obuce": "plitka",
+    "materijali": "platno",
+    "djon": "đon",
+    "opis": "Letnje patike bla bla bla",
+    "sex": "Muške",
+    "sezona": "leto",
+    "napomena": "Letnje patike bla bla bla",
+    "cena": "2222.00",
+    "created_at": "2019-11-03 17:50:27",
+    "updated_at": "2019-11-03 17:50:27",
+    "slike": [
+      {
+        "id": 1,
+        "proizvod_id": 1,
+        "slika": "1572803427_slika_1.jpg"
+      },
+      {
+        "id": 2,
+        "proizvod_id": 1,
+        "slika": "1572803433_slika_11.jpg"
+      }
+    ]
+  }
+]
