@@ -30,7 +30,8 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
+    'confirmed' => ':attribute se ne podudaraju, različite su.',
+    // 'confirmed' => 'The :attribute confirmation does not match.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
@@ -87,23 +88,25 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute mora biti minimum :min karaktera.',
+        // 'string' => 'The :attribute must be at least :min characters.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
+    'password' => 'Pogrešna šifra.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute je obavezno polje, ne može biti prazno.',
+    // 'required' => 'Polje \':attribute\' je obavezno.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
     'required_with_all' => 'The :attribute field is required when :values are present.',
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => 'The :attribute and :other must match.',
+    'same' => ':other i :attribute nisu iste.',
     'size' => [
         'numeric' => 'The :attribute must be :size.',
         'file' => 'The :attribute must be :size kilobytes.',
@@ -113,7 +116,8 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attribute je već zauzeta.',
+    // 'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -146,6 +150,32 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'Korisničko ime',
+        'first_name' => 'Ime',
+        'last_name' => 'Prezime',
+        'address' => 'Adresa',
+        'phone' => 'Telefon',
+        'zip' => 'Zip kod',
+        'city' => 'Grad',
+        'state' => 'Država',
+        
+        'email' => 'E-mail adresa',
+        'password' => 'Šifra',
+
+        'naziv' => 'Naziv proizvoda',
+        'tip_obuce' => 'Tip obuće',
+        'materijali' => 'Materijali',
+        'boja' => 'Boja',
+        'djon' => 'Đon',
+        'sezona' => 'Sezona',
+        'cena' => 'Cena',
+
+        'current_password' => 'Važeća šifra',
+        'new_password' => 'Nova šifra',
+        'new_confirm_password' => 'ponovljena šifra',
+
+        
+    ],
 
 ];

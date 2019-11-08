@@ -71,10 +71,10 @@
                         <a href="/cp">Dashboard</a>
                         {{-- <a href="{{ url('/cp/home') }}">Dashboard</a> --}}
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Uloguj se</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registruj se</a>
                         @endif
                     @endauth
                 </div>

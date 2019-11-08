@@ -33,15 +33,15 @@ class KorisniciController extends Controller
 
     public function update(User $user){
         $data = request()->validate([
-            'name' => 'max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'first_name' => 'max:255',
-            'last_name' => 'max:255',
-            'phone' => '',
-            'address' => 'max:255',
-            'city' => 'max:255',
-            'zip' => 'max:20',
-            'state' => 'max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'phone' => 'required|',
+            'address' => 'required|max:255',
+            'city' => 'required|max:255',
+            'zip' => 'required|max:20',
+            'state' => 'required|max:255',
             // 'name' => 'required|max:255',
             // 'email' => 'required|email|max:255',
             // 'first_name' => 'required|max:255',
@@ -54,7 +54,8 @@ class KorisniciController extends Controller
         ]);
 
             // dd(request()->is_admin);
-
+            // dd($data);
+            // if($data){
         $user->update([
             'name' => request()->name, 
             'email' => request()->email,
@@ -76,6 +77,10 @@ class KorisniciController extends Controller
             ]);
 
         return redirect('/admin/detalji/' . $user->id);
+
+        //         } else {
+        //     return "nema sve";
+        // }
     }
 
     public function destroy(User $user){

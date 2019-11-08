@@ -41,7 +41,7 @@ class ProizvodController extends Controller
             'opis' => 'max:1000',
             'napomena' => 'max:1000',
             // 'slika' => 'max:255',
-            'cena' => 'max:255',
+            'cena' => 'required|max:255',
         ]);
         
         // snimanje proizvoda u bazu

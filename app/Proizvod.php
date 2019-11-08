@@ -12,6 +12,7 @@ class Proizvod extends Model
 
 
     public function slike(){
-        return $this->hasMany('App\Slike', 'proizvod_id', 'id');
+        return $this->hasMany(Slike::class);
+        // return $this->hasMany('App\Slike', 'proizvod_id', 'id');
     }
 }

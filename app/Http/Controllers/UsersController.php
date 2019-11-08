@@ -39,26 +39,29 @@ class UsersController extends Controller
             'zip' => 'required|max:20',
             'state' => 'required|max:255',
         ]);
+            
+        // if($data->validate()){
+            $user->update([
+                'name' => request()->name, 
+                'phone' => request()->phone,
+                ]);
 
 
-        $user->update([
-            'name' => request()->name, 
-            'phone' => request()->phone,
-            ]);
+            User_details::updateOrCreate([
+                'user_id' => $user->id
+                ],
+                [
+                'first_name' => request()->first_name,
+                'last_name' => request()->last_name,
+                'address' => request()->address,
+                'city' => request()->city,
+                'zip' => request()->zip,
+                'state' => request()->state,
+                ]);
 
-
-        User_details::updateOrCreate([
-            'user_id' => $user->id
-            ],
-            [
-            'first_name' => request()->first_name,
-            'last_name' => request()->last_name,
-            'address' => request()->address,
-            'city' => request()->city,
-            'zip' => request()->zip,
-            'state' => request()->state,
-            ]);
-
-        return redirect('/user/detaljnije/');
+            return redirect('/user/detaljnije/');
+        // } else {
+        //     return "nema sve";
+        // }
     }
 }

@@ -17,14 +17,14 @@
 				{{ Auth::user()->name }} <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="{{ route('detalji', ['user' => Auth::user()->id]) }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+					<a href="{{ route('detalji', ['user' => Auth::user()->id]) }}"><i class="fa fa-fw fa-user"></i> Profil</a>
 				</li>
 				<li class="divider"></li>
 				<li>
 					{{-- LOGOUT ruta --}}
 					<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-						{{ __('Logout') }}
+						{{ __('Izloguj se') }}
 						<i class="fa fa-fw fa-power-off"></i></a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						@csrf
