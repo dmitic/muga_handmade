@@ -40,10 +40,6 @@ Route::prefix('admin')->group(function () {
     Route::delete('/proizvodi/{proizvod}', 'ProizvodController@destroy')->name('brisiProizvod');
     Route::delete('/proizvodi/slikaBrisanje/{slika}', 'SlikeController@destroy')->name('obrisiSliku');
 
-    // narudžbenice rute
-    Route::get('/narudzbenice', 'NarudzbeniceController@index');
-    Route::get('/narudzbeniceRealizovane', 'NarudzbeniceController@index');
-
     // Korisnici rute
     Route::get('/pretraga', 'KorisniciController@search');
     Route::get('/korisnici', 'KorisniciController@index');
@@ -51,23 +47,26 @@ Route::prefix('admin')->group(function () {
     Route::get('/korisnici/{user}/edit', 'KorisniciController@edit')->name('izmeni');
     Route::put('/korisnici/{user}', 'KorisniciController@update')->name('update');
     Route::delete('/korisnici/{user}', 'KorisniciController@destroy')->name('brisi');
+
+    // narudžbenice rute
+    Route::get('/realizovane-fakture', 'FaktureController@index')->name('admin.fakture');
+    Route::get('/ne-realizovane-fakture', 'FaktureController@neRealizovaneIndex')->name('admin.neFakture');
+    Route::get('/pretraga-fakture', 'FaktureController@search');
 });
 
 
 Route::prefix('user')->group(function () {
 
-    Route::get('/', function(){
-        return view('user.home');
-    })->middleware('auth');
+    Route::get('/', 'FaktureUserController@index')->middleware('auth');
 
     Route::get('/detaljnije', 'UsersController@show')->name('detaljiUsers');
     Route::get('/edit', 'UsersController@edit')->name('izmeniUser');
     Route::put('/edit', 'UsersController@update')->name('updateUser');
 
+    // fakture
+    Route::get('/fakture', 'FaktureUserController@index')->name('user.fakture');
 
     // Promena šifre
     Route::get('/sifra', 'PromenaSifreController@index');
     Route::post('/sifra', 'PromenaSifreController@store')->name('promeniSifru');
 });
-
-

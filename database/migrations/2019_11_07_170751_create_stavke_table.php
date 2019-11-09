@@ -15,7 +15,7 @@ class CreateStavkeTable extends Migration
     {
         Schema::create('stavke', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('faktura_id');
+            $table->unsignedBigInteger('fakture_id');
             $table->bigInteger('proizvod_id');
             $table->string('naziv_proizvoda');
             $table->string('boja');
@@ -25,7 +25,7 @@ class CreateStavkeTable extends Migration
             $table->decimal('ukupna_cena', 9,2);
             $table->timestamps();
 
-            $table->foreign('faktura_id')
+            $table->foreign('fakture_id')
                 ->references('id')
                 ->on('fakture')
                 ->onDelete('cascade');

@@ -28,9 +28,10 @@ class UsersController extends Controller
     }
 
     public function update(){
+
         $user = User::find(\Auth::user()->id);
+
         $data = request()->validate([
-            'name' => 'required|max:255',
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'phone' => 'required',
@@ -40,28 +41,35 @@ class UsersController extends Controller
             'state' => 'required|max:255',
         ]);
             
-        // if($data->validate()){
-            $user->update([
-                'name' => request()->name, 
-                'phone' => request()->phone,
-                ]);
+        $user->update([
+            'phone' => request()->phone,
+            ]);
+        User_details::updateOrCreate([
+            'user_id' => $user->id
+            ],
+            [
+            'first_name' => request()->first_name,
+            'last_name' => request()->last_name,
+            'address' => request()->address,
+            'city' => request()->city,
+            'zip' => request()->zip,
+            'state' => request()->state,
+            ]);
 
-
-            User_details::updateOrCreate([
-                'user_id' => $user->id
-                ],
-                [
-                'first_name' => request()->first_name,
-                'last_name' => request()->last_name,
-                'address' => request()->address,
-                'city' => request()->city,
-                'zip' => request()->zip,
-                'state' => request()->state,
-                ]);
-
-            return redirect('/user/detaljnije/');
-        // } else {
-        //     return "nema sve";
-        // }
+        return redirect('/user/detaljnije/');
     }
 }
+
+    // update kraće
+    // User_details::updateOrCreate(
+    //     ['user_id' => $user->id],
+    //     request()->validate([
+    //         'first_name' => 'required|max:255',
+    //         'last_name' => 'required|max:255',
+    //         'address' => 'required|max:255',
+    //         'city' => 'required|max:255',
+    //         'zip' => 'required|max:20|regex:/^[0-9]+$/',
+    //         'state' => 'required|max:255',
+    //     ]));
+
+    // User::find($user->id)->update(['phone' => request()->phone, request()->validate(['phone' => 'required'])]);

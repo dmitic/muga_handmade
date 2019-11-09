@@ -67,7 +67,7 @@
                 @method('DELETE')
                 <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-primary"
                   title="Izmeni proizvod">Izmeni</a>
-                <button class="btn btn-danger" title="Obriši proizvod">Obriši</button>
+                <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš?')" title="Obriši proizvod">Obriši</button>
               </form>
             </td>
           </tr>

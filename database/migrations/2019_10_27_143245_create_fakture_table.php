@@ -15,7 +15,9 @@ class CreateFaktureTable extends Migration
     {
         Schema::create('fakture', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('narudzbenica_br');
             $table->bigInteger('user_id');
+            $table->string('name');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');

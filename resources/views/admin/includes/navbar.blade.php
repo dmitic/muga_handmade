@@ -56,10 +56,10 @@
 					Narudžbenice <i class="fa fa-fw fa-caret-down"></i></a>
 				<ul id="demo" class="collapse">
 					<li class="{{ Request::path() === 'admin/narudzbeniceRealizovane' ? 'active' : ''}}">
-						<a href="/admin/narudzbeniceRealizovane"><i class="fa fa-fw fa-desktop"></i> Realizovane</a>
+						<a href="{{ route('admin.fakture') }}"><i class="fa fa-fw fa-desktop"></i> Realizovane</a>
 					</li>
 					<li class="{{ Request::path() === 'admin/narudzbenice' ? 'active' : ''}}">
-						<a href="/admin/narudzbenice"><i class="fa fa-fw fa-desktop"></i> Ne realizovane</a>
+						<a href="{{ route('admin.neFakture') }}"><i class="fa fa-fw fa-desktop"></i> Nerealizovane</a>
 					</li>
 				</ul>
 			</li>

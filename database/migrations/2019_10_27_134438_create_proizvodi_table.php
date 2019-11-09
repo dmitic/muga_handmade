@@ -21,7 +21,7 @@ class CreateProizvodiTable extends Migration
             $table->string('djon');
             $table->string('boja');
             $table->text('opis')->nullable();
-            $table->enum('sex', ['Muške', 'Ženske', 'Uniseks']);
+            $table->enum('pol', ['Muške', 'Ženske', 'Uniseks']);
             $table->string('sezona');
             $table->text('napomena')->nullable();
             $table->decimal('cena', 9,2)->nullable()->default(null);

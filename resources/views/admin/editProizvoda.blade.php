@@ -24,7 +24,7 @@
               @csrf
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="naziv">Ime proizvoda</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('naziv') {{'has-error'}} @enderror">
                   <input type="text" id="naziv" name="naziv" class="form-control"
                     value="{{ $proizvod->naziv ? ($proizvod->naziv ?? '') : old('naziv') }}"
                     placeholder="Ime proizvoda...">
@@ -38,7 +38,7 @@
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="tip_obuce">Tip obuće</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('tip_obuce') {{'has-error'}} @enderror">
                   <input type="text" id="tip_obuce" name="tip_obuce" class="form-control"
                     value="{{ $proizvod->tip_obuce ? ($proizvod->tip_obuce ?? '') : old('tip_obuce') }}"
                     placeholder="Tip obuće...">
@@ -52,7 +52,7 @@
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="materijali">Materijali</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('materijali') {{'has-error'}} @enderror">
                   <input type="text" id="materijali" name="materijali" class="form-control"
                     value="{{ $proizvod->materijali ? ($proizvod->materijali ?? '') : old('materijali') }}"
                     placeholder="Materijali...">
@@ -66,7 +66,7 @@
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="boja">Boja</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('boja') {{'has-error'}} @enderror">
                   <input type="text" id="boja" name="boja" class="form-control"
                     value="{{ $proizvod->boja ? ($proizvod->boja ?? '') : old('boja') }}" placeholder="Boja...">
                   <small class="text-danger">
@@ -79,8 +79,8 @@
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="djon">Đon</label>
-                <div class="col-md-10">
-                  <input type="text" id="djon" name="djon" class="form-control"
+                <div class="col-md-10 @error('djon') {{'has-error'}} @enderror">
+                <input type="text" id="djon" name="djon" class="form-control"
                     value="{{ $proizvod->djon ? ($proizvod->djon ?? '') : old('djon') }}" placeholder="Đon...">
                   <small class="text-danger">
                     @error('djon')
@@ -91,19 +91,19 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-md-2 col-form-label text-md-right" for="sex">Pol: </label>
+                <label class="col-md-2 col-form-label text-md-right" for="pol">Pol: </label>
                 <div class="col-md-10">
-                  <select name="sex" id="sex" class="form-control">
-                    <option value="Muške" @if ($proizvod->sex === 'Muške') {{ 'selected' }} @endif>Muške</option>
-                    <option value="Ženske" @if ($proizvod->sex === 'Ženske') {{ 'selected' }} @endif>Ženske</option>
-                    {{-- <option value="Uniseks" @if ($proizvod->sex === 'Uniseks') {{ 'selected' }} @endif>Uniseks
+                  <select name="pol" id="pol" class="form-control">
+                    <option value="Muške" @if ($proizvod->pol === 'Muške') {{ 'selected' }} @endif>Muške</option>
+                    <option value="Ženske" @if ($proizvod->pol === 'Ženske') {{ 'selected' }} @endif>Ženske</option>
+                    {{-- <option value="Uniseks" @if ($proizvod->pol === 'Uniseks') {{ 'selected' }} @endif>Uniseks
                     </option> --}}
                   </select>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="sezona">Sezona</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('sezona') {{'has-error'}} @enderror">
                   <input type="text" id="sezona" name="sezona" class="form-control"
                     value="{{ $proizvod->sezona ? ($proizvod->sezona ?? '') : old('sezona') }}" placeholder="Sezona...">
                   <small class="text-danger">
@@ -130,7 +130,7 @@
               </div>
               <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="cena">Cena</label>
-                <div class="col-md-10">
+                <div class="col-md-10 @error('cena') {{'has-error'}} @enderror">
                   <input type="number" id="cena" name="cena" class="form-control"
                     value="{{ $proizvod->cena ? ($proizvod->cena ?? '') : old('cena') }}" placeholder="Cena...">
                   <small class="text-danger">

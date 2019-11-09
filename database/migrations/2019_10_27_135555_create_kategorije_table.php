@@ -16,7 +16,7 @@ class CreateKategorijeTable extends Migration
         Schema::create('kategorije', function (Blueprint $table) {
             $table->bigIncrements('id');
             // $table->unsignedBigInteger('proizvod_id');
-            // $table->enum('sex', ['m', 'z', 'u']);
+            // $table->enum('pol', ['m', 'z', 'u']);
             // $table->string('sezona');
 
             // $table->foreign('proizvod_id')

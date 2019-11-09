@@ -19,7 +19,6 @@ class KorisniciController extends Controller
     
     public function index(){
         $users = User::with('details')->paginate(10);
-        // $users = User::with('details')->get();
         return view('admin.korisnici', compact('users'));
     }
 
@@ -32,7 +31,7 @@ class KorisniciController extends Controller
     }
 
     public function update(User $user){
-        $data = request()->validate([
+        request()->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'first_name' => 'required|max:255',
@@ -40,22 +39,10 @@ class KorisniciController extends Controller
             'phone' => 'required|',
             'address' => 'required|max:255',
             'city' => 'required|max:255',
-            'zip' => 'required|max:20',
+            'zip' => 'required|max:20|regex:/^[0-9]+$/',
             'state' => 'required|max:255',
-            // 'name' => 'required|max:255',
-            // 'email' => 'required|email|max:255',
-            // 'first_name' => 'required|max:255',
-            // 'last_name' => 'required|max:255',
-            // 'phone' => 'required',
-            // 'address' => 'required|max:255',
-            // 'city' => 'required|max:255',
-            // 'zip' => 'required|max:20',
-            // 'state' => 'required|max:255',
         ]);
 
-            // dd(request()->is_admin);
-            // dd($data);
-            // if($data){
         $user->update([
             'name' => request()->name, 
             'email' => request()->email,
@@ -75,12 +62,8 @@ class KorisniciController extends Controller
             'zip' => request()->zip,
             'state' => request()->state,
             ]);
-
-        return redirect('/admin/detalji/' . $user->id);
-
-        //         } else {
-        //     return "nema sve";
-        // }
+            
+        return redirect(route('detalji', $user));
     }
 
     public function destroy(User $user){
@@ -98,3 +81,38 @@ class KorisniciController extends Controller
         return view('admin.korisnici', compact('users'));
     }
 }
+
+
+
+// public function update(User $user){
+//     $data = request()->validate([
+//         'name' => 'required|max:255',
+//         'email' => 'required|email|max:255',
+//         'first_name' => 'required|max:255',
+//         'last_name' => 'required|max:255',
+//         'phone' => 'required|',
+//         'address' => 'required|max:255',
+//         'city' => 'required|max:255',
+//         'zip' => 'required|max:20|regex:/^[0-9]+$/',
+//         'state' => 'required|max:255',
+//     ]);
+
+//     $user->update([
+//         'name' => request()->name, 
+//         'email' => request()->email,
+//         'phone' => request()->phone,
+//         'is_admin' => request()->is_admin,
+//         ]);
+
+
+//     User_details::updateOrCreate([
+//         'user_id' => $user->id
+//         ],
+//         [
+//         'first_name' => request()->first_name,
+//         'last_name' => request()->last_name,
+//         'address' => request()->address,
+//         'city' => request()->city,
+//         'zip' => request()->zip,
+//         'state' => request()->state,
+//         ]);

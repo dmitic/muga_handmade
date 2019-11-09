@@ -28,7 +28,7 @@
       @if (Auth::User()->id === $user->id)
       <button class="btn btn-danger" disabled>Obriši</button>
       @else
-      <button class="btn btn-danger" title="Obriši korisnika">Obriši</button>
+      <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš korisnika?')" title="Obriši korisnika">Obriši</button>
       @endif
       @endif
     </form>

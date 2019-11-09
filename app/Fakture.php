@@ -11,6 +11,7 @@ class Fakture extends Model
 
 
     public function stavke(){
-        return $this->hasMany('App\Stavke', 'faktura_id', 'id');
+        return $this->hasMany(Stavke::class);
+        // return $this->hasMany('App\Stavke', 'fakture_id', 'id');
     }
 }

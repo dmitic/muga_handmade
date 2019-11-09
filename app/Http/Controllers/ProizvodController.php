@@ -28,38 +28,20 @@ class ProizvodController extends Controller
     }
 
     public function update(Proizvod $proizvod){
-
-        // validacija
-        $data = request()->validate([
+        // dd(now()->year);
+        // snimanje proizvoda u bazu i validacija
+        $tmp = Proizvod::updateOrCreate(['id' => $proizvod->id], request()->validate([
             'naziv' => 'required|max:255',
             'tip_obuce' => 'required|max:255',
             'materijali' => 'required|max:255',
             'djon' => 'required|max:255',
             'boja' => 'required|max:255',
             'sezona' => 'required|max:255',
-            'sex' => 'required|max:255',
-            'opis' => 'max:1000',
-            'napomena' => 'max:1000',
-            // 'slika' => 'max:255',
+            'pol' => 'required|max:255',
+            'opis' => 'string|max:1000',
+            'napomena' => 'string|max:1000',
             'cena' => 'required|max:255',
-        ]);
-        
-        // snimanje proizvoda u bazu
-        $tmp = Proizvod::updateOrCreate([
-            'id' => $proizvod->id
-            ],
-            [
-            'naziv' => request()->naziv,
-            'tip_obuce' => request()->tip_obuce,
-            'materijali' => request()->materijali,
-            'boja' => request()->boja,
-            'djon' => request()->djon,
-            'sex' => request()->sex,
-            'sezona' => request()->sezona,
-            'opis' => request()->opis,
-            'napomena' => request()->napomena,
-            'cena' => request()->cena,
-            ]);
+        ]));
             
         $imeSlike = time().'_'.$_FILES["slika"]["name"];
         $imgTnmName = $_FILES["slika"]["tmp_name"];
@@ -70,8 +52,8 @@ class ProizvodController extends Controller
             Slike::insert(['proizvod_id' =>  $tmp->id , 'slika' => $imeSlike]);
             move_uploaded_file($imgTnmName, $imagePath . $imeSlike);
         }
-
-        return redirect('/admin/proizvodi/' . $tmp->id);
+        // dd($tmp);
+        return redirect(route('proizvodDetaljnije', $tmp));
     }
 
     public function dodajSliku(Proizvod $proizvod){
@@ -84,7 +66,7 @@ class ProizvodController extends Controller
                 Slike::insert(['proizvod_id' =>  $proizvod->id , 'slika' => $imeSlike]);
                 move_uploaded_file($imgTnmName, $imagePath . $imeSlike);
             }
-            return redirect('/admin/proizvodi/' . $proizvod->id);
+            return redirect(route('proizvodDetaljnije', $proizvod));
     }
 
     public function destroy(Proizvod $proizvod){
@@ -146,3 +128,35 @@ class ProizvodController extends Controller
 
     //     // return redirect('/admin/detalji/' . $user->id);
     // }
+
+    // update or create
+    // validacija
+    // $data = request()->validate([
+    //     'naziv' => 'required|max:255',
+    //     'tip_obuce' => 'required|max:255',
+    //     'materijali' => 'required|max:255',
+    //     'djon' => 'required|max:255',
+    //     'boja' => 'required|max:255',
+    //     'sezona' => 'required|max:255',
+    //     'pol' => 'required|max:255',
+    //     'opis' => 'max:1000',
+    //     'napomena' => 'max:1000',
+    //     'cena' => 'required|max:255',
+    // ]);
+    
+    // snimanje proizvoda u bazu
+    // $tmp = Proizvod::updateOrCreate([
+    //     'id' => $proizvod->id
+    //     ],
+    //     [
+    //     'naziv' => request()->naziv,
+    //     'tip_obuce' => request()->tip_obuce,
+    //     'materijali' => request()->materijali,
+    //     'boja' => request()->boja,
+    //     'djon' => request()->djon,
+    //     'pol' => request()->pol,
+    //     'sezona' => request()->sezona,
+    //     'opis' => request()->opis,
+    //     'napomena' => request()->napomena,
+    //     'cena' => request()->cena,
+    //     ]);

@@ -47,8 +47,8 @@
 			<li class="{{ Request::path() === 'user/sifra' ? 'active' : ''}}">
 				<a href="/user/sifra"><i class="fa fa-fw fa-user"></i> Promena šifre</a>
 			</li>
-			<li class="{{ Request::path() === 'user/narudzbenice' ? 'active' : ''}}">
-				<a href="/user/narudzbenice"><i class="fa fa-fw fa-desktop"></i> Moje narudžbenice</a>
+			<li class="{{ Request::path() === 'user/fakture' ? 'active' : ''}}">
+				<a href="/user/fakture"><i class="fa fa-fw fa-desktop"></i> Moje narudžbenice</a>
 			</li>
 			{{-- <li class="{{ Request::path() === 'user/narudzbeniceRealizovane' ? 'active' : ''}}">
 				<a href="#"><i class="fa fa-fw fa-desktop"></i> Realizovane narudzbenice</a>

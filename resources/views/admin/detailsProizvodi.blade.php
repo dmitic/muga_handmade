@@ -13,7 +13,7 @@
       <div class="input-group">Materijali: <label>{{ $proizvod->materijali }}</label></div>
       <div class="input-group">Boja: <label>{{ $proizvod->boja }}</label></div>
       <div class="input-group">Đon: <label>{{ $proizvod->djon }}</label></div>
-      <div class="input-group">Pol: <label>{{ $proizvod->sex }}</label></div>
+      <div class="input-group">Pol: <label>{{ $proizvod->pol }}</label></div>
       <div class="input-group">Sezona: <label>{{ $proizvod->sezona }}</label></div>
       <div class="input-group">Opis: <label>{{ $proizvod->opis }}</label></div>
       <div class="input-group">Cena: <label>{{ $proizvod->cena }} din</label></div>
@@ -25,7 +25,7 @@
         <a href="/admin/proizvodi/" class="btn btn-default" title="Nazad na listu proizvoda">Nazad</a>
         <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-default"
           title="Izmeni proizvod">Izmeni</a>
-        <button class="btn btn-danger" title="Obriši proizvod">Obriši</button>
+        <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš proizvod?')" title="Obriši proizvod">Obriši</button>
       </form>
     </div>
     <div class="col-md-7 mt-5">
@@ -36,7 +36,7 @@
           <form action="{{ route('obrisiSliku', ['slika' => $slika]) }}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger btn-block" title="Obriši sliku">Obriši sliku</button>
+            <button class="btn btn-danger btn-block" onclick="return confirm('Da li si siguran da želiš da obišeš sliku?')" title="Obriši sliku">Obriši sliku</button>
           </form>
         </p>
       </div>
