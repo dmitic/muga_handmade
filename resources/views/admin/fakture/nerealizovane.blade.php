@@ -11,13 +11,13 @@
         <div class="row">
           <div class="col-md-3 pull-right">
             <div class="input-group">
-              <input type="text" name="str" class="form-control" placeholder="Pretraga narudžbenica po korisničkom imenu..."
+              <input type="text" name="str" class="form-control" placeholder="Broj narudžbenice, ime, prezime, grad..."
                 value="{{ $_GET['str'] ?? '' }}">
               <span class="input-group-btn">
                 <button class="btn btn-default">Traži!</button>
               </span>
             </div>
-            <p class="help-block">Pretraga narudžbenica po korisničkom imenu kupca.</p>
+            <p class="help-block">Pretraga narudžbenica.</p>
           </div>
         </div>
       </form>
@@ -34,7 +34,7 @@
               <th>Napravljena</th>
               <th>Realizovana</th>
               <th>Broj stavki</th>
-              <th>Ukupna suma</th>
+              <th>Ukupna cena</th>
               <th style="text-align:center;">Akcija</th>
             </tr>
           </thead>

@@ -119,6 +119,12 @@
                 <div class="col-md-10">
                   <textarea type="text" id="opis" name="opis" class="form-control"
                     placeholder="Opis...">{{ $proizvod->opis ? ($proizvod->opis ?? '') : old('opis') }}</textarea>
+                    <small class="text-danger">
+                      @error('opis')
+                        <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+                        {{ $message }}
+                      @enderror
+                    </small>
                 </div>
               </div>
               <div class="form-group row">
@@ -126,6 +132,12 @@
                 <div class="col-md-10">
                   <textarea type="text" id="napomena" name="napomena" class="form-control"
                     placeholder="Napomena...">{{ $proizvod->napomena ? ($proizvod->napomena ?? '') : old('napomena') }}</textarea>
+                    <small class="text-danger">
+                      @error('napomena')
+                        <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+                        {{ $message }}
+                      @enderror
+                    </small>
                 </div>
               </div>
               <div class="form-group row">

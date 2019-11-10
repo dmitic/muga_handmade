@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Proizvod;
+use File;
 use App\Slike;
+use App\Proizvod;
 use Illuminate\Http\Request;
+use Illuminate\Filesystem\Filesystem;
 
 class ProizvodController extends Controller
 {
@@ -28,7 +30,6 @@ class ProizvodController extends Controller
     }
 
     public function update(Proizvod $proizvod){
-        // dd(now()->year);
         // snimanje proizvoda u bazu i validacija
         $tmp = Proizvod::updateOrCreate(['id' => $proizvod->id], request()->validate([
             'naziv' => 'required|max:255',
@@ -38,35 +39,39 @@ class ProizvodController extends Controller
             'boja' => 'required|max:255',
             'sezona' => 'required|max:255',
             'pol' => 'required|max:255',
-            'opis' => 'string|max:1000',
-            'napomena' => 'string|max:1000',
+            'opis' => 'string|nullable|max:1000',
+            'napomena' => 'string|nullable|max:1000',
             'cena' => 'required|max:255',
         ]));
-            
-        $imeSlike = time().'_'.$_FILES["slika"]["name"];
+        
+        $imeSlike = time().'_' . str_replace(' ', '_', $_FILES["slika"]["name"]);
         $imgTnmName = $_FILES["slika"]["tmp_name"];
         $imagePath = 'images/';
-
-
+        
+        $path = public_path() . '/' . $imagePath . str_replace(' ', '-', $tmp->naziv);
+        File::makeDirectory($path, $mode = 0777, true, true);
+        
         if($imgTnmName !== '') {
-            Slike::insert(['proizvod_id' =>  $tmp->id , 'slika' => $imeSlike]);
-            move_uploaded_file($imgTnmName, $imagePath . $imeSlike);
+            Slike::insert(['proizvod_id' =>  $tmp->id , 'slika' => str_replace(' ', '-', $tmp->naziv) . '/' . $imeSlike]);
+            move_uploaded_file($imgTnmName, $path . '/' . $imeSlike);
         }
-        // dd($tmp);
+
         return redirect(route('proizvodDetaljnije', $tmp));
     }
 
     public function dodajSliku(Proizvod $proizvod){
+        $imeSlike = time() . '_' . str_replace(' ', '_', $_FILES["slika"]["name"]);
+        $imgTnmName = $_FILES["slika"]["tmp_name"];
+        $imagePath = 'images/';
 
-            $imeSlike = time().'_'.$_FILES["slika"]["name"];
-            $imgTnmName = $_FILES["slika"]["tmp_name"];
-            $imagePath = 'images/';
-    
-            if($imgTnmName !== '') {
-                Slike::insert(['proizvod_id' =>  $proizvod->id , 'slika' => $imeSlike]);
-                move_uploaded_file($imgTnmName, $imagePath . $imeSlike);
-            }
-            return redirect(route('proizvodDetaljnije', $proizvod));
+        $path = public_path() . '/' . $imagePath . str_replace(' ', '-', $proizvod->naziv);
+        File::makeDirectory($path, $mode = 0777, true, true);
+
+        if($imgTnmName !== '') {
+            Slike::insert(['proizvod_id' =>  $proizvod->id , 'slika' => str_replace(' ', '-', $proizvod->naziv) . '/' . $imeSlike]);
+            move_uploaded_file($imgTnmName, $path . '/' . $imeSlike);
+        }
+        return redirect(route('proizvodDetaljnije', $proizvod));
     }
 
     public function destroy(Proizvod $proizvod){
@@ -79,6 +84,16 @@ class ProizvodController extends Controller
 
         // brisanje proizvoda
         $proizvod->delete();
+
+        // brisanje praznog foldera
+        $FileSystem = new Filesystem();
+        $tmp = str_replace(' ', '-', $proizvod->naziv);
+        $directory = public_path() . '\images\\' . $tmp;
+        if ($FileSystem->exists($directory)) {
+            $files = $FileSystem->files($directory);
+            if (empty($files))
+                $FileSystem->deleteDirectory($directory);
+        }
         return redirect('/admin/proizvodi');
     }
 
@@ -86,9 +101,15 @@ class ProizvodController extends Controller
         $str = htmlspecialchars($_GET['str']); 
 
         $proizvodi = Proizvod::with('slike')
-                ->where('naziv', 'like', '%' . $str . '%')
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
+            ->where('naziv', 'like', '%' . $str . '%')
+            ->orWhere('tip_obuce', 'like', '%' . $str . '%')
+            ->orWhere('materijali', 'like', '%' . $str . '%')
+            ->orWhere('sezona', 'like', '%' . $str . '%')
+            ->orWhere('pol', 'like', '%' . $str . '%')
+            ->orWhere('napomena', 'like', '%' . $str . '%')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
 
         return view('admin.proizvodi', compact('proizvodi'));
     }

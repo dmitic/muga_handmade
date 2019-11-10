@@ -19,6 +19,6 @@ class User_details extends Model
 
 
     // public function pripada(){
-    //     return $this->belongsTo('\App\User');
+    //     return $this->belongsTo(User::class);
     // }
 }

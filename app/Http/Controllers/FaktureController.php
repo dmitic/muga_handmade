@@ -14,7 +14,7 @@ class FaktureController extends Controller
         $this->middleware('testUserRole');
     }
 
-    // vraća samo kompletirane fakture
+    // vraća samo realizovane fakture
     public function index(){
         $fakture = Fakture::with('stavke')
             ->whereNotNull('completed_at')
@@ -36,9 +36,13 @@ class FaktureController extends Controller
 
         $fakture = Fakture::with('stavke')
                 ->where('name', 'like', '%' . $str . '%')
+                ->orWhere('narudzbenica_br', 'like', '%' . $str . '%')
+                ->orWhere('first_name', 'like', '%' . $str . '%')
+                ->orWhere('last_name', 'like', '%' . $str . '%')
+                ->orWhere('city', 'like', '%' . $str . '%')
                 ->orderBy('created_at', 'desc')
                 ->paginate(20);
-
+                
         return view('admin.fakture.pretragaFaktura', compact('fakture'));
     }
 }

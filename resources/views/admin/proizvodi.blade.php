@@ -18,7 +18,7 @@
               <button class="btn btn-default">Traži!</button>
             </span>
           </div>
-          <p class="help-block">Pretraga proizvoda po nazivu.</p>
+          <p class="help-block">Pretraga proizvoda (Naziv, tip, materijali, sezona, pol, napomena).</p>
         </div>
       </div>
     </form>
@@ -31,7 +31,10 @@
           <tr>
             <th>Naziv</th>
             <th>Slika</th>
-            <th>Opis</th>
+            <th>Tip obuće</th>
+            <th>Materijali</th>
+            <th>Sezona</th>
+            <th>Muške/Ženske</th>
             <th>Cena</th>
             <th>Napomena</th>
             <th style="text-align:center;">Akcija</th>
@@ -41,7 +44,10 @@
           <tr>
             <th>Naziv</th>
             <th>Slika</th>
-            <th>Opis</th>
+            <th>Tip obuće</th>
+            <th>Materijali</th>
+            <th>Sezona</th>
+            <th>Muške/Ženske</th>
             <th>Cena</th>
             <th>Napomena</th>
             <th style="text-align:center;">Akcija</th>
@@ -58,7 +64,10 @@
                 @endforeach
               </a>
             </td>
-            <td>{{ $proizvod->opis }}</td>
+            <td>{{ $proizvod->tip_obuce }}</td>
+            <td>{{ $proizvod->materijali }}</td>
+            <td>{{ $proizvod->sezona }}</td>
+            <td>{{ $proizvod->pol }}</td>
             <td>{{ $proizvod->cena }} din</td>
             <td>{{ $proizvod->napomena }}</td>
             <td style="text-align:center; width:180px;">

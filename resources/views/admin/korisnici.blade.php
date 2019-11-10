@@ -11,13 +11,13 @@
 			<div class="row">
 				<div class="col-md-3 pull-right">
 					<div class="input-group">
-						<input type="text" name="str" class="form-control" placeholder="Pretraga korisnika"
+						<input type="text" name="str" class="form-control" placeholder="Korisničko ime, ime, prezime, email, grad...."
 							value="{{ $_GET['str'] ?? '' }}">
 						<span class="input-group-btn">
 							<button class="btn btn-default">Traži!</button>
 						</span>
 					</div>
-					<p class="help-block">Pretraga korisnika po korisničkom imenu.</p>
+					<p class="help-block">Pretraga korisnika.</p>
 				</div>
 			</div>
 		</form>
@@ -31,6 +31,7 @@
 						<th>Korisničko ime</th>
 						<th>Ime i Prezime</th>
 						<th>Email</th>
+						<th>Grad</th>
 						<th>Role</th>
 						<th>Registovan</th>
 						<th style="text-align:center;">Akcija</th>
@@ -41,6 +42,7 @@
 						<th>Korisničko ime</th>
 						<th>Ime i Prezime</th>
 						<th>Email</th>
+						<th>Grad</th>
 						<th>Role</th>
 						<th>Registovan</th>
 						<th style="text-align:center;">Akcija</th>
@@ -53,6 +55,7 @@
 						<td><a href="{{ route('detalji', ['user' => $user->id]) }}" title="Detaljnije...">{{ $user->details->first_name ?? '' }}
 								{{ $user->details->last_name ?? ''  }}</a></td>
 						<td>{{ $user->email }}</td>
+						<td>{{ $user->details->city ?? '' }}</td>
 						<td>{{ $user->is_admin ? 'Admin' : 'User'}}</td>
 						<td>{{ Carbon\Carbon::parse($user->created_at)->format('j. F Y.')}}</td>
 						<td style="text-align:center; width:180px;">

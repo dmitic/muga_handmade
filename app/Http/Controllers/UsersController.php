@@ -59,17 +59,3 @@ class UsersController extends Controller
         return redirect('/user/detaljnije/');
     }
 }
-
-    // update kraće
-    // User_details::updateOrCreate(
-    //     ['user_id' => $user->id],
-    //     request()->validate([
-    //         'first_name' => 'required|max:255',
-    //         'last_name' => 'required|max:255',
-    //         'address' => 'required|max:255',
-    //         'city' => 'required|max:255',
-    //         'zip' => 'required|max:20|regex:/^[0-9]+$/',
-    //         'state' => 'required|max:255',
-    //     ]));
-
-    // User::find($user->id)->update(['phone' => request()->phone, request()->validate(['phone' => 'required'])]);
