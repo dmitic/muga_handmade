@@ -21,15 +21,16 @@
     <hr>
     <form action="/admin/korisnici/{{$user->id}}" method="post">
       @method('DELETE')
-      <a href="/admin/korisnici/" class="btn btn-default" title="Nazad na listu korisnika">Nazad</a>
+      <a href="/admin/korisnici/" class="btn btn-default" title="Nazad na listu korisnika">Nazad na listu klijenata</a>
       <a href="{{ route('izmeni', ['user' => $user->id]) }}" class="btn btn-default" title="Izmena podataka o korisniku">Izmeni podatke</a>
-      {{-- <a href="/admin/korisnici/{{$user->id}}/edit" class="btn btn-default">Izmeni podatke</a> --}}
+      <a href="/admin/sifra/{{ $user->id }}" class="btn btn-default" title="Promena šifre">Promena šifre</a>
+      <a href="/admin/pretraga-fakture?str={{ $user->name }}" class="btn btn-default" title="Sve narudžbenice korisnika">Sve narudžbine</a>
       @if (Auth::User()->is_admin)
-      @if (Auth::User()->id === $user->id)
-      <button class="btn btn-danger" disabled>Obriši</button>
-      @else
-      <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš korisnika?')" title="Obriši korisnika">Obriši</button>
-      @endif
+        @if (Auth::User()->id === $user->id)
+          <button class="btn btn-danger" disabled>Obriši</button>
+        @else
+          <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš korisnika?')" title="Obriši korisnika">Obriši</button>
+        @endif
       @endif
     </form>
   </form>

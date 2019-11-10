@@ -33,13 +33,10 @@
 			</ul>
 		</li>
 	</ul>
-
 	<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
-			{{-- <li class="{{ Request::path() === 'admin/home' ? 'active' : ''}}">
-			<a href="/admin/home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-			</li> --}}
+
 			<li
 				class="{{ Request::path() === 'admin/proizvodi' || Request::path() === 'admin' || Request::path() === 'admin/home' ? 'active' : ''}}">
 				<a href="/admin/proizvodi"><i class="fa fa-fw fa-table"></i> Proizvodi</a>

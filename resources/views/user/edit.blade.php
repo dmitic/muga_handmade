@@ -18,10 +18,6 @@
               <div class="col-md-10"><input type="text" id="name" name="name" class="form-control"
                   value="{{ $user->name }}" placeholder="Korisničko ime..." disabled>
                 <small class="text-danger">
-                  {{-- @error('name')
-                    <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
-                    {{ $message }}
-                  @enderror --}}
                 </small>
               </div>
             </div>
@@ -29,12 +25,6 @@
               <label class="col-md-2 col-form-label text-md-right" for="email">E-mail</label>
               <div class="col-md-10"><input type="text" id="email" name="email" class="form-control"
                   value="{{ $user->email }}" placeholder="Email adresa..." disabled>
-                {{-- <small class="text-danger">
-                  @error('email')
-                    <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
-                    {{ $message }}
-                  @enderror
-                </small> --}}
               </div>
             </div>
             <div class="form-group row">

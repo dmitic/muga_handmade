@@ -50,8 +50,18 @@ Route::prefix('admin')->group(function () {
 
     // narudžbenice rute
     Route::get('/realizovane-fakture', 'FaktureController@index')->name('admin.fakture');
-    Route::get('/ne-realizovane-fakture', 'FaktureController@neRealizovaneIndex')->name('admin.neFakture');
+    Route::get('/nerealizovane-fakture', 'FaktureController@neRealizovaneIndex')->name('admin.neFakture');
     Route::get('/pretraga-fakture', 'FaktureController@search');
+    Route::put('/realizuj/{faktura}', 'FaktureController@realizuj')->name('admin.realizuj');
+    Route::delete('/realizovane-fakture/{faktura}', 'FaktureController@destroy');
+    Route::delete('/nerealizovane-fakture/{faktura}', 'FaktureController@destroyNerealizovane');
+    Route::delete('/realizovane-fakture-pretraga/{faktura}', 'FaktureController@destroyPretraga');
+
+    Route::get('/detaljnije-fakture/{id}', 'StavkeController@index');
+
+    // Promena šifre
+    Route::get('/sifra/{user}', 'PromenaSifreController@indexAdmin')->middleware('testUserRole');
+    Route::put('/sifra', 'PromenaSifreController@storeAdmin')->middleware('testUserRole')->name('promeniSifruAdmin');
 });
 
 
@@ -65,6 +75,7 @@ Route::prefix('user')->group(function () {
 
     // fakture
     Route::get('/fakture', 'FaktureUserController@index')->name('user.fakture');
+    Route::get('/fakture/{id}', 'FaktureUserController@show');
 
     // Promena šifre
     Route::get('/sifra', 'PromenaSifreController@index');

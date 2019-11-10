@@ -29,4 +29,21 @@ class PromenaSifreController extends Controller
    
         return back()->withErrors(['Šifra je uspešno promenjena!']);
     }
+
+    public function indexAdmin(User $user){
+        $user = User::findOrFail($user)->first();
+        return view('admin.sifra', compact('user'));
+    }
+
+    public function storeAdmin(Request $request)
+    {
+        $request->validate([
+            'new_password' => ['required', 'min:8'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+
+        User::find($request->trigger)->update(['password'=> Hash::make($request->new_password)]);
+   
+        return back()->withErrors(['Šifra je uspešno promenjena!']);
+    }
 }

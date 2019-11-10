@@ -22,6 +22,13 @@ class FaktureController extends Controller
         return view('admin.fakture.realizovane', compact('fakture'));
     }
 
+    public function realizuj(Fakture $faktura){
+        $faktura->update([
+            'completed_at' => now(), 
+            ]);
+        return back()->withErrors(['Narudžbenica je realizovana!']);
+    }
+
     // vraća samo nerealizovane fakture
     public function neRealizovaneIndex(){
         $fakture = Fakture::with('stavke')
@@ -44,5 +51,20 @@ class FaktureController extends Controller
                 ->paginate(20);
                 
         return view('admin.fakture.pretragaFaktura', compact('fakture'));
+    }
+
+    public function destroy(Fakture $faktura){
+        $faktura->delete();
+        return back()->withErrors(['Narudžbenica je obrisana!']);;
+    }
+
+    public function destroyNerealizovane(Fakture $faktura){
+        $faktura->delete();
+        return back()->withErrors(['Narudžbenica je obrisana!']);;
+    }
+
+    public function destroyPretraga(Fakture $faktura){
+        $faktura->delete();
+        return redirect('/admin/pretraga-fakture?str=' . request()->str)->withErrors(['Narudžbenica je obrisana!']);;
     }
 }

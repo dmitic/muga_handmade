@@ -1,5 +1,5 @@
-<footer class="sticky-footer">
-  <div class="container margin-auto">
+<footer class="sticky-footer prnHidden">
+  <div class="container margin-auto prnHidden">
     <div class="copyright text-center margin-auto">
       <span>Copyright © {{ config('app.name') }}</span>
     </div>

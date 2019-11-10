@@ -37,11 +37,7 @@
 	<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
-			{{-- <li class="{{ Request::path() === 'admin/home' ? 'active' : ''}}">
-				<a href="/admin/home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-			</li> --}}
 			<li class="{{ Request::path() === 'user/detaljnije' || Request::path() === 'user/edit' ? 'active' : ''}}">
-			{{-- <li class="{{ Request::path() === 'user/proizvodi' || Request::path() === 'user' || Request::path() === 'user/home' ? 'active' : ''}}"> --}}
 				<a href="/user/detaljnije"><i class="fa fa-fw fa-table"></i> Moji podaci</a>
 			</li>
 			<li class="{{ Request::path() === 'user/sifra' ? 'active' : ''}}">
@@ -50,12 +46,6 @@
 			<li class="{{ Request::path() === 'user/fakture' ? 'active' : ''}}">
 				<a href="/user/fakture"><i class="fa fa-fw fa-desktop"></i> Moje narudžbenice</a>
 			</li>
-			{{-- <li class="{{ Request::path() === 'user/narudzbeniceRealizovane' ? 'active' : ''}}">
-				<a href="#"><i class="fa fa-fw fa-desktop"></i> Realizovane narudzbenice</a>
-			</li> --}}
-			{{-- <li class="{{ Request::path() === 'user/narudzbenice' ? 'active' : ''}}">
-				<a href="/user/narudzbenice"><i class="fa fa-fw fa-desktop"></i> Ne realizovane narudzbenice</a>
-			</li> --}}
 		</ul>
 	</div>
 	<!-- /.navbar-collapse -->

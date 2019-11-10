@@ -56,7 +56,7 @@
         <tbody>
           @foreach ($proizvodi as $proizvod)
           <tr>
-            <td><a href="/admin/proizvodi/{{ $proizvod->id }}" title="Detaljnije...">{{ $proizvod->naziv }}</a></td>
+            <td><a href="/admin/proizvodi/{{ $proizvod->id }}" style="text-decoration:none;" title="Detaljnije....">{{ $proizvod->naziv }}</a></td>
             <td style="width:250px;">
               <a href="/admin/proizvodi/{{ $proizvod->id }}" style="text-decoration:none;" title="Detaljnije....">
                 @foreach ($proizvod->slike as $slika)
@@ -76,7 +76,8 @@
                 @method('DELETE')
                 <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-primary"
                   title="Izmeni proizvod">Izmeni</a>
-                <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš?')" title="Obriši proizvod">Obriši</button>
+                <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš?')"
+                  title="Obriši proizvod">Obriši</button>
               </form>
             </td>
           </tr>
@@ -93,7 +94,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        {{ $proizvodi->appends(['str' => $_GET['str'] ?? ''])->links()}}
+        {{ isset($_GET['str']) ? $proizvodi->appends(['str' => $_GET['str'] ?? ''])->links() : $proizvodi->links() }}
       </div>
     </div>
   </div>

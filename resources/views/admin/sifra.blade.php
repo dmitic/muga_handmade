@@ -1,7 +1,7 @@
-@extends('user.layout.app')
+@extends('admin.layout.app')
 
 @section('page-header')
-<h2 class="page-header">Promena šifre</h2>
+<h2 class="page-header">Promena šifre korisnika {{ $user->name }}</h2>
 @endsection
 
 @section('content')
@@ -10,22 +10,16 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-body">
-          <form method="POST" action="{{ route('promeniSifru') }}">
-            @csrf
+          <form method="POST" action="{{ route('promeniSifruAdmin') }}">
+              @csrf
+              @method('PUT')
+              <input type="hidden" name="trigger" value="{{ $user->id }}">
             <div class="row  text-center">
                 <div class="col-md-12">
                     @foreach ($errors->all() as $error)
                       <p class="text-danger">{{ $error }}</p>
                     @endforeach
                 </div>
-            </div>
-            <div class="form-group row">
-              <label for="password" class="col-md-4 col-form-label text-md-right">Trenutna šifra</label>
-
-              <div class="col-md-8  @error('current_password') {{'has-error'}} @enderror">
-                <input id="password" type="password" class="form-control" name="current_password"
-                  autocomplete="current-password">
-              </div>
             </div>
             <div class="form-group row">
               <label for="password" class="col-md-4 col-form-label text-md-right">Nova šifra</label>

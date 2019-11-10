@@ -72,15 +72,6 @@ class KorisniciController extends Controller
     public function search(){
         $str = htmlspecialchars($_GET['str']); 
 
-        // $users = User::with('details')
-        //         ->join('user_details', 'user_details.user_id', '=', 'users.id')
-        //         ->where('name', 'like', '%' . $str . '%')
-        //         ->orWhere('email', 'like', '%' . $str . '%')
-        //         ->orWhere('first_name', 'like', '%' . $str . '%')
-        //         ->orWhere('last_name', 'like', '%' . $str . '%')
-        //         ->orWhere('city', 'like', '%' . $str . '%')
-        //         ->paginate(10);
-
         $users = User::with('details')
                 ->where('name', 'like', '%' . $str . '%')
                 ->orWhere('email', 'like', '%' . $str . '%')

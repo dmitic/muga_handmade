@@ -13,7 +13,6 @@
           <form action="{{ route('update', ['user' => $user->id]) }}" class="form-group col-md-11" method="post">
             @csrf
             @method('PUT')
-            {{-- {{dd($user->is_admin)}} --}}
             <div class="form-group row">
               <div class="col-md-10">
                 <input type="hidden" name="is_admin" value="{{ $user->is_admin ? '1' : '0' }}">
@@ -49,13 +48,11 @@
                 </small>
               </div>
             </div>
-            {{-- {{ dd($user->details) }} --}}
             <div class="form-group row">
               <label class="col-md-2 col-form-label text-md-right" for="first_name">Ime</label>
               <div class="col-md-10 @error('first_name') {{'has-error'}} @enderror">
                 <input type="text" id="first_name" name="first_name" class="form-control"
                   value="{{ isset($user->details->first_name) ? ($user->details->first_name ?? '') : old('first_name') }}" placeholder="Ime...">
-                  {{-- value="{{ $user->details->first_name ? $user->details->first_name ?? '' : old('first_name') }}" placeholder="Ime..."> --}}
                 <small class="text-danger">
                   @error('first_name')
                   <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>

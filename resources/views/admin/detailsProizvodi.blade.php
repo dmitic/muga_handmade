@@ -22,7 +22,7 @@
       <form action="/admin/proizvodi/{{$proizvod->id}}" method="post">
         @csrf
         @method('DELETE')
-        <a href="/admin/proizvodi/" class="btn btn-default" title="Nazad na listu proizvoda">Nazad</a>
+        <a href="/admin/proizvodi/" class="btn btn-default" title="Nazad na listu proizvoda">Nazad na listu proizvoda</a>
         <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-default"
           title="Izmeni proizvod">Izmeni</a>
         <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš proizvod?')" title="Obriši proizvod">Obriši</button>
@@ -49,8 +49,6 @@
             <i class="fa fa-cloud-upload"></i> Odaberi dodatnu sliku za {{ $proizvod->naziv }}
           </label>
           <input id="file-upload" name="slika" type="file" />
-          {{-- <label for="slika">Odaberi sliku: </label> --}}
-          {{-- <input type="file" name="slika" style="display:inline-block;"/> --}}
           <button type="submit" class="btn btn-primary" style="margin-top:5px;">Dodaj sliku</button>
           <p class="help-block">Dodaj još slika za {{ $proizvod->naziv }}.</p>
         </form>

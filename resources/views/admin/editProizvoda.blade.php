@@ -96,8 +96,6 @@
                   <select name="pol" id="pol" class="form-control">
                     <option value="Muške" @if ($proizvod->pol === 'Muške') {{ 'selected' }} @endif>Muške</option>
                     <option value="Ženske" @if ($proizvod->pol === 'Ženske') {{ 'selected' }} @endif>Ženske</option>
-                    {{-- <option value="Uniseks" @if ($proizvod->pol === 'Uniseks') {{ 'selected' }} @endif>Uniseks
-                    </option> --}}
                   </select>
                 </div>
               </div>
@@ -154,9 +152,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                {{-- <label class="col-md-2 col-form-label text-md-right" for="slika">Dodaj sliku</label> --}}
                 <div class="col-md-10 col-md-offset-2">
-                  {{-- <input type="file" name="slika" /> --}}
                   <label for="file-upload" class="custom-file-upload"><i class="fa fa-cloud-upload"></i> Odaberi sliku
                     za proizvod</label>
                   <input id="file-upload" name="slika" type="file" />

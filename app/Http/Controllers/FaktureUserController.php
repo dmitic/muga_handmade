@@ -21,4 +21,10 @@ class FaktureUserController extends Controller
             ->orderBy('created_at', 'desc')->paginate(20);
         return view('user.fakture.fakture', compact('fakture'));
     }
+
+    public function show($id){
+        $narudzbenica = Fakture::where('id', $id)->first();
+        $stavke = Stavke::where('fakture_id', $id)->get();
+        return view('user.fakture.faktureDetailsUser', compact('stavke', 'narudzbenica'));
+    }
 }

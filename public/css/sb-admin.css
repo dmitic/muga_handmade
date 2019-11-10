@@ -11,6 +11,29 @@ body {
     background-color: #222;
 }
 
+/* @print {
+    @page { margin: 0; }
+    body { margin: 1.6cm; }
+    .akcija{
+        display: none;
+    }
+  } */
+
+  @media print {
+    body { margin: 0cm; }
+    .prnHidden{
+        display: none;
+    }
+    .prnProdavac{
+        float:right; 
+        margin-right:50px;
+    }
+}
+
+.mgb-0{
+    margin-bottom:0px;
+}
+
 #wrapper {
     padding-left: 50;
 }

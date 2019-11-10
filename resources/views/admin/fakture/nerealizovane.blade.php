@@ -22,6 +22,13 @@
         </div>
       </form>
     </div>
+    <div class="row  text-center">
+        <div class="col-md-12">
+            @foreach ($errors->all() as $error)
+              <div class="alert alert-success">{{ $error }}</div>
+            @endforeach
+        </div>
+    </div>
     <div class="card-body">
       <div class="table-responsive">
         @if (count($fakture) > 0)
@@ -35,7 +42,8 @@
               <th>Realizovana</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
-              <th style="text-align:center;">Akcija</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tfoot>
@@ -47,33 +55,33 @@
               <th>Realizovana</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
-              <th style="text-align:center;">Akcija</th>
+              <th></th>
+              <th></th>
             </tr>
           </tfoot>
           <tbody>
             @foreach ($fakture as $faktura)
             <tr>
-              {{-- <td>
-                <a href="/admin/detaljnije-fakture/{{ $faktura->id }}" title="Detaljnije...">
-                  {{ Carbon\Carbon::parse($faktura->created_at)->format('Y') }}-{{ $faktura->id }}
-                </a>
-              </td> --}}
-              <td><a href="/admin/detaljnije-fakture/{{ $faktura->id }}" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
-              <td><a href="/admin/detaljnije-fakture/{{ $faktura->id }}" title="Detaljnije...">{{ $faktura->name }}</a></td>
+              <td><a href="/admin/detaljnije-fakture/{{ $faktura->id }}" style="text-decoration:none;" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
+              <td><a href="{{ route('detalji', ['user' => $faktura->user_id]) }}" style="text-decoration:none;" title="Detaljnije...">{{ $faktura->name }}</a></td>
               <td>{{ $faktura->first_name }} {{ $faktura->last_name }}</td>
               <td>{{ Carbon\Carbon::parse($faktura->created_at)->format('j. F Y.') }}</td>
               <td>Nerealizovana</td>
-              {{-- <td>{{ Carbon\Carbon::parse($faktura->completed_at)->format('j. F Y.') }}</td> --}}
               <td style="text-align:center;">{{ count($faktura->stavke) }}</td>
               <td>{{ $faktura->ukup_suma }} rsd</td>
-              <td style="text-align:center; width:225px;">Edit/delete/realizovano ili šta već
-                {{-- <form action="/admin/fakturai/{{$faktura->id}}" method="post">
+              <td style="width:100px">
+                <form action="/admin/realizuj/{{ $faktura->id }}" method="post">
+                  @csrf
+                  @method('PUT')
+                  <button class="btn btn-primary" onclick="return confirm('Potvrdi realizaciju narudžbenice?')" title="Markiraj narudžbinu kao realizovanu">Realizuj</button>
+                </form>
+              </td>
+              <td style="width:100px">
+                <form action="/admin/nerealizovane-fakture/{{ $faktura->id }}" method="post">
                   @csrf
                   @method('DELETE')
-                  <a href="{{ route('izmenifaktura', ['faktura' => $faktura->id]) }}" class="btn btn-primary"
-                    title="Izmeni faktura">Izmeni</a>
-                  <button class="btn btn-danger" title="Obriši faktura">Obriši</button>
-                </form> --}}
+                  <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš naružbinu?')" title="Sorniraj narudžbinu">Storniraj</button>
+                </form>
               </td>
             </tr>
             @endforeach
@@ -89,10 +97,9 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          {{ $fakture->appends(['str' => $_GET['str'] ?? ''])->links()}}
+          {{ $fakture->links()}}
         </div>
       </div>
     </div>
   </div>
-{{-- {{ dd($fakture) }} --}}
 @endsection

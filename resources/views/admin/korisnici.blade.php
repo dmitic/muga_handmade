@@ -63,7 +63,6 @@
 								@csrf
 								@method('DELETE')
 								<a href="{{ route('izmeni', ['user' => $user->id]) }}" class="btn btn-primary" title="Izmeni korisnika">Izmeni</a>
-								{{-- {{ dd(Auth::User()->id === $user->id) }} --}}
 								@if (Auth::User()->is_admin)
 									@if (Auth::User()->id === $user->id)
 										<button class="btn btn-danger" disabled>Obriši</button>
@@ -80,15 +79,13 @@
 			@else
 			Ne postoji korisnik <strong>{{ $_GET['str'] }}</strong>!
 			@endif
-
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
-				{{ $users->appends(['str' => $_GET['str'] ?? ''])->links()}}
+				{{ isset($_GET['str']) ? $users->appends(['str' => $_GET['str'] ?? ''])->links() : $users->links() }}
 			</div>
 		</div>
 	</div>
-	{{-- <div class="card-footer"><button class=" btn btn-primary">Dodaj novog korisnika</button></div> --}}
 </div>
 
 @endsection
