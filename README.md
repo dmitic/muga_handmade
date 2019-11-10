@@ -1,4 +1,4 @@
-# Lista dnevnih zadataka
+# Muga Handmade Shoes Shop
 
 Aplikacija je rađena ua klijenta koji se bavi ručnom izradom obuće tako da nema stanje već sve pravi po porudžbini.
 
