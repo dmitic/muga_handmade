@@ -15,7 +15,7 @@ class CreateFaktureTable extends Migration
     {
         Schema::create('fakture', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('narudzbenica_br');
+            $table->string('narudzbenica_br')->nullable()->default(null);
             $table->bigInteger('user_id');
             $table->string('name');
             $table->string('first_name');
@@ -24,8 +24,8 @@ class CreateFaktureTable extends Migration
             $table->bigInteger('zip');
             $table->string('city');
             $table->string('state');
-            $table->text('napomena_user');
-            $table->text('napomena_admin');  //nije vidljivo za korisnike
+            $table->text('napomena_user')->nullable();
+            $table->text('napomena_admin')->nullable();  //nije vidljivo za korisnike
             $table->decimal('ukup_suma', 10,2)->nullable()->default(null);
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();

@@ -40,6 +40,7 @@
               <th>Ime i prezime</th>
               <th>Napravljena</th>
               <th>Realizovana</th>
+              <th>Napomena korisnika</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
               <th></th>
@@ -53,6 +54,7 @@
               <th>Ime i prezime</th>
               <th>Napravljena</th>
               <th>Realizovana</th>
+              <th>Napomena korisnika</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
               <th></th>
@@ -73,6 +75,7 @@
                     Nerealizovana
                 @endif
                 </td>
+              <td>{{ $faktura->napomena_user }}</td>
               <td style="text-align:center;">{{ count($faktura->stavke) }}</td>
               <td>{{ $faktura->ukup_suma }} rsd</td>
               <td style="width:100px">

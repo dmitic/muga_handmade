@@ -40,6 +40,7 @@
               <th>Ime i prezime</th>
               <th>Napravljena</th>
               <th>Realizovana</th>
+              <th>Napomena korisnika</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
               <th></th>
@@ -53,6 +54,7 @@
               <th>Ime i prezime</th>
               <th>Napravljena</th>
               <th>Realizovana</th>
+              <th>Napomena korisnika</th>
               <th>Broj stavki</th>
               <th>Ukupna cena</th>
               <th></th>
@@ -67,6 +69,7 @@
               <td>{{ $faktura->first_name }} {{ $faktura->last_name }}</td>
               <td>{{ Carbon\Carbon::parse($faktura->created_at)->format('j. F Y.') }}</td>
               <td>Nerealizovana</td>
+              <td>{{ $faktura->napomena_user }}</td>
               <td style="text-align:center;">{{ count($faktura->stavke) }}</td>
               <td>{{ $faktura->ukup_suma }} rsd</td>
               <td style="width:100px">
