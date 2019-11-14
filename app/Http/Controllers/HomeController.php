@@ -15,8 +15,9 @@ class HomeController extends Controller
 
     public function index(){
 
-        $proizvodi = Proizvod::with('slike')->orderBy('created_at', 'desc')->get();
-        return view('index', compact('proizvodi'));
+        // $proizvodi = Proizvod::with('slike')->orderBy('created_at', 'desc')->get();
+        // return view('index', compact('proizvodi'));
+        return view('index');
     }
 
 }

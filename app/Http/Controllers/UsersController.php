@@ -31,7 +31,8 @@ class UsersController extends Controller
 
         $user = User::find(\Auth::user()->id);
 
-        $data = request()->validate([
+        // $data = request()->validate([
+        request()->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'phone' => 'required',

@@ -107,6 +107,18 @@ const proizvodi = {
         }
     },
 
+    pretragaPoPolu: function(inpPol, data) {
+        this.getInput("minCena").value = "";
+        this.getInput("maxCena").value = "";
+        const niz = data.filter(proizvod =>
+            proizvod.pol.toLowerCase().includes(inpPol.toLowerCase())
+        );
+        this.prikaziSve(niz);
+        if (niz.length === 0) {
+            this.nePostoji("Traženi proizvod ne postoji!");
+        }
+    },
+
     pretragaPoCeni: function(inpCena, nacin, data) {
         let niz = [];
         if (nacin === "max") {
@@ -132,7 +144,7 @@ const proizvodi = {
         this.getInput("minCena").value = "";
         this.getInput("maxCena").value = "";
         if (polje === 'cena')
-            data.sort((p1, p2) => (Number(p1[polje]) > Number(p2[polje]) ? sort : -sort));
+            data.sort((p1, p2) => (Number(p1[polje]) > Number(p2[polje])) ? sort : -sort);
         else
             data.sort((p1, p2) => (p1[polje] > p2[polje] ? sort : -sort));
         this.prikaziSve(data);
@@ -155,10 +167,6 @@ proizvodi.getInput('btnIme').addEventListener('click', () => {
     axios('http://127.0.0.1:8000/json')
         .then(res => proizvodi.pretragaPoNazivu(inp, res.data))
         .catch(err => console.error(err));
-    // ili fetch
-    // fetch('http://127.0.0.1:8000/json')
-    //     .then(resp => resp.json())
-    //     .then(data => proizvodi.pretragaPoNazivu(inp, data));
 });
 
 proizvodi.getInput('btnMaxCena').addEventListener('click', () => {
@@ -188,6 +196,13 @@ proizvodi.getInput('sezona').addEventListener('change', () => {
     const sezona = proizvodi.getInput('sezona').value;
     axios.get('http://127.0.0.1:8000/json')
         .then(res => proizvodi.pretragaPoSezoni(sezona, res.data))
+        .catch(err => console.error(err));
+});
+
+proizvodi.getInput('pol').addEventListener('change', () => {
+    const pol = proizvodi.getInput('pol').value;
+    axios.get('http://127.0.0.1:8000/json')
+        .then(res => proizvodi.pretragaPoPolu(pol, res.data))
         .catch(err => console.error(err));
 });
 

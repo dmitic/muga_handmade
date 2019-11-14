@@ -17,7 +17,10 @@ class SlikeController extends Controller
         $FileSystem = new Filesystem();
         // targetiranje direktorijuma.
         $tmp = explode('/' ,$slika->slika);
-        $directory = public_path() . '\images\\' . $tmp[0];
+        $tmpDir = $this->filterZaKaratere($tmp[0]);
+        $directory = public_path() . '\images\\' . $tmpDir;
+
+        // dd($directory);
         
         if(file_exists('images/' . $slika->slika))
             unlink('images/' . $slika->slika);
@@ -35,5 +38,19 @@ class SlikeController extends Controller
         }
 
         return back();
+    }
+
+    public function filterZaKaratere($str){
+
+        $filtrirano = str_replace('-', '', $str);
+        $filtrirano = str_replace(' ', '_', $filtrirano);
+        $filtrirano = str_replace('#', '', $filtrirano);
+        $filtrirano = str_replace('"', '', $filtrirano);
+        $filtrirano = str_replace('š', 's', $filtrirano);
+        $filtrirano = str_replace('Ž', 'z', $filtrirano);
+        $filtrirano = str_replace('č', 'c', $filtrirano);
+
+        return $filtrirano;
+
     }
 }

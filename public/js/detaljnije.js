@@ -56,7 +56,7 @@ const proizvod = {
         tabela.className = "tabela";
 
         for (let naziv in proizvod) {
-            if (naziv !== 'id' && naziv !== 'created_at' && naziv !== 'updated_at' && naziv !== 'slike'){
+            if (naziv !== 'id' && naziv !== 'created_at' && naziv !== 'updated_at' && naziv !== 'slike' && naziv !== 'napomena'){
               const tr = document.createElement('tr');
               const tdKey = document.createElement('td');
               const tdValue = document.createElement('td');
@@ -65,13 +65,13 @@ const proizvod = {
               tdKey.className = "tdKey";
               (naziv === 'cena') ? tdValue.innerHTML = `<strong>${formatiranje.format(Number(proizvod[naziv]))} RSD</strong>` : tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
               (naziv === 'opis') ? 
-                        tdValue.innerHTML = `<strong>${(proizvod[naziv] == null) ?
+                        tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
                                 'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
                                 tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
-                (naziv === 'napomena') ? 
-                    tdValue.innerHTML = `<strong>${(proizvod[naziv] == null) ?
-                        'Trenutno nema napomene' : proizvod[naziv]}</strong>` : 
-                        tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
+            //   (naziv === 'napomena') ? 
+            //             tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
+            //                     'Trenutno nema napomene' : proizvod[naziv]}</strong>` : 
+            //                     tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
 
               tr.append(tdKey);
               tr.append(tdValue)

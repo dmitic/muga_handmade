@@ -64,7 +64,7 @@
                 <td>{{ $stavka->naziv_proizvoda }} <span class="prnHidden"><a href="/admin/proizvodi/{{ $stavka->proizvod_id }}" style="text-decoration:none;"
                   title="Detaljnije...."><i class="glyphicon glyphicon-play"></i></a></span></td>
                 <td class="prnHidden">{{ $stavka->boja }}</td>
-                <td class="prnHidden">{{ $stavka->gaziste }} cm</td>
+                <td class="prnHidden">{{ $stavka->gaziste != 0 ? $stavka->gaziste . ' cm' : 'Nije upisano'}}</td>
                 <td>{{ $stavka->kolicina }} kom</td>
                 <td>{{ $stavka->pojedinacna_cena }} RSD</td>
                 <td>{{ $stavka->ukupna_cena }} RSD</td>

@@ -30,7 +30,7 @@ class ProizvodController extends Controller
     }
 
     public function update(Proizvod $proizvod){
-        // snimanje proizvoda u bazu i validacija
+        // snimanje/update proizvoda u bazu i validacija
         $tmp = Proizvod::updateOrCreate(['id' => $proizvod->id], request()->validate([
             'naziv' => 'required|max:255',
             'tip_obuce' => 'required|max:255',
@@ -45,17 +45,12 @@ class ProizvodController extends Controller
             'cena' => 'required|max:255',
         ]));
 
-        $imeSlike = time().'_' . str_replace(' ', '_', $_FILES["slika"]["name"]);
+        $imeSlike = time() . '_' . str_replace(' ', '_', $_FILES["slika"]["name"]);
         $imgTnmName = $_FILES["slika"]["tmp_name"];
         $imagePath = 'images/';
 
-        $tmpSlike = str_replace('-', '', $tmp->naziv);
-        $tmpSlike = str_replace(' ', '_', $tmpSlike);
-        $tmpSlike = str_replace('#', '', $tmpSlike);
-        $tmpSlike = str_replace('"', '', $tmpSlike);
-        $tmpSlike = str_replace('š', 's', $tmpSlike);
-        $tmpSlike = str_replace('Ž', 'z', $tmpSlike);
-        
+        $tmpSlike = $this->filterZaKaratere($tmp->naziv);
+
         $path = public_path() . '/' . $imagePath . $tmpSlike;
 
         File::makeDirectory($path, $mode = 0777, true, true);
@@ -73,14 +68,7 @@ class ProizvodController extends Controller
         $imgTnmName = $_FILES["slika"]["tmp_name"];
         $imagePath = 'images/';
         
-        $tmpDir = str_replace('-', '', $proizvod->naziv);
-        $tmpDir = str_replace(' ', '_', $tmpDir);
-        $tmpDir = str_replace('#', '', $tmpDir);
-        $tmpDir = str_replace('"', '', $tmpDir);
-        $tmpDir = str_replace('š', 's', $tmpDir);
-        $tmpDir = str_replace('Ž', 'z', $tmpDir);
-
-        
+        $tmpDir = $this->filterZaKaratere($proizvod->naziv);
 
         $path = public_path() . '/' . $imagePath . $tmpDir;
         File::makeDirectory($path, $mode = 0777, true, true);
@@ -105,7 +93,8 @@ class ProizvodController extends Controller
 
         // brisanje praznog foldera
         $FileSystem = new Filesystem();
-        $tmp = str_replace(' ', '-', $proizvod->naziv);
+        $tmp = $this->filterZaKaratere($proizvod->naziv);
+        // $tmp = str_replace(' ', '-', $proizvod->naziv);
         $directory = public_path() . '\images\\' . $tmp;
         if ($FileSystem->exists($directory)) {
             $files = $FileSystem->files($directory);
@@ -131,5 +120,19 @@ class ProizvodController extends Controller
 
 
         return view('admin.proizvodi', compact('proizvodi'));
+    }
+
+    public function filterZaKaratere($str){
+
+        $filtrirano = str_replace('-', '', $str);
+        $filtrirano = str_replace(' ', '_', $filtrirano);
+        $filtrirano = str_replace('#', '', $filtrirano);
+        $filtrirano = str_replace('"', '', $filtrirano);
+        $filtrirano = str_replace('š', 's', $filtrirano);
+        $filtrirano = str_replace('Ž', 'z', $filtrirano);
+        $filtrirano = str_replace('č', 'c', $filtrirano);
+
+        return $filtrirano;
+
     }
 }

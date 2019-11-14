@@ -48,7 +48,7 @@ class MainController extends Controller
         $faktura->save();
         // return $faktura;
 
-        // ubacivanje br narudžbenice
+        // formatiranje br narudžbenice
         $narudzbenica_br = date("Y") . '-' . date("m") . '-'; //. $faktura->id;
         switch (strlen($faktura->id)){
             case 1:

@@ -30,7 +30,7 @@ hr { margin: 5px 15px 18px; }
     margin-bottom: 5px;
  }
 
-#inp, #minCena, #maxCena, #btnMinCena, #btnMaxCena, #btnIme, #boja, #sezona, #duzGaz {
+#inp, #minCena, #maxCena, #btnMinCena, #btnMaxCena, #btnIme, #boja, #sezona, #duzGaz, #pol {
     width: 90%;
     margin-bottom: 10px;
     padding: 5px;

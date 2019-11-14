@@ -24,6 +24,13 @@
                         <input type="text" id="inp" placeholder="Pretraga po imenu" >
                         <button id="btnIme">Pronađi</button>
                         <hr>
+                        <select name="pol" id="pol" >
+                            <option value="">Muške/Ženske</option>
+                            <option value="Muške">Muške</option>
+                            <option value="Ženske">Ženske</option>
+                        </select>
+                        <hr>
+                        <hr>
                         <select name="sezona" id="sezona" >
                             <option value="">Sve sezone</option>
                             <option value="Proleće">Proleće</option>
