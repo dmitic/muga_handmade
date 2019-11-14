@@ -36,7 +36,7 @@
             <p class="mgb-0"><strong>Srbija</strong></p>
           </div>
           <div class="col-md-2 prnHidden">
-            <img src="/logo.jpg" alt="Muga Handmade Shoes" class="pull-right" width="300px" height="150px;">
+            <img src="/logo.jpg" alt="Muga Handmade Shoes" class="pull-right" height="150px;">
           </div>
         </div>
         <div class="card-body">
@@ -64,7 +64,8 @@
                 @endphp
                 <tr>
                   <td>{{ $narudzbenica->narudzbenica_br }}</td>
-                  <td>{{ $stavka->naziv_proizvoda }}</td>
+                  <td>{{ $stavka->naziv_proizvoda }} <span class="prnHidden"><a href="/detaljnije/{{ $stavka->proizvod_id }}" style="text-decoration:none;"
+                    title="Detaljnije...."><i class="glyphicon glyphicon-play"></i></a></span></td>
                   <td class="prnHidden">{{ $stavka->boja }}</td>
                   <td class="prnHidden">{{ $stavka->gaziste }} cm</td>
                   <td>{{ $stavka->kolicina }} kom</td>
@@ -81,9 +82,11 @@
               <div class="col-md-9 pull-left">
                 <span>Napomena korisnika: </span>
                 <p class="mgb-0"><strong>{{ $narudzbenica->napomena_user }}</strong></p>
+                <hr>
               </div>
+              <hr>
               <div class="col-md-3 pull-right">
-              <h2>Ukupno: {{  number_format($suma, 2, ',', '.')  }} RSD</h2>
+                <h2>Ukupno: {{  number_format($suma, 2, ',', '.')  }} RSD</h2>
               </div>
             </div>
         </div>

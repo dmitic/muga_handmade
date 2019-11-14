@@ -65,6 +65,20 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label class="col-md-2 col-form-label text-md-right" for="postava">Postava</label>
+                <div class="col-md-10 @error('postava') {{'has-error'}} @enderror">
+                  <input type="text" id="postava" name="postava" class="form-control"
+                    value="{{ $proizvod->postava ? ($proizvod->postava ?? '') : old('postava') }}"
+                    placeholder="Postava...">
+                  <small class="text-danger">
+                    @error('materijali')
+                      <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+                      {{ $message }}
+                    @enderror
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="boja">Boja</label>
                 <div class="col-md-10 @error('boja') {{'has-error'}} @enderror">
                   <input type="text" id="boja" name="boja" class="form-control"
@@ -142,7 +156,7 @@
                 <label class="col-md-2 col-form-label text-md-right" for="cena">Cena</label>
                 <div class="col-md-10 @error('cena') {{'has-error'}} @enderror">
                   <input type="number" id="cena" name="cena" class="form-control"
-                    value="{{ $proizvod->cena ? ($proizvod->cena ?? '') : old('cena') }}" placeholder="Cena...">
+                    value="{{ $proizvod->cena ? ($proizvod->cena ?? '') : old('cena') }}" placeholder="Cena..." step=".01">
                   <small class="text-danger">
                     @error('cena')
                       <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>

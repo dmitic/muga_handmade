@@ -33,6 +33,8 @@
             <th>Slika</th>
             <th>Tip obuće</th>
             <th>Materijali</th>
+            <th>Postava</th>
+            <th>Boja</th>
             <th>Sezona</th>
             <th>Muške/Ženske</th>
             <th>Cena</th>
@@ -46,6 +48,8 @@
             <th>Slika</th>
             <th>Tip obuće</th>
             <th>Materijali</th>
+            <th>Postava</th>
+            <th>Boja</th>
             <th>Sezona</th>
             <th>Muške/Ženske</th>
             <th>Cena</th>
@@ -66,6 +70,8 @@
             </td>
             <td>{{ $proizvod->tip_obuce }}</td>
             <td>{{ $proizvod->materijali }}</td>
+            <td>{{ $proizvod->postava }}</td>
+            <td>{{ $proizvod->boja }}</td>
             <td>{{ $proizvod->sezona }}</td>
             <td>{{ $proizvod->pol }}</td>
             <td>{{ $proizvod->cena }} din</td>

@@ -12,6 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/json', 'MainController@json_response');
+Route::get('/korpa', 'MainController@korpa');
+Route::get('/detaljnije/{id}', 'MainController@show');
+Route::post('/posalji-user', 'MainController@getDataUser');
+Route::post('/posalji-stavke', 'MainController@getDataStavke');
 
 Auth::routes();
 

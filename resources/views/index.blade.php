@@ -1,98 +1,68 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('main-js')
+    <script src="{{ asset('js/main.js') }}" defer></script>
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="/cp">Dashboard</a>
-                        {{-- <a href="{{ url('/cp/home') }}">Dashboard</a> --}}
-                    @else
-                        <a href="{{ route('login') }}">Uloguj se</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registruj se</a>
-                        @endif
-                    @endauth
+@section('content')
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <script>
+            document.addEventListener('DOMContentLoaded', ()=>{
+                axios.get('http://127.0.0.1:8000/json')
+                    .then(res => proizvodi.prikaziSve(res.data))
+                    .catch(err => console.error(err));
+                document.querySelector('#korpa').innerHTML = `Korpa: ${formatiranje.format(korpa.ukupanIznos())} din`;                
+            });
+        </script>
+      
+    </div>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div id="filter">
+                        <input type="text" id="inp" placeholder="Pretraga po imenu" >
+                        <button id="btnIme">Pronađi</button>
+                        <hr>
+                        <select name="sezona" id="sezona" >
+                            <option value="">Sve sezone</option>
+                            <option value="Proleće">Proleće</option>
+                            <option value="Leto">Leto</option>
+                            <option value="Jesen">Jesen</option>
+                            <option value="Zima">Zima</option>
+                        </select>
+                        <hr>
+                        <select name="boja" id="boja" >
+                            <option value="">Sve Boje</option>
+                            <option value="Crna">Crna</option>
+                            <option value="Crvena">Crvena</option>
+                            <option value="Plava">Plava</option>
+                            <option value="Roze">Roze</option>
+                            <option value="Orange">Orange</option>
+                        </select>
+                        <hr>
+                        <input type="number" id="maxCena" placeholder="Maksimalna cena">
+                        <button id="btnMaxCena">Pronađi</button>
+                        <hr>
+                        <input type="number" id="minCena" placeholder="Minimalna cena">
+                        <button id="btnMinCena">Pronađi</button>
+                        <select id="polje">
+                            <option value="naziv">Naziv</option>
+                            <option value="cena" >Cena</option>
+                        </select>
+                        <select id="sort">
+                            <option value="-1">Opadajuće</option>
+                            <option value="1">Rastuće</option>
+                        </select>
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
+                <div class="col-sm-9" >
+                    <div id="proizvodi"></div>
                 </div>
-                {{-- @json($proizvodi, JSON_UNESCAPED_UNICODE) --}}
-
-                {{--  \Auth::check() proverava da li je korisnik uopšte ulogovan --}}
-                {{-- {{ dd(\Auth::check())}} --}}
-                @php
-                    $data = json_encode($proizvodi, JSON_UNESCAPED_UNICODE);   
-                    echo $data;
-                @endphp
             </div>
+
         </div>
-    </body>
-</html>
+    </div>
+</div>
+
+@endsection

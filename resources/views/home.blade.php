@@ -18,6 +18,10 @@
                 </div>
             </div>
         </div>
+        @php
+        $data = json_encode($proizvodi, JSON_UNESCAPED_UNICODE);   
+        echo $data;
+    @endphp
     </div>
 </div>
 @endsection

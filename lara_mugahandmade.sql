@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2019 at 02:26 AM
+-- Generation Time: Nov 12, 2019 at 12:13 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -45,7 +45,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `fakture` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `narudzbenica_br` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `narudzbenica_br` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -54,51 +54,13 @@ CREATE TABLE `fakture` (
   `zip` bigint(20) NOT NULL,
   `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `napomena_user` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `napomena_admin` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `napomena_user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `napomena_admin` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ukup_suma` decimal(10,2) DEFAULT NULL,
   `completed_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `fakture`
---
-
-INSERT INTO `fakture` (`id`, `narudzbenica_br`, `user_id`, `name`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `napomena_user`, `napomena_admin`, `ukup_suma`, `completed_at`, `created_at`, `updated_at`) VALUES
-(1, '2019-1', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(2, '2019-2', 2, 'PeraKojot', 'Pera', 'Kojot', '21asd ', 10000, 'aaaaa', 'aaaaa', ' asd ', '', '4444.00', NULL, '2019-11-10 00:52:03', '2019-11-10 00:52:03'),
-(3, '2019-3', 4, 'pperic', 'Pera', 'Peric', 'asd asd a', 21000, 'Petrograd', 'Perunija', '', '', '555.00', '2019-11-10 00:53:09', '2019-11-10 00:53:09', '2019-11-10 00:53:09'),
-(4, '2019-4', 1, 'dmitic', 'Dragab', 'Mitic', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(5, '2019-5', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(6, '2019-6', 2, 'perakojot', 'Pera', 'Kojot', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', NULL, '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(7, '2019-7', 1, 'dmitic', 'Dragan', 'Mitic', '21asd ', 10080, 'aaaaa', 'aaaaa', ' asd ', '', '4444.00', NULL, '2019-11-10 00:52:03', '2019-11-10 00:52:03'),
-(8, '2019-8', 4, 'pperic', 'Pera', 'Peric', 'asd asd a', 21000, 'Petrograd', 'Perunija', '', '', '555.00', '2019-11-10 00:53:09', '2019-11-10 00:53:09', '2019-11-10 00:53:09'),
-(9, '2019-9', 5, 'djura', 'Djura', 'Djuric', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(10, '2019-10', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(11, '2019-11', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(12, '2019-12', 1, 'dmitic', 'Dragab', 'Mitic', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(13, '2019-13', 1, 'dmitic', 'Dragan', 'Mitic', '21asd ', 10080, 'aaaaa', 'aaaaa', ' asd ', '', '4444.00', NULL, '2019-11-10 00:52:03', '2019-11-10 00:52:03'),
-(14, '2019-14', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(15, '2019-15', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(16, '2019-16', 4, 'pperic', 'Pera', 'Peric', 'asd asd a', 21000, 'Petrograd', 'Perunija', '', '', '555.00', '2019-11-10 00:53:09', '2019-11-10 00:53:09', '2019-11-10 00:53:09'),
-(17, '2019-17', 1, 'dmitic', 'Dragab', 'Mitic', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(18, '2019-18', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(19, '2019-19', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(20, '2019-20', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(21, '2019-21', 1, 'dmitic', 'Dragab', 'Mitic', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(22, '2019-22', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(23, '2019-23', 2, 'PeraKojot', 'Pera', 'Kojot', '21asd ', 10000, 'aaaaa', 'aaaaa', ' asd ', '', '4444.00', NULL, '2019-11-10 00:52:03', '2019-11-10 00:52:03'),
-(24, '2019-24', 4, 'pperic', 'Pera', 'Peric', 'asd asd a', 21000, 'Petrograd', 'Perunija', '', '', '555.00', '2019-11-10 00:53:09', '2019-11-10 00:53:09', '2019-11-10 00:53:09'),
-(25, '2019-25', 1, 'dmitic', 'Dragab', 'Mitic', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(26, '2019-26', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', '2019-11-10 00:56:10', '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(27, '2019-27', 2, 'perakojot', 'Pera', 'Kojot', 'asdas', 37000, 'Krusevac', 'Not in USA', 'asd asd asd ', '', '222.00', NULL, '2019-11-10 00:50:39', '2019-11-10 00:50:39'),
-(28, '2019-28', 1, 'dmitic', 'Dragan', 'Mitic', '21asd ', 10080, 'aaaaa', 'aaaaa', ' asd ', '', '4444.00', NULL, '2019-11-10 00:52:03', '2019-11-10 00:52:03'),
-(29, '2019-29', 4, 'pperic', 'Pera', 'Peric', 'asd asd a', 21000, 'Petrograd', 'Perunija', '', '', '555.00', '2019-11-10 00:53:09', '2019-11-10 00:53:09', '2019-11-10 00:53:09'),
-(30, '2019-30', 5, 'djura', 'Djura', 'Djuric', 'asd asd asd ', 22000, 'Bgd', 'Srb', 'asd qwd ', '', '666.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(31, '2019-31', 3, 'mmikic', 'Mika', 'Mikić', 'asd asd as', 32000, 'Sevojno', 'Tunguzija', 'asd asd ', '', '888.00', NULL, '2019-11-10 00:56:10', '2019-11-10 00:56:10'),
-(32, '2019-32', 5, 'djura', 'Djura', 'Djuric', 'asdas', 37000, 'Krussevac', 'Not s in USA', 'asds asd asd ', '', '222.00', '2019-11-09 23:00:00', '2019-11-09 23:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -183,7 +145,7 @@ INSERT INTO `proizvodi` (`id`, `naziv`, `tip_obuce`, `materijali`, `djon`, `boja
 (5, 'Proizvod 3', 'plitka3', 'platno3', 'đon3', 'blue3', 'qwe qwe qwe', 'Ženske', 'leto3', 'qwe qwe qwe', '2232.00', '2019-11-09 23:36:55', '2019-11-09 23:36:55'),
 (6, 'Proizvod 22', 'Duboke2', 'Koža2', 'Guma2', 'crvena2', 'asda asdasd', 'Muške', 'jesen/zima', 'asd asd asd', '2222.00', '2019-11-09 23:37:58', '2019-11-09 23:37:58'),
 (7, 'Cipele 13', 'plitka3', 'platno233', 'guma', 'Bela2', NULL, 'Muške', 'zima', NULL, '2233.00', '2019-11-09 23:38:34', '2019-11-09 23:38:34'),
-(8, 'Cipele 24', 'Duboke2', 'Koža34', 'Guma43', 'Crna', NULL, 'Ženske', 'Proleće', 'asd asd asd', '223.00', '2019-11-09 23:40:54', '2019-11-09 23:40:54'),
+(8, 'Cipele 24', 'Duboke 2', 'Koža34', 'Guma43', 'Crna', NULL, 'Ženske', 'Proleće', 'asd asd asd', '223.00', '2019-11-09 23:40:54', '2019-11-10 18:19:20'),
 (9, 'Patike 1', 'plitka', 'platno', 'đon', 'blue', 'qwe qwe qwe', 'Muške', 'leto', 'qwe qwe qwe', '223.00', '2019-11-09 23:36:55', '2019-11-09 23:36:55'),
 (10, 'Čizme 1', 'Duboke', 'Koža', 'Guma', 'crvena', 'asda asdasd', 'Ženske', 'jesen/zima', 'asd asd asd', '22222.00', '2019-11-09 23:37:58', '2019-11-09 23:37:58'),
 (11, 'Sandale 1', 'plitka', 'platno23', 'đon', 'Bela', NULL, 'Muške', 'zima', NULL, '22333.00', '2019-11-09 23:38:34', '2019-11-09 23:38:34'),
@@ -269,30 +231,6 @@ CREATE TABLE `stavke` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `stavke`
---
-
-INSERT INTO `stavke` (`id`, `fakture_id`, `proizvod_id`, `naziv_proizvoda`, `boja`, `gaziste`, `pojedinacna_cena`, `kolicina`, `ukupna_cena`, `created_at`, `updated_at`) VALUES
-(1, 1, 4, 'asdas', 'asd', '23.0', '123.00', 2, '444.00', '2019-11-10 01:12:42', NULL),
-(2, 1, 12, 'aaw ', ' asd as', '22.0', '111.00', 4, '444.00', '2019-11-10 01:12:42', NULL),
-(5, 11, 11, 'wqew q', 'weqeqweq', '33.0', '123.00', 4, '444.00', '2019-11-10 01:14:40', NULL),
-(6, 15, 5, 'dasdasdasd', 'qweqweqwe', '33.0', '222.00', 4, '444.00', '2019-11-10 01:15:06', NULL),
-(7, 4, 15, 'aeqweqwe', 'qweqweqw', '12.0', '123.00', 3, '321.00', '2019-11-10 01:16:14', NULL),
-(8, 4, 16, 'asdasd ', 'wq qw', '22.0', '111.00', 2, '222.00', '2019-11-10 01:16:14', NULL),
-(9, 4, 15, 'aeqweqwe', 'qweqweqw', '12.0', '123.00', 3, '321.00', '2019-11-10 01:16:18', NULL),
-(10, 4, 16, 'asdasd ', 'wq qw', '22.0', '111.00', 2, '222.00', '2019-11-10 01:16:18', NULL),
-(11, 5, 2, 'asdas', 'aasdasd', '22.0', '222.00', 4, '888.00', '2019-11-10 01:22:29', NULL),
-(12, 5, 13, 'asdasdas', 'asdas', '13.0', '111.00', 3, '3333.00', '2019-11-10 01:22:29', NULL),
-(13, 12, 15, 'weqwed', 'qwdqwqw', '22.0', '123.00', 32, '123123.00', '2019-11-01 09:11:47', NULL),
-(14, 18, 14, 'asdasdasd', 'asasd', '33.0', '234.00', 2, '4432.00', '2019-11-01 09:19:54', NULL),
-(15, 12, 10, 'qweqwe', 'qweqweqwe', '22.0', '123.00', 3, '321.00', '2019-11-10 01:22:29', NULL),
-(16, 21, 13, 'dsfdef ew', 'wer weewr', '33.0', '222.00', 4, '555.00', '2019-11-10 01:22:29', NULL),
-(17, 21, 17, 'adww', 'asdasdas', '12.0', '231.00', 2, '444.00', '2019-11-10 01:22:29', NULL),
-(18, 23, 16, 'weq we', 'qwe qwe', '22.0', '123.00', 2, '321.00', '2019-11-10 01:22:29', NULL),
-(19, 10, 11, 'we qweqwe ', 'qweqw e', '23.0', '123.00', 3, '321.00', '2019-11-10 01:22:29', NULL),
-(20, 3, 15, 'wqeqweqw', 'qweqweqwe', '22.0', '234.00', 432, '12324.00', '2019-11-10 01:22:29', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -317,11 +255,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$HYncol9BmT9jswjfUJlHh.q8OisXFKrESaBU/.6Rr8OtRbaid2diK', 1, '0694490641', 'PMoijZD6a4YbkAdINFlBCk7XkVadZmuMguvxTScTOKzMMmlnbgWCWOzIN8DW', '2019-11-09 22:53:57', '2019-11-09 22:53:57'),
-(2, 'PeraKojot', 'pera@kojot.com', NULL, '$2y$10$Ef.Maw7oS6PVG7V9jOT28euZ0ZrHugIF0B08RL.jcK5mya/BYTi6e', 0, '0698761433', NULL, '2019-11-09 22:54:32', '2019-11-09 22:54:32'),
-(3, 'mmikić', 'mika@mika.com', NULL, '$2y$10$fgfHsF4kEyTUASTZIFp.WOxaHZo9OV0hKb4HafXxBsXPiWziq1Aji', 0, '12345678', NULL, '2019-11-09 22:56:18', '2019-11-09 22:57:33'),
-(4, 'pperic', 'pera@pera.com', NULL, '$2y$10$xvnTvQMqBI2vmVlhEPBZN.EKL6FjQ4xQRKEfxmNXsmUg8t.L8U.He', 0, '87654321', NULL, '2019-11-09 22:58:06', '2019-11-09 22:58:06'),
-(5, 'djura', 'djura@djura.com', NULL, '$2y$10$bTt9biLETm3ddqpb3qGqs.FtDnFr6jnSafckDldCB0a16aGgnR9ey', 0, '164982173', NULL, '2019-11-09 23:24:07', '2019-11-09 23:36:27');
+(1, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$JSUG7rYf2/wtZZwpnywz7.9JqZwykP8bdlbCBYuIX.T50bjbLn5ka', 1, '0698761433', NULL, '2019-11-11 13:59:19', '2019-11-11 13:59:19');
 
 -- --------------------------------------------------------
 
@@ -347,11 +281,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Pera', 'Kojot', 'Acme street 25', 15000, 'Acme Town', 'Acme', '2019-11-09 22:55:49', '2019-11-09 22:55:49'),
-(2, 3, 'Mika', 'Mikić', 'Mikina street 29', 18000, 'Mikograd', 'Mikinija', '2019-11-09 22:56:51', '2019-11-09 22:56:51'),
-(3, 4, 'Pera', 'Perić', 'Perina 22', 21000, 'Petrograd', 'Perunija', '2019-11-09 22:58:38', '2019-11-09 22:58:38'),
-(4, 1, 'Dragan', 'Mitić', 'JG 277', 11080, 'Bgd', 'Srb', '2019-11-09 23:23:26', '2019-11-09 23:23:26'),
-(5, 5, 'Đura', 'Đurić', 'Đurina 18', 23000, 'Niš', 'Srb', '2019-11-09 23:34:36', '2019-11-09 23:34:36');
+(1, 1, 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', '2019-11-11 14:00:18', '2019-11-11 14:00:18');
 
 --
 -- Indexes for dumped tables
@@ -435,7 +365,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `fakture`
 --
 ALTER TABLE `fakture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kategorije`
@@ -465,19 +395,19 @@ ALTER TABLE `slike`
 -- AUTO_INCREMENT for table `stavke`
 --
 ALTER TABLE `stavke`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

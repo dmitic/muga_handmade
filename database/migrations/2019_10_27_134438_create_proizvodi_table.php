@@ -18,6 +18,7 @@ class CreateProizvodiTable extends Migration
             $table->string('naziv');
             $table->string('tip_obuce');
             $table->text('materijali');
+            $table->string('postava');
             $table->string('djon');
             $table->string('boja');
             $table->text('opis')->nullable();

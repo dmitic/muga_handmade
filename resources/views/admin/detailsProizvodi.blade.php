@@ -11,6 +11,7 @@
       <div class="input-group">Naziv: <label>{{ $proizvod->naziv }}</label></div>
       <div class="input-group">Tip: <label>{{ $proizvod->tip_obuce }}</label></div>
       <div class="input-group">Materijali: <label>{{ $proizvod->materijali }}</label></div>
+      <div class="input-group">Postava: <label>{{ $proizvod->postava }}</label></div>
       <div class="input-group">Boja: <label>{{ $proizvod->boja }}</label></div>
       <div class="input-group">Đon: <label>{{ $proizvod->djon }}</label></div>
       <div class="input-group">Pol: <label>{{ $proizvod->pol }}</label></div>
