@@ -2,7 +2,7 @@
         <div class="header-cell alignment">
             <ul>
                 <li><a class="nav-link font-color" href="#">O nama</a></li>
-                <li><a class="nav-link font-color" href="#">O Kontakt</a></li>
+                <li><a class="nav-link font-color" href="#">Kontakt</a></li>
                 <li><a class="nav-link font-color" href="#">Kolekcija</a></li>
             </ul>
 

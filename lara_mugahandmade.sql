@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 02:53 AM
+-- Generation Time: Nov 15, 2019 at 08:57 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -62,37 +62,6 @@ CREATE TABLE `fakture` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `fakture`
---
-
-INSERT INTO `fakture` (`id`, `narudzbenica_br`, `user_id`, `name`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `napomena_user`, `napomena_admin`, `ukup_suma`, `completed_at`, `created_at`, `updated_at`) VALUES
-(1, '2019-11-00001', 1, 'admin', 'Admin', 'Adminović', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '1990.90', NULL, '2019-11-14 00:26:20', '2019-11-14 00:26:20'),
-(2, '2019-11-00002', 1, 'admin', 'Admin', 'Adminović', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '5981.80', '2019-11-14 19:24:57', '2019-11-14 00:33:24', '2019-11-14 19:24:57'),
-(3, '2019-11-00003', 1, 'admin', 'Admin', 'Adminović', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '6990.90', '2019-11-14 19:24:26', '2019-11-14 01:10:07', '2019-11-14 19:24:26'),
-(6, '2019-11-00006', 1, 'admin', 'Admin', 'Adminović', 'Adminova 35', 37000, 'Admingrad', 'Adminija', 'ad asd asd asd', NULL, '11581.80', '2019-11-14 19:24:47', '2019-11-14 11:24:59', '2019-11-14 19:24:47'),
-(8, '2019-11-00008', 3, 'dmitic', 'Nije upisano', 'Nije upisano', 'Nije upisano', 0, 'Nije upisano', 'Nije upisano', '', NULL, '15881.80', '2019-11-14 19:25:31', '2019-11-14 11:41:39', '2019-11-14 19:25:31'),
-(11, '2019-11-00011', 1, 'admin', 'Admin', 'Adminović', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '3890.90', NULL, '2019-11-14 12:39:03', '2019-11-14 12:39:03'),
-(13, '2019-11-00013', 3, 'dmitic', 'Nije upisano', 'Nije upisano', 'Nije upisano', 0, 'Nije upisano', 'Nije upisano', '', NULL, '12772.70', '2019-11-14 19:23:19', '2019-11-14 18:34:54', '2019-11-14 19:23:19'),
-(15, '2019-11-00015', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', 'dfg df gdf', NULL, '6880.90', NULL, '2019-11-14 20:23:29', '2019-11-14 20:23:29'),
-(16, '2019-11-00016', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '6880.90', NULL, '2019-11-14 20:25:42', '2019-11-14 20:25:42'),
-(130, '2019-11-00130', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', 'adsf w t4 terdfd gh', NULL, '24533.60', NULL, '2019-11-14 23:29:40', '2019-11-14 23:29:40'),
-(133, '2019-11-00133', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '30513.60', NULL, '2019-11-14 23:31:33', '2019-11-14 23:31:33'),
-(134, '2019-11-00134', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '24943.60', NULL, '2019-11-14 23:37:23', '2019-11-14 23:37:23'),
-(135, '2019-11-00135', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', 'asdasdasd', NULL, '30254.50', NULL, '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(136, '2019-11-00136', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '11471.80', NULL, '2019-11-15 00:08:58', '2019-11-15 00:08:58'),
-(137, '2019-11-00137', 1, 'admin', 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '', NULL, '6880.90', NULL, '2019-11-15 00:46:58', '2019-11-15 00:46:58');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategorije`
---
-
-CREATE TABLE `kategorije` (
-  `id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -116,9 +85,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_10_27_123826_create_user_details_table', 1),
 (5, '2019_10_27_134438_create_proizvodi_table', 1),
 (6, '2019_10_27_134500_create_slike_table', 1),
-(7, '2019_10_27_135555_create_kategorije_table', 1),
-(8, '2019_10_27_143245_create_fakture_table', 1),
-(9, '2019_11_07_170751_create_stavke_table', 1);
+(7, '2019_10_27_143245_create_fakture_table', 1),
+(8, '2019_11_07_170751_create_stavke_table', 1);
 
 -- --------------------------------------------------------
 
@@ -131,13 +99,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('dmspamftw@gmail.com', '$2y$10$bcfd1fYyzwkMTgVKEpdgY.vr34Fzy7LJ.aVyzx/sVGFzSZrlMydyG', '2019-11-14 22:03:40');
 
 -- --------------------------------------------------------
 
@@ -241,45 +202,6 @@ CREATE TABLE `stavke` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `stavke`
---
-
-INSERT INTO `stavke` (`id`, `fakture_id`, `proizvod_id`, `naziv_proizvoda`, `boja`, `gaziste`, `pojedinacna_cena`, `kolicina`, `ukupna_cena`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'M02 – Muške cipele \"Oxford\" #2', 'Plava', '24.5', '1990.90', 1, '1990.90', '2019-11-14 00:26:20', '2019-11-14 00:26:20'),
-(2, 2, 2, 'M02 – Muške cipele \"Oxford\" #2', 'braon', '20.0', '3990.90', 1, '3990.90', '2019-11-14 00:33:24', '2019-11-14 00:33:24'),
-(3, 2, 1, 'M02 – Muške cipele \"Oxford\" #2', 'Plava', '20.0', '1990.90', 1, '1990.90', '2019-11-14 00:33:25', '2019-11-14 00:33:25'),
-(4, 3, 3, 'W07 – Ženske cipele \"Oxford\" #2', 'bela', '34.5', '6990.90', 1, '6990.90', '2019-11-14 01:10:08', '2019-11-14 01:10:08'),
-(8, 6, 4, 'M11 – Muške cipele \"Double M2\"', 'crna', '21.5', '4590.90', 1, '4590.90', '2019-11-14 11:24:59', '2019-11-14 11:24:59'),
-(9, 6, 3, 'W07 – Ženske cipele \"Oxford\" #2', 'bela', '21.5', '6990.90', 1, '6990.90', '2019-11-14 11:25:00', '2019-11-14 11:25:00'),
-(11, 8, 5, 'M02 – Muške cipele \"Oxford\" #2', 'siva', '33.5', '8890.90', 1, '8890.90', '2019-11-14 11:41:39', '2019-11-14 11:41:39'),
-(12, 8, 3, 'W07 – Ženske cipele \"Oxford\" #2', 'bela', '33.5', '6990.90', 1, '6990.90', '2019-11-14 11:41:40', '2019-11-14 11:41:40'),
-(19, 11, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '0.0', '3890.90', 1, '3890.90', '2019-11-14 12:39:03', '2019-11-14 12:39:03'),
-(23, 13, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '27.0', '2990.90', 1, '2990.90', '2019-11-14 18:34:54', '2019-11-14 18:34:54'),
-(24, 13, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '27.0', '3890.90', 1, '3890.90', '2019-11-14 18:34:54', '2019-11-14 18:34:54'),
-(25, 13, 7, 'W06 – Ženske čizme poluduboke', 'Siva', '27.0', '5890.90', 1, '5890.90', '2019-11-14 18:34:54', '2019-11-14 18:34:54'),
-(29, 15, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '23.0', '2990.00', 1, '2990.00', '2019-11-14 20:23:29', '2019-11-14 20:23:29'),
-(30, 15, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '23.0', '3890.90', 1, '3890.90', '2019-11-14 20:23:29', '2019-11-14 20:23:29'),
-(31, 16, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '0.0', '2990.00', 1, '2990.00', '2019-11-14 20:25:42', '2019-11-14 20:25:42'),
-(32, 16, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '0.0', '3890.90', 1, '3890.90', '2019-11-14 20:25:42', '2019-11-14 20:25:42'),
-(223, 130, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '34.0', '2990.00', 3, '8970.00', '2019-11-14 23:29:40', '2019-11-14 23:29:40'),
-(224, 130, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '34.0', '3890.90', 4, '15563.60', '2019-11-14 23:29:40', '2019-11-14 23:29:40'),
-(225, 133, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '0.0', '2990.00', 5, '14950.00', '2019-11-14 23:31:33', '2019-11-14 23:31:33'),
-(226, 133, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '0.0', '3890.90', 4, '15563.60', '2019-11-14 23:31:33', '2019-11-14 23:31:33'),
-(227, 134, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '0.0', '2990.00', 2, '5980.00', '2019-11-14 23:37:24', '2019-11-14 23:37:24'),
-(228, 134, 7, 'W06 – Ženske čizme poluduboke', 'Siva', '0.0', '5890.90', 2, '11781.80', '2019-11-14 23:37:24', '2019-11-14 23:37:24'),
-(229, 134, 6, 'M02 – Muške cipele \"Oxford\" #2', 'plava', '0.0', '3590.90', 2, '7181.80', '2019-11-14 23:37:24', '2019-11-14 23:37:24'),
-(230, 135, 5, 'M02 – Muške cipele \"Oxford\" #2', 'siva', '30.0', '8890.90', 1, '8890.90', '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(231, 135, 4, 'M11 – Muške cipele \"Double M2\"', 'crna', '30.0', '4590.90', 1, '4590.90', '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(232, 135, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '30.0', '3890.90', 1, '3890.90', '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(233, 135, 7, 'W06 – Ženske čizme poluduboke', 'Siva', '30.0', '5890.90', 1, '5890.90', '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(234, 135, 3, 'W07 – Ženske cipele \"Oxford\" #2', 'bela', '30.0', '6990.90', 1, '6990.90', '2019-11-14 23:38:29', '2019-11-14 23:38:29'),
-(235, 136, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '28.5', '2990.00', 1, '2990.00', '2019-11-15 00:08:58', '2019-11-15 00:08:58'),
-(236, 136, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '28.5', '3890.90', 1, '3890.90', '2019-11-15 00:08:58', '2019-11-15 00:08:58'),
-(237, 136, 4, 'M11 – Muške cipele \"Double M2\"', 'crna', '28.5', '4590.90', 1, '4590.90', '2019-11-15 00:08:58', '2019-11-15 00:08:58'),
-(238, 137, 10, 'W03 – Ženske cipele \"Paris\"', 'roza', '22.0', '2990.00', 1, '2990.00', '2019-11-15 00:46:58', '2019-11-15 00:46:58'),
-(239, 137, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '22.0', '3890.90', 1, '3890.90', '2019-11-15 00:46:58', '2019-11-15 00:46:58');
-
 -- --------------------------------------------------------
 
 --
@@ -304,9 +226,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@admin.com', NULL, '$2y$10$94pXnXH9Vyf3.3u.GCVBLeZC/kcdcbrXoxXouVb.cGmzuLf1bkad2', 1, '12345667', NULL, '2019-11-14 00:22:56', '2019-11-14 00:22:56'),
-(5, 'PeraKojot', 'pera@kojot.com', NULL, '$2y$10$z7qbJN7epirfwIEOMQ2JB.4vELBpvGdWHW4ntZSgtczTj9Z/cb7h2', 0, '0698761433', NULL, '2019-11-14 20:52:39', '2019-11-14 20:52:39'),
-(6, 'Dragan', 'dmspamftw@gmail.com', NULL, '$2y$10$hisvCfcRdfmWkbCsi74.DOT9xoZ6dR/70sFV5SsdGKMIbPr06LiuC', 0, '0698765555', NULL, '2019-11-14 21:25:50', '2019-11-14 23:34:53');
+(1, 'admin', 'admin@admin.com', NULL, '$2y$10$YvL46X/bqROIgarYHolYgOOklO7WU9kGrYZM4XYhuYSfe.cK7RyXu', 1, '12345678', NULL, '2019-11-15 18:56:19', '2019-11-15 18:56:19');
 
 -- --------------------------------------------------------
 
@@ -328,15 +248,6 @@ CREATE TABLE `user_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`id`, `user_id`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'Adminovič', 'Adminova 35', 37000, 'Admingrad', 'Adminija', '2019-11-14 00:23:35', '2019-11-14 12:58:19'),
-(3, 5, 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', '2019-11-14 20:53:23', '2019-11-14 20:53:23'),
-(4, 6, 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', '2019-11-14 21:26:28', '2019-11-14 21:43:41');
-
---
 -- Indexes for dumped tables
 --
 
@@ -350,12 +261,6 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `fakture`
 --
 ALTER TABLE `fakture`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kategorije`
---
-ALTER TABLE `kategorije`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -418,49 +323,43 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `fakture`
 --
 ALTER TABLE `fakture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
-
---
--- AUTO_INCREMENT for table `kategorije`
---
-ALTER TABLE `kategorije`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `proizvodi`
 --
 ALTER TABLE `proizvodi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `slike`
 --
 ALTER TABLE `slike`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `stavke`
 --
 ALTER TABLE `stavke`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

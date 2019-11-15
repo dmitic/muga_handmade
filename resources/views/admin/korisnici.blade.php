@@ -66,7 +66,7 @@
 						<td>{{ $user->is_admin ? 'Admin' : 'User'}}</td>
 						<td>{{ Carbon\Carbon::parse($user->created_at)->format('j. F Y.')}}</td>
 						<td style="text-align:center; width:180px;">
-							<form action="/admin/korisnici/{{$user->id}}" method="post">
+							<form action="{{ route('brisi', ['user' => $user->id]) }}" method="post">
 								@csrf
 								@method('DELETE')
 								<a href="{{ route('izmeni', ['user' => $user->id]) }}" class="btn btn-primary" title="Izmeni korisnika">Izmeni</a>

@@ -41,16 +41,16 @@ Route::prefix('admin')->group(function () {
     Route::put('/proizvodi/{proizvod}', 'ProizvodController@create')->name('updateProizvod');
     Route::post('/proizvodi/create', 'ProizvodController@create')->name('create');
     Route::post('/proizvodi/dodajSliku/{proizvod}', 'ProizvodController@dodajSlikuPojedinacno')->name('dodajSlikuPojedinacno');
-    Route::delete('/proizvodi/{proizvod}', 'ProizvodController@destroy')->name('brisiProizvod');
-    Route::delete('/proizvodi/slikaBrisanje/{slika}', 'SlikeController@destroy')->name('obrisiSliku');
+    Route::delete('/proizvodi/{proizvod}/delete', 'ProizvodController@destroy')->name('brisiProizvod');
+    Route::delete('/proizvodi/slikaBrisanje/{slika}/delete', 'SlikeController@destroy')->name('obrisiSliku');
 
     // Korisnici rute
     Route::get('/pretraga', 'KorisniciController@search');
     Route::get('/korisnici', 'KorisniciController@index');
     Route::get('/detalji/{user}', 'KorisniciController@show')->name('detalji');
     Route::get('/korisnici/{user}/edit', 'KorisniciController@edit')->name('izmeni');
-    Route::put('/korisnici/{user}', 'KorisniciController@update')->name('update');
-    Route::delete('/korisnici/{user}', 'KorisniciController@destroy')->name('brisi');
+    Route::put('/korisnici/{user}/update', 'KorisniciController@update')->name('update');
+    Route::delete('/korisnici/{user}/delete', 'KorisniciController@destroy')->name('brisi');
 
     // narudžbenice rute
     Route::get('/pretraga-fakture', 'FaktureController@search');
