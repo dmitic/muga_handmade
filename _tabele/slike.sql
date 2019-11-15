@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2019 at 03:54 PM
+-- Generation Time: Nov 14, 2019 at 03:06 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -39,44 +39,32 @@ CREATE TABLE `slike` (
 --
 
 INSERT INTO `slike` (`id`, `proizvod_id`, `slika`) VALUES
-(1, 1, 'Proizvod-1/1573346215_slika_1.jpg'),
-(2, 1, 'Proizvod-1/1573346221_slika_11.jpg'),
-(3, 2, 'Proizvod-2/1573346278_slika_4.jpg'),
-(4, 3, 'Cipele-1/1573346314_slika_3.jpg'),
-(5, 4, 'Cipele-2/1573346454_slika_2.jpg'),
-(6, 4, 'Cipele-2/1573346459_slika_21.jpg'),
-(7, 4, 'Cipele-2/1573346464_slika_22.jpg'),
-(8, 8, 'Cipele-24/1573346573_slika_1.jpg'),
-(9, 8, 'Cipele-24/1573346578_slika_11.jpg'),
-(10, 7, 'Cipele-13/1573346585_slika_4.jpg'),
-(11, 6, 'Proizvod-22/1573346594_slika_22.jpg'),
-(12, 6, 'Proizvod-22/1573346599_slika_21.jpg'),
-(13, 5, 'Proizvod-3/1573346609_slika_3.jpg'),
-(14, 5, 'Proizvod-3/1573346613_slika_4.jpg'),
-(15, 12, 'Papuče-1/1573346736_slika_4.jpg'),
-(16, 12, 'Papuče-1/1573346740_muga1.png'),
-(17, 12, 'Papuče-1/1573346745_slika_2.jpg'),
-(18, 16, 'Papuče-2/1573346754_slika_1.jpg'),
-(19, 16, 'Papuče-2/1573346758_muga.jpg'),
-(20, 11, 'Sandale-1/1573346766_slika_3.jpg'),
-(21, 15, 'Sandale-2/1573346774_slika_1.jpg'),
-(22, 15, 'Sandale-2/1573346778_slika_4.jpg'),
-(23, 10, 'Čizme-1/1573346793_slika_4.jpg'),
-(24, 14, 'Čizme-2/1573346804_slika_22.jpg'),
-(25, 14, 'Čizme-2/1573346809_slika_21.jpg'),
-(26, 14, 'Čizme-2/1573346813_slika_2.jpg'),
-(27, 13, 'Patike-2/1573346825_slika_3.jpg'),
-(28, 13, 'Patike-2/1573346830_muga1.png'),
-(29, 13, 'Patike-2/1573346834_slika_4.jpg'),
-(30, 9, 'Patike-1/1573346841_muga1.png'),
-(31, 9, 'Patike-1/1573346845_slika_1.jpg'),
-(32, 9, 'Patike-1/1573346851_slika_4.jpg'),
-(33, 7, 'Cipele-13/1573346868_slika_22.jpg'),
-(34, 7, 'Cipele-13/1573346871_slika_2.jpg'),
-(35, 2, 'Proizvod-2/1573346882_slika_3.jpg'),
-(36, 2, 'Proizvod-2/1573346887_slika_1.jpg'),
-(37, 3, 'Cipele-1/1573346897_slika_4.jpg'),
-(38, 3, 'Cipele-1/1573346902_slika_1.jpg');
+(1, 1, 'M02_–_Muske_cipele_Oxford_2/1573694696_1_(1).jpg'),
+(2, 1, 'M02_–_Muske_cipele_Oxford_2/1573694710_1_(2).jpg'),
+(3, 1, 'M02_–_Muske_cipele_Oxford_2/1573694715_1_(3).jpg'),
+(4, 2, 'M02_–_Muske_cipele_Oxford_2/1573695145_2_(1).jpg'),
+(5, 2, 'M02_–_Muske_cipele_Oxford_2/1573695151_2_(2).jpg'),
+(6, 3, 'W07_–_zenske_cipele_Oxford_2/1573695686_3_(1).jpg'),
+(7, 3, 'W07_–_zenske_cipele_Oxford_2/1573695694_3_(1).jpg'),
+(8, 3, 'W07_–_zenske_cipele_Oxford_2/1573695700_3_(2).jpg'),
+(9, 4, 'M11_–_Muske_cipele_Double_M2/1573695811_4_(2).jpg'),
+(10, 4, 'M11_–_Muske_cipele_Double_M2/1573695818_4_(3).jpg'),
+(11, 4, 'M11_–_Muske_cipele_Double_M2/1573695824_4_(4).jpg'),
+(12, 5, 'M02_–_Muske_cipele_Oxford_2/1573695892_5_(2).jpg'),
+(13, 5, 'M02_–_Muske_cipele_Oxford_2/1573695899_5_(3).jpg'),
+(14, 5, 'M02_–_Muske_cipele_Oxford_2/1573695905_5_(5).jpg'),
+(15, 6, 'M02_–_Muske_cipele_Oxford_2/1573735974_7_(2).jpg'),
+(16, 6, 'M02_–_Muske_cipele_Oxford_2/1573735992_7_(3).jpg'),
+(17, 6, 'M02_–_Muske_cipele_Oxford_2/1573735999_7_(4).jpg'),
+(18, 7, 'W06_–_zenske_čizme_poluduboke/1573736471_12_(1).jpg'),
+(19, 7, 'W06_–_zenske_čizme_poluduboke/1573736485_12_(2).jpg'),
+(20, 7, 'W06_–_zenske_čizme_poluduboke/1573736491_12_(3).jpg'),
+(21, 9, 'W06_–_zenske_čizme_poluduboke/1573738617_51_(1).jpg'),
+(22, 9, 'W06_–_zenske_čizme_poluduboke/1573738629_51_(2).jpg'),
+(23, 9, 'W06_–_zenske_čizme_poluduboke/1573738638_51_(3).jpg'),
+(24, 10, 'W03_–_zenske_cipele_Paris/1573739130_53_(1).jpg'),
+(25, 10, 'W03_–_zenske_cipele_Paris/1573739223_53_(2).jpg'),
+(26, 10, 'W03_–_zenske_cipele_Paris/1573739234_53_(4).jpg');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +85,7 @@ ALTER TABLE `slike`
 -- AUTO_INCREMENT for table `slike`
 --
 ALTER TABLE `slike`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables

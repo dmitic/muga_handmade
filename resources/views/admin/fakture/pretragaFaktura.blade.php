@@ -22,13 +22,14 @@
         </div>
       </form>
     </div>
+    {{-- za prikaz poruke o brisanju --}}
+    @error('poruka') 
     <div class="row  text-center">
       <div class="col-md-12">
-          @foreach ($errors->all() as $error)
-            <div class="alert alert-success">{{ $error }}</div>
-          @endforeach
+        <div class="alert alert-success">{{ $message }}</div>
       </div>
     </div>
+    @enderror
     <div class="card-body">
       <div class="table-responsive">
         @if (count($fakture) > 0)
@@ -85,7 +86,7 @@
                   @if ($faktura->completed_at)
                       <a href="#" class="btn btn-primary" title="Markiraj narudžbinu kao realizovanu" disabled>Realizovano</a>
                     @else
-                      <button class="btn btn-primary" title="Markiraj narudžbinu kao realizovanu">Realizuj</button>
+                      <button class="btn btn-primary" onclick="return confirm('Potvrdi realizaciju narudžbenice?')" title="Markiraj narudžbinu kao realizovanu">Realizuj</button>
                     @endif
                 </form>
               </td>

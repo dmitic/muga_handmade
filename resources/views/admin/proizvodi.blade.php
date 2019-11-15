@@ -23,6 +23,13 @@
       </div>
     </form>
   </div>
+  @error('poruka') 
+    <div class="row  text-center">
+      <div class="col-md-12">
+        <div class="alert alert-success">{{ $message }}</div>
+      </div>
+    </div>
+  @enderror
   <div class="card-body">
     <div class="table-responsive">
       @if (count($proizvodi) > 0)

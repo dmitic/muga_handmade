@@ -14,18 +14,17 @@ class SlikeController extends Controller
 
     public function destroy(Slike $slika){
 
-        $FileSystem = new Filesystem();
+        
         // targetiranje direktorijuma.
         $tmp = explode('/' ,$slika->slika);
-        $tmpDir = $this->filterZaKaratere($tmp[0]);
+        $tmpDir = $this->filterZaKaraktere($tmp[0]);
         $directory = public_path() . '\images\\' . $tmpDir;
 
-        // dd($directory);
-        
         if(file_exists('images/' . $slika->slika))
             unlink('images/' . $slika->slika);
         $slika->delete();
 
+        $FileSystem = new Filesystem();
         // provera da li direktorijum postoji.
         if ($FileSystem->exists($directory)) {
             // ako ima fajlova smešta to u files.
@@ -37,10 +36,10 @@ class SlikeController extends Controller
             }
         }
 
-        return back();
+        return back()->withErrors(['poruka' => 'Slika je uspešno obrisana.']);
     }
 
-    public function filterZaKaratere($str){
+    public function filterZaKaraktere($str){
 
         $filtrirano = str_replace('-', '', $str);
         $filtrirano = str_replace(' ', '_', $filtrirano);

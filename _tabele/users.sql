@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2019 at 03:59 PM
+-- Generation Time: Nov 14, 2019 at 03:06 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -46,7 +46,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$JSUG7rYf2/wtZZwpnywz7.9JqZwykP8bdlbCBYuIX.T50bjbLn5ka', 1, '0698761433', NULL, '2019-11-11 13:59:19', '2019-11-11 13:59:19');
+(1, 'admin', 'admin@admin.com', NULL, '$2y$10$94pXnXH9Vyf3.3u.GCVBLeZC/kcdcbrXoxXouVb.cGmzuLf1bkad2', 1, '12345667', NULL, '2019-11-14 00:22:56', '2019-11-14 00:22:56'),
+(2, 'perakojot', 'pera@kojot.com', NULL, '$2y$10$nCdgiAec4TnkZbUTl.7yFO3FkopQNIpLvC0JV4nulN/FpG.8Z/39G', 0, '123425', NULL, '2019-11-14 01:11:07', '2019-11-14 01:11:07'),
+(3, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$5D5GjSBtg8xZlfoBWj/w.u/x28j4sHg2PQuKviOQA3eGpa9zqNV0W', 0, '0698761433', NULL, '2019-11-14 11:20:32', '2019-11-14 11:20:32');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +69,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

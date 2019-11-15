@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+@error('poruka') 
+    <div class="row  text-center">
+      <div class="col-md-12">
+        <div class="alert alert-success">{{ $message }}</div>
+      </div>
+    </div>
+    @enderror
 <div class="d-flex">
   <div class="col-md-12">
     <div class="col-md-5">
@@ -43,7 +50,7 @@
       </div>
       @endforeach
       <div class="form-group row" style="margin-top:20px;">
-        <form action="{{ route('dodajSliku', ['proizvod' => $proizvod->id]) }}" class="form-group col-md-11"
+        <form action="{{ route('dodajSlikuPojedinacno', ['proizvod' => $proizvod->id]) }}" class="form-group col-md-11"
           method="post" enctype="multipart/form-data">
           @csrf
           <label for="file-upload" class="custom-file-upload">

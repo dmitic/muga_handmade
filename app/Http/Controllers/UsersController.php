@@ -7,6 +7,7 @@ use App\User_details;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -31,32 +32,43 @@ class UsersController extends Controller
 
         $user = User::find(\Auth::user()->id);
 
-        // $data = request()->validate([
-        request()->validate([
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'phone' => 'required',
-            'address' => 'required|max:255',
-            'city' => 'required|max:255',
-            'zip' => 'required|max:20',
-            'state' => 'required|max:255',
-        ]);
-            
-        $user->update([
-            'phone' => request()->phone,
-            ]);
-        User_details::updateOrCreate([
-            'user_id' => $user->id
-            ],
-            [
-            'first_name' => request()->first_name,
-            'last_name' => request()->last_name,
-            'address' => request()->address,
-            'city' => request()->city,
-            'zip' => request()->zip,
-            'state' => request()->state,
-            ]);
+        DB::beginTransaction();
+            try {
+                request()->validate([
+                    'first_name' => 'required|max:255',
+                    'last_name' => 'required|max:255',
+                    'phone' => 'required',
+                    'address' => 'required|max:255',
+                    'city' => 'required|max:255',
+                    'zip' => 'required|max:20',
+                    'state' => 'required|max:255',
+                ]);
+                    
+                $user->update([
+                    'phone' => request()->phone,
+                    ]);
+                User_details::updateOrCreate([
+                    'user_id' => $user->id
+                    ],
+                    [
+                    'first_name' => request()->first_name,
+                    'last_name' => request()->last_name,
+                    'address' => request()->address,
+                    'city' => request()->city,
+                    'zip' => request()->zip,
+                    'state' => request()->state,
+                    ]);
+                    DB::commit();
+                    return redirect('/user/detaljnije/')
+                            ->withErrors(['poruka' => 'Podaci su izmenjeni!']);
+            } catch (\Exception $e) {
+                
+                DB::rollback();
+                return redirect()->back()
+                        ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ']);
+                        // ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ' . $e->getMessage()]);
+            }
 
-        return redirect('/user/detaljnije/');
+        // return redirect('/user/detaljnije/');
     }
 }

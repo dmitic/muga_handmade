@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+@error('poruka') 
+<div class="row  text-center">
+  <div class="col-md-12">
+    <div class="alert alert-success">{{ $message }}</div>
+  </div>
+</div>
+@enderror
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-9" style="margin-right:30px;">

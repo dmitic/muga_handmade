@@ -22,13 +22,14 @@
         </div>
       </form>
     </div>
+    {{-- za prikaz poruke o brisanju --}}
+    @error('poruka') 
     <div class="row  text-center">
       <div class="col-md-12">
-          @foreach ($errors->all() as $error)
-            <div class="alert alert-success">{{ $error }}</div>
-          @endforeach
+        <div class="alert alert-success">{{ $message }}</div>
       </div>
     </div>
+    @enderror
     <div class="card-body">
       <div class="table-responsive">
         @if (count($fakture) > 0)

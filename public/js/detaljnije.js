@@ -17,8 +17,8 @@ const proizvod = {
 
         // za carousel
         let carousel = `<div class="col-md-6"><div class="row d-flex justify-content-center">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:800px;">
-            <div class="carousel-inner" style="max-height:800px; max-width:800px;">`
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:600px;">
+            <div class="carousel-inner" style="max-height:800px; max-width:600px;">`
             
             proizvod.slike.forEach((slika, ind)=>{
                 if (ind === 0)
@@ -91,7 +91,7 @@ const proizvod = {
             poruke.poruka("Morate biti ulogovani da bi dodali proizvod u korpu!", "crveno");
             return;
           }
-            korpa.dodaj(user_id, proizvod.id, proizvod.naziv, proizvod.cena, proizvod.slike[0].slika);
+            korpa.dodaj(proizvod.id, proizvod.naziv, proizvod.cena, proizvod.slike[0].slika);
             poruke.poruka("Proizvod je uspešno dodat u korpu!", "zeleno");
             document.querySelector(
                 "#korpa"

@@ -7,9 +7,9 @@ const korpa = {
   // niz čuva korpu
   niz: [],
 
-  dodaj: function(user_id, id, naziv, cena, slika){
+  dodaj: function(id, naziv, cena, slika){
     if(this.niz.length === 0) {
-      this.niz.push({ user_id: user_id, id: id, naziv: naziv, slika: slika, kolicina: 1, cena: cena});
+      this.niz.push({ id: id, naziv: naziv, slika: slika, kolicina: 1, cena: cena});
     } else {
       let postoji = false, tmpId;
       for (let i = 0; i < this.niz.length; i++){
@@ -18,15 +18,14 @@ const korpa = {
           tmpId = i;
         }
       }
-      (postoji) ? this.niz[tmpId].kolicina++ : this.niz.push({ user_id: user_id, id: id, naziv: naziv, slika: slika, kolicina: 1, cena: cena});
+      (postoji) ? this.niz[tmpId].kolicina++ : this.niz.push({ id: id, naziv: naziv, slika: slika, kolicina: 1, cena: cena});
     }
     this.snimi_u_session();
-    // console.log(this.niz);
   },
   
   ukupna_vr: function() {
     
-    return this.niz.map(proizvod =>  ({user_id: proizvod.user_id, id: proizvod.id, naziv: proizvod.naziv, slika: proizvod.slika, kolicina: proizvod.kolicina, cena: proizvod.cena, ukupnaVrednost: proizvod.kolicina*proizvod.cena }));
+    return this.niz.map(proizvod =>  ({id: proizvod.id, naziv: proizvod.naziv, slika: proizvod.slika, kolicina: proizvod.kolicina, cena: proizvod.cena, ukupnaVrednost: proizvod.kolicina*proizvod.cena }));
   },
   
   obrisi: function(id)  {
@@ -54,12 +53,11 @@ const korpa = {
     this.ukupna_vr().map((clan) => {
       for (let clanKorpe of this.ukupna_vr()){
         if (clan.id === clanKorpe.id){
-          nizKorpa.push({ user_id: clan.user_id, id: clan.id, ime: clan.naziv, slika: clan.slika, kolicina: clan.kolicina, vrednost: clanKorpe.ukupnaVrednost });
+          nizKorpa.push({ id: clan.id, ime: clan.naziv, slika: clan.slika, kolicina: clan.kolicina, vrednost: clanKorpe.ukupnaVrednost });
         }
       }
     });
 
-    // console.log( "fali dodati user_id", nizKorpa);
     return nizKorpa;
   },
 
@@ -97,7 +95,6 @@ const korpa = {
     tabelaKorpa.append(tr);
     
     for (let clan of this.prikaziKorpu()){
-      // console.log(clan)
       const tr = document.createElement('tr');
 
       const tdIme = document.createElement('td');
@@ -145,62 +142,33 @@ const korpa = {
     btnNaruci.textContent = "Naruči";
     btnNaruci.addEventListener('click', () => {
       if(user_id === -1){
-        // alert("Morate biti ulogovani da bi ste poslali narudžbinu!");
         poruke.poruka("Morate biti ulogovani da bi ste poslali narudžbinu!", "crveno");
         return;
       }
-      // (this.prikaziKorpu().length !== 0) ? 
-      //   poruke.poruka('Narudžbina je uspošno prosleđena! Hvala!', 'zeleno')
-      // : poruke.poruka('Korpa je prazna!', 'crveno');
 
       // šalje podatke laravelu
       // podaci o ulogovanom korisniku
       let kupovina = JSON.parse(sessionStorage.getItem('korpa'));
       let napomena = document.querySelector('#napomena').value;
       let gaziste = document.querySelector("#gaziste").value;
-      
       axios({
             method: 'post',  
-            url: 'http://127.0.0.1:8000//posalji-user',
+            url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
             data: {
               user_id: user_id,
               napomena_user: napomena,
-              ukup_suma: this.ukupanIznos()
-              
+              ukup_suma: this.ukupanIznos().toFixed(2),
+              gaziste: gaziste,
+              stavke: kupovina,
             }
         })
           .then(resp=> {
-            let fakture_id = resp.data;
-            
+            poruke.poruka(resp.data.msg, resp.data.boja)
+            sessionStorage.removeItem('korpa');
+            document.querySelector('#proizvodi').innerHTML = '';
+            document.querySelector('#napomena').value = '';
+            this.napraviTabelu();
             // console.log(resp.data);
-            // za stavke
-            kupovina.forEach((stavka, ind) => {
-              axios({
-                method: 'post',  
-                url: 'http://127.0.0.1:8000//posalji-stavke',
-                data: {
-                  fakture_id: fakture_id,
-                  proizvod_id: stavka.id,
-                  cena: stavka.cena,
-                  kolicina: stavka.kolicina,
-                  gaziste: gaziste
-                }
-            })
-              // .then(resp=> resp.data)
-              .then(resp=> {
-                // console.log(resp.data.success);
-                poruke.poruka(resp.data.msg, resp.data.boja);
-                sessionStorage.removeItem('korpa');
-                document.querySelector('#proizvodi').innerHTML = '';
-                document.querySelector('#napomena').value = '';
-                this.napraviTabelu();
-              })
-              .catch(err => {
-                console.error(err.message);
-                poruke.poruka('Došlo je do greške prilikom slanja narudžbenice, pokušajte ponovo kasnije!', 'crveno');
-                return;
-              })
-            });
           })
           .catch(err => {
             poruke.poruka('Došlo je do greške!', 'crveno');
@@ -214,4 +182,3 @@ const korpa = {
 }
 
 korpa.ukupanIznos();
-// console.log(korpa.ukupna_vr());

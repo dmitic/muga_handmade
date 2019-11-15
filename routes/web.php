@@ -13,10 +13,10 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/json', 'MainController@json_response');
-Route::get('/korpa', 'MainController@korpa');
+Route::get('/korpa', 'MainController@index');
 Route::get('/detaljnije/{id}', 'MainController@show');
-Route::post('/posalji-user', 'MainController@getDataUser');
-Route::post('/posalji-stavke', 'MainController@getDataStavke');
+Route::post('/posalji-narudzbenicu', 'MainController@create');
+// Route::post('/posalji-stavke', 'MainController@getDataStavke');
 
 Auth::routes();
 
@@ -39,9 +39,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/proizvodi/{proizvod}', 'ProizvodController@show')->name('proizvodDetaljnije');
     Route::get('/proizvodi/{proizvod}/edit', 'ProizvodController@edit')->name('izmeniProizvod');
     
-    Route::put('/proizvodi/{proizvod}', 'ProizvodController@update')->name('updateProizvod');
-    Route::post('/proizvodi/create', 'ProizvodController@update')->name('create');
-    Route::post('/proizvodi/dodajSliku/{proizvod}', 'ProizvodController@dodajSliku')->name('dodajSliku');
+    Route::put('/proizvodi/{proizvod}', 'ProizvodController@create')->name('updateProizvod');
+    Route::post('/proizvodi/create', 'ProizvodController@create')->name('create');
+    Route::post('/proizvodi/dodajSliku/{proizvod}', 'ProizvodController@dodajSlikuPojedinacno')->name('dodajSlikuPojedinacno');
     Route::delete('/proizvodi/{proizvod}', 'ProizvodController@destroy')->name('brisiProizvod');
     Route::delete('/proizvodi/slikaBrisanje/{slika}', 'SlikeController@destroy')->name('obrisiSliku');
 

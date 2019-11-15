@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+@error('poruka') 
+<div class="row  text-center">
+  <div class="col-md-12">
+    <div class="alert alert-success">{{ $message }}</div>
+  </div>
+</div>
+@enderror
 <div class="d-flex">
   <form action="/user/korisnici/{{$user->id}}" class="col-md-11" method="post">
     @csrf

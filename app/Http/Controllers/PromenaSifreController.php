@@ -42,7 +42,7 @@ class PromenaSifreController extends Controller
             'new_confirm_password' => ['same:new_password'],
         ]);
 
-        User::find($request->trigger)->update(['password'=> Hash::make($request->new_password)]);
+        User::findOrFail($request->trigger)->update(['password'=> Hash::make($request->new_password)]);
    
         return back()->withErrors(['Šifra je uspešno promenjena!']);
     }

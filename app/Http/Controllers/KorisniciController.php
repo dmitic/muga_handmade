@@ -6,6 +6,7 @@ use App\User;
 use App\User_details;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KorisniciController extends Controller
 {
@@ -30,7 +31,7 @@ class KorisniciController extends Controller
 
     public function update(User $user){
         request()->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|alpha_dash',
             'email' => 'required|email|max:255',
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -40,33 +41,44 @@ class KorisniciController extends Controller
             'zip' => 'required|max:20|regex:/^[0-9]+$/',
             'state' => 'required|max:255',
         ]);
-
-        $user->update([
-            'name' => request()->name, 
-            'email' => request()->email,
-            'phone' => request()->phone,
-            'is_admin' => request()->is_admin,
-            ]);
-
-
-        User_details::updateOrCreate([
-            'user_id' => $user->id
+        DB::beginTransaction();
+        try {
+            $user->update([
+                'name' => request()->name, 
+                'email' => request()->email,
+                'phone' => request()->phone,
+                'is_admin' => request()->is_admin,
+                ]);
+                
+            User_details::updateOrCreate([
+                'user_id' => $user->id
             ],
             [
-            'first_name' => request()->first_name,
-            'last_name' => request()->last_name,
-            'address' => request()->address,
-            'city' => request()->city,
-            'zip' => request()->zip,
-            'state' => request()->state,
-            ]);
+                'first_name' => request()->first_name,
+                'last_name' => request()->last_name,
+                'address' => request()->address,
+                'city' => request()->city,
+                'zip' => request()->zip,
+                'state' => request()->state,
+                ]);
+
+            DB::commit();
+            return redirect(route('detalji', $user))
+                    ->withErrors(['poruka' => 'Podaci su izmenjeni!']);
+        } catch (\Exception $e) {
             
-        return redirect(route('detalji', $user));
+            DB::rollback();
+            return redirect()->back()
+                    ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ' . $e->getMessage()]);
+        }
+
+            
+        // return redirect(route('detalji', $user))->withErrors(['poruka' => $poruka]);
     }
 
     public function destroy(User $user){
         $user->delete();
-        return redirect('/admin/korisnici');
+        return redirect('/admin/korisnici')->withErrors(['poruka' => 'Korisnik je obrisan!']);
     }
     
     public function search(){

@@ -26,7 +26,7 @@ class FaktureController extends Controller
         $faktura->update([
             'completed_at' => now(), 
             ]);
-        return back()->withErrors(['Narudžbenica je realizovana!']);
+        return back()->withErrors(['poruka' => 'Narudžbenica je realizovana!']);
     }
 
     // vraća samo nerealizovane fakture
@@ -53,18 +53,22 @@ class FaktureController extends Controller
         return view('admin.fakture.pretragaFaktura', compact('fakture'));
     }
 
+    // dugme brisanje iz realizovanih faktura
     public function destroy(Fakture $faktura){
         $faktura->delete();
-        return back()->withErrors(['Narudžbenica je obrisana!']);;
+        return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
     }
 
+    // dugme brisanje iz nerealizovanih faktura
     public function destroyNerealizovane(Fakture $faktura){
         $faktura->delete();
-        return back()->withErrors(['Narudžbenica je obrisana!']);;
+        return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
     }
 
+    // dugme brisanje iz rezultata pretrage faktura
     public function destroyPretraga(Fakture $faktura){
         $faktura->delete();
-        return redirect('/admin/pretraga-fakture?str=' . request()->str)->withErrors(['Narudžbenica je obrisana!']);;
+        return redirect('/admin/pretraga-fakture?str=' . request()->str)
+                        ->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
     }
 }

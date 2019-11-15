@@ -51,7 +51,7 @@ const proizvodi = {
                 poruke.poruka("Morate biti ulogovani da bi dodali proizvod u korpu!", "crveno");
                 return;
             }
-            korpa.dodaj(user_id, proizvod.id, proizvod.naziv, proizvod.cena, proizvod.slike[0].slika);
+            korpa.dodaj(proizvod.id, proizvod.naziv, proizvod.cena, proizvod.slike[0].slika);
             poruke.poruka("Proizvod je uspešno dodat u korpu!", "zeleno");
             document.querySelector(
                 "#korpa"
