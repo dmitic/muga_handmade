@@ -42,7 +42,7 @@
 				<a href="/admin/proizvodi"><i class="fa fa-fw fa-table"></i> Proizvodi</a>
 			</li>
 			<li class="{{ Request::path() === 'admin/proizvodi/noviProizvod' ? 'active' : ''}}">
-				<a href="/admin/proizvodi/noviProizvod"><i class="fa fa-fw fa-plus"></i> Novi proizvod</a>
+				<a href="{{ route('noviProizvod') }}"><i class="fa fa-fw fa-plus"></i> Novi proizvod</a>
 			</li>
 			<li class="{{ Request::path() === 'admin/korisnici' ? 'active' : ''}}">
 				<a href="/admin/korisnici"><i class="fa fa-fw fa-user"></i> Korisnici</a>

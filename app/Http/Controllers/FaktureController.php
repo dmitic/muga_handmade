@@ -18,14 +18,12 @@ class FaktureController extends Controller
     public function index(){
         $fakture = Fakture::with('stavke')
             ->whereNotNull('completed_at')
-            ->orderBy('completed_at', 'desc')->paginate(20);
+            ->orderBy('completed_at', 'desc')->paginate(10);
         return view('admin.fakture.realizovane', compact('fakture'));
     }
 
     public function realizuj(Fakture $faktura){
-        $faktura->update([
-            'completed_at' => now(), 
-            ]);
+        $faktura->update([ 'completed_at' => now() ]);
         return back()->withErrors(['poruka' => 'Narudžbenica je realizovana!']);
     }
 
@@ -33,13 +31,13 @@ class FaktureController extends Controller
     public function neRealizovaneIndex(){
         $fakture = Fakture::with('stavke')
             ->whereNull('completed_at')
-            ->orderBy('created_at', 'desc')->paginate(20);
+            ->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.fakture.nerealizovane', compact('fakture'));
     }
 
     // pretraga faktura
     public function search(){
-        $str = htmlspecialchars($_GET['str']); 
+        $str = htmlspecialchars($_GET['str'] ?? ''); 
 
         $fakture = Fakture::with('stavke')
                 ->where('name', 'like', '%' . $str . '%')
@@ -48,27 +46,14 @@ class FaktureController extends Controller
                 ->orWhere('last_name', 'like', '%' . $str . '%')
                 ->orWhere('city', 'like', '%' . $str . '%')
                 ->orderBy('created_at', 'desc')
-                ->paginate(20);
+                ->paginate(10);
                 
         return view('admin.fakture.pretragaFaktura', compact('fakture'));
     }
 
-    // dugme brisanje iz realizovanih faktura
+    // brisanje faktura
     public function destroy(Fakture $faktura){
         $faktura->delete();
-        return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
-    }
-
-    // dugme brisanje iz nerealizovanih faktura
-    public function destroyNerealizovane(Fakture $faktura){
-        $faktura->delete();
-        return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
-    }
-
-    // dugme brisanje iz rezultata pretrage faktura
-    public function destroyPretraga(Fakture $faktura){
-        $faktura->delete();
-        return redirect('/admin/pretraga-fakture?str=' . request()->str)
-                        ->withErrors(['poruka' => 'Narudžbenica je obrisana!']);;
+        return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);
     }
 }

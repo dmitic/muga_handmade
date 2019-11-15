@@ -28,18 +28,23 @@ class MainController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
         try {
-            $faktura = $this->insertFaktura($request);
-            $this->insertStavke($request, $faktura);
- 
+            DB::beginTransaction();
+                $faktura = $this->insertFaktura($request);
+                $narudzbenica_br = $this->formatiranjeNarudzbenice($faktura);
+                $ukupnaSuma = $this->insertStavke($request, $faktura);
+
+                // update fakture ukupnom sumom fakture i brojem narudžbenice
+                $faktura->update(['narudzbenica_br' => $narudzbenica_br, 'ukup_suma' => $ukupnaSuma]);
+
             DB::commit();
-            return json_encode(['msg' =>"Narudžbina je uspešno poslata!", 'boja' => 'zeleno']);
+                return json_encode(['msg' =>"Narudžbina je uspešno poslata!", 'boja' => 'zeleno']);
+
         } catch (\Exception $e) {
             
             DB::rollback();
-            return json_encode(['msg' => 'Došlo je do greške, pokušajte ponovo!', 'boja' => 'crveno']);
-            // return json_encode(['msg' => "Došlo je do greške! " . $e->getMessage(), 'boja' => 'crveno']);
+                return json_encode(['msg' => 'Došlo je do greške, pokušajte ponovo!', 'boja' => 'crveno']);
+                // return json_encode(['msg' => "Došlo je do greške! " . $e->getMessage(), 'boja' => 'crveno']);
         }
     }
 
@@ -49,7 +54,6 @@ class MainController extends Controller
         $faktura = new Fakture;
         // iz JS stiže
         $faktura->user_id = $request->user_id;
-        $faktura->ukup_suma = $request->ukup_suma;
         $faktura->napomena_user = htmlspecialchars($request->napomena_user);
         // stiže iz baze
         $faktura->name = $user->name;
@@ -60,37 +64,40 @@ class MainController extends Controller
         $faktura->city = $user->details->city ?? 'Nije upisano';
         $faktura->state = $user->details->state ?? 'Nije upisano';
         $faktura->save();
-        // formatiranje br narudžbenice
-        $narudzbenica_br = date("Y") . '-' . date("m") . '-'; //. $faktura->id;
-        switch (strlen($faktura->id)){
-            case 1:
-                $narudzbenica_br .= '0000' . $faktura->id;
-            break;
-            case 2:
-                $narudzbenica_br .= '000' . $faktura->id;
-            break;
-            case 3:
-                $narudzbenica_br .= '00' . $faktura->id;
-            break;
-            case 4:
-                $narudzbenica_br .= '0' . $faktura->id;
-            break;
-            default:
-            $narudzbenica_br .= $faktura->id;
-        }
-        
-        $faktura->update(['narudzbenica_br' => $narudzbenica_br]);
 
         return $faktura;
     }
 
+    public function formatiranjeNarudzbenice($faktura){
+        $narudzbenica_br = date("Y") . '-' . date("m") . '-'; //. $faktura->id;
+        switch (strlen($faktura->id)){
+            case 1:
+                $narudzbenica_br .= '0000' . $faktura->id;
+                break;
+            case 2:
+                $narudzbenica_br .= '000' . $faktura->id;
+                break;
+            case 3:
+                $narudzbenica_br .= '00' . $faktura->id;
+                break;
+            case 4:
+                $narudzbenica_br .= '0' . $faktura->id;
+                break;
+            default:
+                $narudzbenica_br .= $faktura->id;
+        }
+        // $faktura->update(['narudzbenica_br' => $narudzbenica_br]);
+        return $narudzbenica_br;
+    }
+
     public function insertStavke($request, $faktura) {
+        $ukupnaSuma = 0;
         foreach($request->stavke as $item){
             $proizvod = Proizvod::findOrFail($item['id']);
 
             $stavka = new Stavke;
-            // podaci iz korpe
             $stavka->fakture_id = $faktura->id;
+            // podaci iz korpe
             $stavka->proizvod_id = $item['id'];
             $stavka->gaziste = $request->gaziste;
             $stavka->pojedinacna_cena = $item['cena'];
@@ -99,8 +106,10 @@ class MainController extends Controller
             // podaci iz baze proizvoda
             $stavka->naziv_proizvoda = $proizvod->naziv;
             $stavka->boja = $proizvod->boja;
-            // return $proizvod;
             $stavka->save();
+
+            $ukupnaSuma += $stavka->ukupna_cena;
         }
+        return round($ukupnaSuma, 2);
     }
 }

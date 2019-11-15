@@ -89,7 +89,8 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
-				{{ isset($_GET['str']) ? $users->appends(['str' => $_GET['str'] ?? ''])->links() : $users->links() }}
+				{{ $users->appends(request()->input())->links() }}
+				{{-- {{ isset($_GET['str']) ? $users->appends(['str' => $_GET['str'] ?? ''])->links() : $users->links() }} --}}
 			</div>
 		</div>
 	</div>

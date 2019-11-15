@@ -65,7 +65,7 @@
           <tbody>
             @foreach ($fakture as $faktura)
             <tr>
-              <td><a href="/admin/detaljnije-fakture/{{ $faktura->id }}" style="text-decoration:none;" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
+              <td><a href="{{ route('admin.fakt.detaljnije', ['id' => $faktura->id]) }}" style="text-decoration:none;" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
               <td><a href="{{ route('detalji', ['user' => $faktura->user_id]) }}" style="text-decoration:none;" title="Detaljnije...">{{ $faktura->name }}</a></td>
               <td>{{ $faktura->first_name }} {{ $faktura->last_name }}</td>
               <td>{{ Carbon\Carbon::parse($faktura->created_at)->format('j. F Y.') }}</td>
@@ -74,14 +74,14 @@
               <td style="text-align:center;">{{ count($faktura->stavke) }}</td>
               <td>{{ $faktura->ukup_suma }} rsd</td>
               <td style="width:100px">
-                <form action="/admin/realizuj/{{ $faktura->id }}" method="post">
+                <form action="{{ route('admin.realizuj', ['faktura' => $faktura->id]) }}" method="post">
                   @csrf
                   @method('PUT')
                   <button class="btn btn-primary" onclick="return confirm('Potvrdi realizaciju narudžbenice?')" title="Markiraj narudžbinu kao realizovanu">Realizuj</button>
                 </form>
               </td>
               <td style="width:100px">
-                <form action="/admin/nerealizovane-fakture/{{ $faktura->id }}" method="post">
+                <form action="{{ route('admin.nereal.brisanje', ['faktura' => $faktura->id]) }}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš naružbinu?')" title="Sorniraj narudžbinu">Storniraj</button>

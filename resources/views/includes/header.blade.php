@@ -109,7 +109,20 @@
             font-weight: bold;
             transition:all 0.3s ease;
             }
-      
+      @media (max-width:900px) {
+        .header .header-cell{
+        line-height: 50px;
+        }
+      }
+
+      @media (max-width:618px) {
+        .header .header-cell{
+        line-height: 1.2em;
+        }
+        .header #logo2{
+          height: 110px; width: auto;
+      }
+      }
     </style>
 </head>
 

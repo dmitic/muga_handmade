@@ -64,7 +64,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          {{ $fakture->links()}}
+          {{ $users->appends(request()->input())->links() }}
         </div>
       </div>
     </div>

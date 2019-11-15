@@ -18,12 +18,12 @@ class FaktureUserController extends Controller
     public function index(){
         $fakture = Fakture::with('stavke')
             ->where('user_id', \Auth::user()->id)
-            ->orderBy('created_at', 'desc')->paginate(20);
+            ->orderBy('created_at', 'desc')->paginate(10);
         return view('user.fakture.fakture', compact('fakture'));
     }
 
     public function show($id){
-        $narudzbenica = Fakture::where('id', $id)->first();
+        $narudzbenica = Fakture::where('id', $id)->firstOrFail();
         $stavke = Stavke::where('fakture_id', $id)->get();
         return view('user.fakture.faktureDetailsUser', compact('stavke', 'narudzbenica'));
     }

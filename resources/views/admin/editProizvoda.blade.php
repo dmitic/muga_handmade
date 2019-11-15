@@ -19,7 +19,7 @@
             enctype="multipart/form-data">
             @method('PUT')
             @else
-            <form action="/admin/proizvodi/create" method="post" enctype="multipart/form-data">
+            <form action="{{ route('create') }}" method="post" enctype="multipart/form-data">
               @endif
               @csrf
               <div class="form-group row">

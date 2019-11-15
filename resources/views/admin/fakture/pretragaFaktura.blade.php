@@ -65,7 +65,7 @@
           <tbody>
             @foreach ($fakture as $faktura)
             <tr>
-              <td><a href="/admin/detaljnije-fakture/{{ $faktura->id }}" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
+              <td><a href="{{ route('admin.fakt.detaljnije', ['id' => $faktura->id]) }}" title="Detaljnije...">{{ $faktura->narudzbenica_br }}</a></td>
               <td><a href="{{ route('detalji', ['user' => $faktura->user_id]) }}" title="Detaljnije...">{{ $faktura->name }}</a></td>
               <td>{{ $faktura->first_name }} {{ $faktura->last_name }}</td>
               <td>{{ Carbon\Carbon::parse($faktura->created_at)->format('j. F Y.') }}</td>
@@ -80,7 +80,7 @@
               <td style="text-align:center;">{{ count($faktura->stavke) }}</td>
               <td>{{ $faktura->ukup_suma }} rsd</td>
               <td style="width:100px">
-                <form action="/admin/realizuj/{{ $faktura->id }}" method="post">
+                <form action="{{ route('admin.realizuj', ['faktura' => $faktura->id]) }}" method="post">
                   @csrf
                   @method('PUT')
                   @if ($faktura->completed_at)
@@ -92,10 +92,10 @@
               </td>
               <td style="width:100px">
                 @if (isset($_GET['str']))  
-                  <form action="/admin/realizovane-fakture-pretraga/{{ $faktura->id }}" method="post">
+                  <form action="{{ route('admin.pret.brisanje', ['faktura' => $faktura->id]) }}" method="post">
                   <input type="hidden" name="str" value="{{ $_GET['str'] }}">
                 @else 
-                  <form action="/admin/realizovane-fakture/{{ $faktura->id }}" method="post">
+                  <form action="{{ route('admin.pret.brisanje', ['faktura' => $faktura->id]) }}" method="post">
                 @endif
                   @csrf
                   @method('DELETE')
@@ -116,7 +116,8 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          {{ $fakture->appends(['str' => $_GET['str'] ?? ''])->links()}}
+          {{ $fakture->appends(request()->input())->links() }}
+          {{-- {{ $fakture->appends(['str' => $_GET['str'] ?? ''])->links()}} --}}
         </div>
       </div>
     </div>

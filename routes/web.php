@@ -16,7 +16,6 @@ Route::get('/json', 'MainController@json_response');
 Route::get('/korpa', 'MainController@index');
 Route::get('/detaljnije/{id}', 'MainController@show');
 Route::post('/posalji-narudzbenicu', 'MainController@create');
-// Route::post('/posalji-stavke', 'MainController@getDataStavke');
 
 Auth::routes();
 
@@ -54,15 +53,15 @@ Route::prefix('admin')->group(function () {
     Route::delete('/korisnici/{user}', 'KorisniciController@destroy')->name('brisi');
 
     // narudžbenice rute
+    Route::get('/pretraga-fakture', 'FaktureController@search');
     Route::get('/realizovane-fakture', 'FaktureController@index')->name('admin.fakture');
     Route::get('/nerealizovane-fakture', 'FaktureController@neRealizovaneIndex')->name('admin.neFakture');
-    Route::get('/pretraga-fakture', 'FaktureController@search');
     Route::put('/realizuj/{faktura}', 'FaktureController@realizuj')->name('admin.realizuj');
-    Route::delete('/realizovane-fakture/{faktura}', 'FaktureController@destroy');
-    Route::delete('/nerealizovane-fakture/{faktura}', 'FaktureController@destroyNerealizovane');
-    Route::delete('/realizovane-fakture-pretraga/{faktura}', 'FaktureController@destroyPretraga');
+    Route::delete('/realizovane-fakture/{faktura}/delete', 'FaktureController@destroy')->name('admin.real.brisanje');
+    Route::delete('/nerealizovane-fakture/{faktura}/delete', 'FaktureController@destroy')->name('admin.nereal.brisanje');
+    Route::delete('/fakture-pretraga/{faktura}/delete', 'FaktureController@destroy')->name('admin.pret.brisanje');
 
-    Route::get('/detaljnije-fakture/{id}', 'StavkeController@index');
+    Route::get('/detaljnije-fakture/{id}', 'StavkeController@show')->name('admin.fakt.detaljnije');
 
     // Promena šifre
     Route::get('/sifra/{user}', 'PromenaSifreController@indexAdmin')->middleware('testUserRole');
@@ -74,7 +73,7 @@ Route::prefix('user')->group(function () {
 
     Route::get('/', 'FaktureUserController@index')->middleware('auth');
 
-    Route::get('/detaljnije', 'UsersController@show')->name('detaljiUsers');
+    Route::get('/detaljnije', 'UsersController@index')->name('detaljiUsers');
     Route::get('/edit', 'UsersController@edit')->name('izmeniUser');
     Route::put('/edit', 'UsersController@update')->name('updateUser');
 

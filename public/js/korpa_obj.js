@@ -147,27 +147,27 @@ const korpa = {
       }
 
       // šalje podatke laravelu
-      // podaci o ulogovanom korisniku
-      let kupovina = JSON.parse(sessionStorage.getItem('korpa'));
       let napomena = document.querySelector('#napomena').value;
       let gaziste = document.querySelector("#gaziste").value;
+      let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
       axios({
             method: 'post',  
             url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
             data: {
               user_id: user_id,
               napomena_user: napomena,
-              ukup_suma: this.ukupanIznos().toFixed(2),
               gaziste: gaziste,
-              stavke: kupovina,
+              stavke: sveIzKorpe,
             }
         })
           .then(resp=> {
             poruke.poruka(resp.data.msg, resp.data.boja)
-            sessionStorage.removeItem('korpa');
-            document.querySelector('#proizvodi').innerHTML = '';
-            document.querySelector('#napomena').value = '';
-            this.napraviTabelu();
+            if (resp.data.boja === 'zeleno'){
+              sessionStorage.removeItem('korpa');
+              document.querySelector('#proizvodi').innerHTML = '';
+              document.querySelector('#napomena').value = '';
+              this.napraviTabelu();
+            }
             // console.log(resp.data);
           })
           .catch(err => {

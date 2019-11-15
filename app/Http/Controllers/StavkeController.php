@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class StavkeController extends Controller
 {
-    public function index($id){
+    public function show($id){
         $narudzbenica = Fakture::where('id', $id)->first();
         $stavke = Stavke::where('fakture_id', $id)->get();
         return view('admin.fakture.faktureDetails', compact('stavke', 'narudzbenica'));

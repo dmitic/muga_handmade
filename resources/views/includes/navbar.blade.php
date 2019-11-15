@@ -1,5 +1,5 @@
 <div class="header">
-        <div class="header-cell">
+        <div class="header-cell alignment">
             <ul>
                 <li><a class="nav-link font-color" href="#">O nama</a></li>
                 <li><a class="nav-link font-color" href="#">O Kontakt</a></li>

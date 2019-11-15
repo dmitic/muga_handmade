@@ -41,39 +41,37 @@ class KorisniciController extends Controller
             'zip' => 'required|max:20|regex:/^[0-9]+$/',
             'state' => 'required|max:255',
         ]);
-        DB::beginTransaction();
         try {
-            $user->update([
-                'name' => request()->name, 
-                'email' => request()->email,
-                'phone' => request()->phone,
-                'is_admin' => request()->is_admin,
-                ]);
-                
-            User_details::updateOrCreate([
-                'user_id' => $user->id
-            ],
-            [
-                'first_name' => request()->first_name,
-                'last_name' => request()->last_name,
-                'address' => request()->address,
-                'city' => request()->city,
-                'zip' => request()->zip,
-                'state' => request()->state,
-                ]);
+            DB::beginTransaction();
+                $user->update([
+                    'name' => request()->name, 
+                    'email' => request()->email,
+                    'phone' => request()->phone,
+                    'is_admin' => request()->is_admin,
+                    ]);
+                    
+                User_details::updateOrCreate([
+                    'user_id' => $user->id
+                ],
+                [
+                    'first_name' => request()->first_name,
+                    'last_name' => request()->last_name,
+                    'address' => request()->address,
+                    'city' => request()->city,
+                    'zip' => request()->zip,
+                    'state' => request()->state,
+                    ]);
 
             DB::commit();
-            return redirect(route('detalji', $user))
-                    ->withErrors(['poruka' => 'Podaci su izmenjeni!']);
+                return redirect(route('detalji', $user))
+                        ->withErrors(['poruka' => 'Podaci su izmenjeni!']);
+
         } catch (\Exception $e) {
             
             DB::rollback();
             return redirect()->back()
                     ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ' . $e->getMessage()]);
         }
-
-            
-        // return redirect(route('detalji', $user))->withErrors(['poruka' => $poruka]);
     }
 
     public function destroy(User $user){
@@ -82,7 +80,7 @@ class KorisniciController extends Controller
     }
     
     public function search(){
-        $str = htmlspecialchars($_GET['str']); 
+        $str = htmlspecialchars($_GET['str'] ?? ''); 
 
         $users = User::with('details')
                 ->where('name', 'like', '%' . $str . '%')

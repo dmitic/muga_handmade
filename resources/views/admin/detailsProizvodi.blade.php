@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-@error('poruka') 
-    <div class="row  text-center">
-      <div class="col-md-12">
-        <div class="alert alert-success">{{ $message }}</div>
-      </div>
-    </div>
-    @enderror
+@error('poruka')
+<div class="row  text-center">
+  <div class="col-md-12">
+    <div class="alert alert-success">{{ $message }}</div>
+  </div>
+</div>
+@enderror
 <div class="d-flex">
   <div class="col-md-12">
     <div class="col-md-5">
@@ -27,13 +27,15 @@
       <div class="input-group">Cena: <label>{{ $proizvod->cena }} din</label></div>
       <div class="input-group">Napomena: <label>{{ $proizvod->napomena }}</label></div>
       <hr>
-      <form action="/admin/proizvodi/{{$proizvod->id}}" method="post">
+      <form action="{{ route('brisiProizvod', ['proizvod' => $proizvod->id]) }}" method="post">
         @csrf
         @method('DELETE')
-        <a href="/admin/proizvodi/" class="btn btn-default" title="Nazad na listu proizvoda">Nazad na listu proizvoda</a>
+        <a href="/admin/proizvodi/" class="btn btn-default" title="Nazad na listu proizvoda">Nazad na listu
+          proizvoda</a>
         <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-default"
           title="Izmeni proizvod">Izmeni</a>
-        <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš proizvod?')" title="Obriši proizvod">Obriši</button>
+        <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obišeš proizvod?')"
+          title="Obriši proizvod">Obriši</button>
       </form>
     </div>
     <div class="col-md-7 mt-5">
@@ -44,7 +46,9 @@
           <form action="{{ route('obrisiSliku', ['slika' => $slika]) }}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger btn-block" onclick="return confirm('Da li si siguran da želiš da obišeš sliku?')" title="Obriši sliku">Obriši sliku</button>
+            <button class="btn btn-danger btn-block"
+              onclick="return confirm('Da li si siguran da želiš da obišeš sliku?')" title="Obriši sliku">Obriši
+              sliku</button>
           </form>
         </p>
       </div>

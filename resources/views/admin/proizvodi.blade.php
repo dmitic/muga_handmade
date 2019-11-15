@@ -67,9 +67,9 @@
         <tbody>
           @foreach ($proizvodi as $proizvod)
           <tr>
-            <td><a href="/admin/proizvodi/{{ $proizvod->id }}" style="text-decoration:none;" title="Detaljnije....">{{ $proizvod->naziv }}</a></td>
+            <td><a href="{{ route('proizvodDetaljnije', ['proizvod' => $proizvod->id]) }}" style="text-decoration:none;" title="Detaljnije....">{{ $proizvod->naziv }}</a></td>
             <td style="width:250px;">
-              <a href="/admin/proizvodi/{{ $proizvod->id }}" style="text-decoration:none;" title="Detaljnije....">
+              <a href="{{ route('proizvodDetaljnije', ['proizvod' => $proizvod->id]) }}" style="text-decoration:none;" title="Detaljnije....">
                 @foreach ($proizvod->slike as $slika)
                 <img src="/images/{{$slika->slika }}" alt="{{ $proizvod->naziv }}" class="mala_slika">
                 @endforeach
@@ -84,7 +84,8 @@
             <td>{{ $proizvod->cena }} din</td>
             <td>{{ $proizvod->napomena }}</td>
             <td style="text-align:center; width:180px;">
-              <form action="/admin/proizvodi/{{$proizvod->id}}" method="post">
+              <form action="{{ route('brisiProizvod', ['proizvod' => $proizvod->id]) }}" method="post">
+              {{-- <form action="/admin/proizvodi/{{$proizvod->id}}" method="post"> --}}
                 @csrf
                 @method('DELETE')
                 <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-primary"
@@ -107,7 +108,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        {{ isset($_GET['str']) ? $proizvodi->appends(['str' => $_GET['str'] ?? ''])->links() : $proizvodi->links() }}
+        {{ isset($_GET['str']) ? $proizvodi->appends(request()->input())->links() : $proizvodi->links() }}
       </div>
     </div>
   </div>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use File;
 use App\Slike;
 use App\Proizvod;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Filesystem;
+use Helper;
 
 class ProizvodController extends Controller
 {
@@ -45,12 +45,12 @@ class ProizvodController extends Controller
             'cena' => 'required|max:10',
         ]));
 
-        return $this->dodajSliku($proizvod)
+        return Helper::dodajSliku($proizvod)
                     ->withErrors(['poruka' => 'Proizvod je uspešno dodat/izmenjen.']);
     }
 
     public function dodajSlikuPojedinacno(Proizvod $proizvod){
-        return $this->dodajSliku($proizvod)
+        return Helper::dodajSliku($proizvod)
                     ->withErrors(['poruka' => 'Slika je uspešno dodata.']);
     }
 
@@ -66,7 +66,7 @@ class ProizvodController extends Controller
 
         // brisanje praznog foldera
         $FileSystem = new Filesystem();
-        $tmp = $this->filterZaKaraktere($proizvod->naziv);
+        $tmp = Helper::filterZaKaraktere($proizvod->naziv);
         $directory = public_path() . '\images\\' . $tmp;
         if ($FileSystem->exists($directory)) {
             $files = $FileSystem->files($directory);
@@ -78,7 +78,7 @@ class ProizvodController extends Controller
     }
 
     public function search(){
-        $str = htmlspecialchars($_GET['str']); 
+        $str = htmlspecialchars($_GET['str'] ?? ''); 
 
         $proizvodi = Proizvod::with('slike')
             ->where('naziv', 'like', '%' . $str . '%')
@@ -93,34 +93,5 @@ class ProizvodController extends Controller
             ->paginate(10);
 
         return view('admin.proizvodi', compact('proizvodi'));
-    }
-
-    public function filterZaKaraktere($str){
-
-        $filtrirano = str_replace('-', '', $str);
-        $filtrirano = str_replace(' ', '_', $filtrirano);
-        $filtrirano = str_replace('#', '', $filtrirano);
-        $filtrirano = str_replace('"', '', $filtrirano);
-        $filtrirano = str_replace('š', 's', $filtrirano);
-        $filtrirano = str_replace('Ž', 'z', $filtrirano);
-        $filtrirano = str_replace('č', 'c', $filtrirano);
-
-        return $filtrirano;
-    }
-
-    public function dodajSliku($proizvod){
-        $imeSlike = time() . '_' . str_replace(' ', '_', $_FILES["slika"]["name"]);
-        $imgTnmName = $_FILES["slika"]["tmp_name"];
-        $imagePath = 'images/';
-        $tmpDir = $this->filterZaKaratere($proizvod->naziv);
-
-        $path = public_path() . '/' . $imagePath . $tmpDir;
-        File::makeDirectory($path, $mode = 0777, true, true);
-
-        if($imgTnmName !== '') {
-            Slike::insert(['proizvod_id' =>  $proizvod->id , 'slika' => $tmpDir . '/' . $imeSlike]);
-            move_uploaded_file($imgTnmName, $path . '/' . $imeSlike);
-        }
-        return redirect(route('proizvodDetaljnije', $proizvod));
     }
 }
