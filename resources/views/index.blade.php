@@ -13,7 +13,7 @@
 @endsection
 
 @section('indeksLogo')
-<link href="{{ asset('/css/velikiLogo.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/velikiLogo.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
