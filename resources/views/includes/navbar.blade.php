@@ -8,7 +8,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse navbar-light " id="navbarNavDropdown">
-                    <ul class="navbar-nav  ">
+                    <ul class="navbar-nav">
+                        @yield('pocetna-link')
                         <li class="nav-item nav-cell ">
                             <a class="nav-link font-color" href="{{ url('/') }}#text-about">O&nbspnama</a>
                         </li>

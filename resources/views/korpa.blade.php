@@ -4,6 +4,12 @@
   <link href="{{ asset('/css/header-footer.css') }}" rel="stylesheet">
 @endsection
 
+@section('pocetna-link')
+  <li class="nav-item nav-cell ">
+    <a class="nav-link font-color" href="{{ url('/') }}#start-section">Početna&nbspstrana</a>
+  </li>
+@endsection
+
 @section('content')
   <div class="d-flex justify-content-center">
     <script>
