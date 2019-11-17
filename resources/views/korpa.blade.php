@@ -33,8 +33,8 @@
                   });
           </script>
           <span id="tuts" class="col-mb-3">
-              <a href="#" class="badge badge-light" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a>
-              {{-- <a href="#" class="btn btn-link" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a> --}}
+              {{-- <a href="#" class="badge badge-light" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a> --}}
+              <a href="#" class="card-link" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a>
             </span>
       </div>
       
