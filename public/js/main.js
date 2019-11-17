@@ -1,9 +1,3 @@
-// const formatiranje = new Intl.NumberFormat("sr-SR", {
-//     minimumFractionDigits: 2
-// });
-
-// console.log(user_id);
-
 const proizvodi = {
     prikaziProizvod: function(proizvod) {
         const div = `

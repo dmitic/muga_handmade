@@ -21,7 +21,11 @@ li {
 }
 
 /**************** moj dodatak ***************/
-
+.content{
+    background-color: #DCD9D0;
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+    padding: 2em;
+  }
 
 .font_size {
     font-size: 1rem !important;

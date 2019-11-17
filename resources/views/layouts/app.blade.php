@@ -2,13 +2,13 @@
 
 @include('includes.navbar')
 
-    <main>
+<main>
     {{-- <main class="py-4"> --}}
-        
+    <div class="content">
         @yield('content')
+    </div>
+    @yield('prikazi-about')
 
-        @yield('prikazi-about')
+</main>
 
-    </main>
-    
 @include('includes.footer')
