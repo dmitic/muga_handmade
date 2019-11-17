@@ -1,0 +1,254 @@
+html,
+body {
+    width: 100%;
+    /* width: calc(100% - 15px); */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ol,
+ul,
+li {
+    list-style-type: none;
+}
+
+.font_size {
+    font-size: 1rem !important;
+    padding: 0 15px;
+}
+
+/***** Footer deo *******/
+.footer {
+    background-color: silver;
+    text-align: center;
+    padding-bottom: 1em;
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623),
+        inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+    color: rgb(82, 79, 79) !important;
+}
+p a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.footer-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 2em;
+}
+.footer-cell {
+    /* border: 1px solid black; */
+    flex-basis: 400px;
+    text-align: left;
+}
+.bottom-line {
+    border-bottom: 2px solid rgb(82, 79, 79);
+    padding-bottom: 1em;
+}
+.footer-cell h6 {
+    margin: 1.5em 1em 1em;
+    font-size: 1.7em;
+}
+.footer-cell p {
+    padding: 0 2em;
+}
+.footer-cell a,
+.footer a {
+    color: rgb(82, 79, 79) !important;
+}
+.footer div:last-child {
+    width: 100%;
+}
+
+/***** Header deo *****/
+.pozadina {
+    background-image: url("photos/pozadina2.jpg");
+    height: 100%;
+
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623),
+        inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+}
+
+#logo2 {
+    border-radius: 50%;
+    opacity: 0.8;
+    /* box-shadow: 0px 30px 49px 20px rgba(0,0,0,0.66); */
+    /* box-shadow: 0px 30px 49px 20px rgb(126, 112, 105);
+    -webkit-box-shadow: 0px 30px 49px 20px rgb(126, 112, 105);
+    -moz-box-shadow: 0px 30px 49px 20px rgb(126, 112, 105); */
+}
+
+.logo {
+    margin: 0 auto;
+    width: auto;
+}
+
+.kolekcija {
+    height: 200px;
+    width: 200px;
+    width: 200px;
+}
+
+.font-color {
+    color: gray !important;
+}
+
+.header {
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    color: gray !important;
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623),
+        inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+    background-color: rgba(192, 192, 192, 0.589);
+}
+
+.header ul li,
+.header ul,
+.header .logo,
+.header .header-cell {
+    display: inline-block;
+}
+
+.header #logo2 {
+    height: 150px;
+    width: auto;
+}
+
+.header .header-cell {
+    width: 400px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 1.2em;
+}
+
+.header-cell a,
+.footer a {
+    color: rgb(82, 79, 79) !important;
+}
+
+li a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+/**************************************************/
+/******* novi index ******/
+.container-fluid {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row .filters {
+    background-color: rgb(199, 192, 183)
+  }
+
+  .row .products {
+    /* background-color: rgb(231, 228, 223) */
+  }
+
+  a.further {
+    background-color: rgb(199, 192, 183);
+    border: none;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  #inp,
+  #minCena,
+  #maxCena,
+  #btnMinCena,
+  #btnMaxCena,
+  #btnIme,
+  #boja,
+  #sezona,
+  #duzGaz,
+  #pol,
+  #polje,
+  #sort {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid rgb(146, 146, 146);
+    ;
+    border-radius: 3px;
+  }
+
+  #polje,
+  #sort {
+    width: 44%;
+  }
+
+  #filter {
+    position: sticky;
+    top: 0;
+    background-color: rgb(231, 228, 223);
+    border: 1px solid rgb(146, 146, 146);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 100%;
+    padding: 30px 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  hr { margin: 3px 15px 12px; }
+/**************************************************/
+@media (max-width: 1200px) {
+    .footer-cell {
+        flex-basis: 300px;
+    }
+}
+@media (max-width: 900px) {
+    .footer-cell {
+        flex-basis: 250px;
+        font-size: 0.9em;
+    }
+    .footer-cell h6 {
+        font-size: 1.2em;
+    }
+    .footer-cell div:last-child {
+        width: 100%;
+    }
+    .header .header-cell {
+        line-height: 50px;
+    }
+}
+@media (max-width: 750px) {
+    .footer-cell {
+        flex-basis: 400px;
+        text-align: center;
+        font-size: 1em;
+    }
+    .footer-cell h6 {
+        font-size: 1.5em;
+    }
+}
+/*************************************************/
+@media (max-width: 693px) {
+    .header .header-cell {
+        line-height: 1.2em;
+    }
+
+    .header #logo2 {
+        height: 110px;
+        width: auto;
+    }
+}
+
+

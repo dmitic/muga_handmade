@@ -1,0 +1,9 @@
+#start-section {
+  background-image: url("../photos/pozadina2.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623),
+      inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+}

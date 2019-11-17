@@ -16,7 +16,7 @@ const proizvod = {
         div.className = "proizvod-detaljnije row col-md-12";
 
         // za carousel
-        let carousel = `<div class="col-md-6"><div class="row d-flex justify-content-center">
+        let carousel = `<div class="col-md-6"><div class="d-flex justify-content-center">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:600px;">
             <div class="carousel-inner" style="max-height:800px; max-width:600px;">`
             

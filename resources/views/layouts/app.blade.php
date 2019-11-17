@@ -1,9 +1,14 @@
-@include('includes.header')
+@include('includes.head')
 
 @include('includes.navbar')
 
-    <main class="py-4">
+    <main>
+    {{-- <main class="py-4"> --}}
+        
         @yield('content')
+
+        @yield('prikazi-about')
+
     </main>
     
 @include('includes.footer')

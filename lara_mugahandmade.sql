@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 08:57 PM
+-- Generation Time: Nov 17, 2019 at 03:08 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -61,6 +61,14 @@ CREATE TABLE `fakture` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `fakture`
+--
+
+INSERT INTO `fakture` (`id`, `narudzbenica_br`, `user_id`, `name`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `napomena_user`, `napomena_admin`, `ukup_suma`, `completed_at`, `created_at`, `updated_at`) VALUES
+(2, '2019-11-00002', 1, 'dmitic', 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', 'asd asd asd asd', NULL, '9781.80', '2019-11-17 10:44:18', '2019-11-17 10:44:09', '2019-11-17 10:44:18'),
+(3, '2019-11-00003', 1, 'dmitic', 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', 'fbd yghfjzfh kjkxgh', NULL, '7781.80', NULL, '2019-11-17 10:56:04', '2019-11-17 10:56:04');
 
 -- --------------------------------------------------------
 
@@ -202,6 +210,15 @@ CREATE TABLE `stavke` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `stavke`
+--
+
+INSERT INTO `stavke` (`id`, `fakture_id`, `proizvod_id`, `naziv_proizvoda`, `boja`, `gaziste`, `pojedinacna_cena`, `kolicina`, `ukupna_cena`, `created_at`, `updated_at`) VALUES
+(3, 2, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '22.5', '3890.90', 1, '3890.90', '2019-11-17 10:44:09', '2019-11-17 10:44:09'),
+(4, 2, 7, 'W06 – Ženske čizme poluduboke', 'Siva', '22.5', '5890.90', 1, '5890.90', '2019-11-17 10:44:09', '2019-11-17 10:44:09'),
+(5, 3, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '28.0', '3890.90', 2, '7781.80', '2019-11-17 10:56:04', '2019-11-17 10:56:04');
+
 -- --------------------------------------------------------
 
 --
@@ -226,7 +243,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@admin.com', NULL, '$2y$10$YvL46X/bqROIgarYHolYgOOklO7WU9kGrYZM4XYhuYSfe.cK7RyXu', 1, '12345678', NULL, '2019-11-15 18:56:19', '2019-11-15 18:56:19');
+(1, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$YvL46X/bqROIgarYHolYgOOklO7WU9kGrYZM4XYhuYSfe.cK7RyXu', 1, '0694490641', NULL, '2019-11-15 18:56:19', '2019-11-16 11:00:31');
 
 -- --------------------------------------------------------
 
@@ -246,6 +263,13 @@ CREATE TABLE `user_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`id`, `user_id`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', '2019-11-16 11:00:31', '2019-11-16 11:00:31');
 
 --
 -- Indexes for dumped tables
@@ -323,7 +347,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `fakture`
 --
 ALTER TABLE `fakture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -341,13 +365,13 @@ ALTER TABLE `proizvodi`
 -- AUTO_INCREMENT for table `slike`
 --
 ALTER TABLE `slike`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `stavke`
 --
 ALTER TABLE `stavke`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -359,7 +383,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

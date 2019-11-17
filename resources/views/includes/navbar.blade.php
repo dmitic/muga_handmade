@@ -1,60 +1,67 @@
-<div class="header">
-        <div class="header-cell alignment">
-            <ul>
-                <li><a class="nav-link font-color" href="#">O nama</a></li>
-                <li><a class="nav-link font-color" href="#">Kontakt</a></li>
-                <li><a class="nav-link font-color" href="#">Kolekcija</a></li>
-            </ul>
-
+<!-- first section start-->
+<div id="start-section">
+    <div id="start-nav" class="row container-fluid text-uppercase font-weight-bolder">
+        <div class="col-4 d-flex justify-content-start ">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navbar-light " id="navbarNavDropdown">
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item nav-cell ">
+                            <a class="nav-link font-color" href="{{ url('/') }}#text-about">O&nbspnama</a>
+                        </li>
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="{{ url('/') }}#contact">Kontakt</a>
+                        </li>
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="{{ url('/') }}#shoes-collection">Kolekcija</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <div class="logo header-cell">
-            <a href="{{ url('/') }}"><img src="/photos/logo2.jpg" id='logo2' alt="Responsive image"></a>
-        </div>
-        <div class="header-cell">
-            <ul>
-                <li class="nav-item">
-                        <a href="/korpa" class="nav-link" id="korpa">Korpa</a>
-                    </li>
-                @guest
-                    <!-- Authentication Links -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Uloguj se') }}</a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registruj se') }}</a>
-                </li>
-                @endif
-                @else
-                <li class="nav-item dropdown" style="line-height:1.2em">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="$" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" style="line-height:1.2em" aria-labelledby="navbarDropdown">
-                        @if (Auth::user()->is_admin)
-                        <a class="dropdown-item" href="admin/detalji/{{ Auth::user()->id}}"><i
-                                class="fa fa-fw fa-user"></i> Profile</a>
-                        @else
-                        <a class="dropdown-item" href="user/detaljnije"><i class="fa fa-fw fa-user"></i>
-                            Profile</a>
+        <div class="col-4 d-flex justify-content-center">
+            <a href="{{ url('/') }}#start-section"><img src="/photos/logo2.jpg" id='logo2' alt="Responsive image"></a>
+        </div>
+
+        <div class="col-4 d-flex justify-content-end">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item nav-cell">
+                            <a href="/korpa" class="nav-link font-color" id="korpa">Korpa</a>
+                        </li>
+                        @guest
+                        <!-- Authentication Links -->
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="{{ route('login') }}">{{ __('Uloguj se') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="{{ route('register') }}">{{ __('Registruj se') }}</a>
+                        </li>
                         @endif
-
-                        <a class="dropdown-item" href="/cp">Kontrolni panel</a>
-
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                            style="display: none;">
+                        @else
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="/cp">Kontrolni panel</a>
+                        </li>
+                        <li class="nav-item nav-cell">
+                            <a class="nav-link font-color" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('Izloguj se') }}
+                            </a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </div>
-                </li>
-                @endguest
-            </ul>
+                        @endguest
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
+</div>
+<!-- first section end-->

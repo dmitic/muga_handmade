@@ -65,8 +65,8 @@ class UsersController extends Controller
             } catch (\Exception $e) {
                 
                 DB::rollback();
-                return redirect()->back()
-                        ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ']);
+                    return redirect()->back()
+                            ->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo! ']);
             }
     }
 }

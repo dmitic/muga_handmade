@@ -4,76 +4,17 @@ a {text-decoration: none;}
 ol, ul, li {list-style-type: none;}
 
 
-.footer{
-background-color: silver;
-text-align: center;
-padding-bottom:1em;
-box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+#logo2{
+  box-shadow: none;
+}
+#start-nav{
+  background-color: #DCD9D0;
+  box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
 color:rgb(82, 79, 79) !important;
 }
-p a:hover{
-text-decoration: none;
-font-weight: bold;
-transition:all 0.3s ease;
-}
-.footer-flex{
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-padding-bottom:2em;
-}
-.footer-cell{
-/* border: 1px solid black; */
-flex-basis: 400px;
-text-align: left;
-}
-.bottom-line{
-border-bottom: 2px solid rgb(82, 79, 79);
-padding-bottom: 1em;
-}
-.footer-cell h6{
-margin:1.5em 1em 1em;
-font-size: 1.7em;
-}
-.footer-cell p{
-padding:0 2em;
-}
-.footer-cell a, .footer a{
-color:rgb(82, 79, 79) !important;
-}
-.footer div:last-child{
-width: 100%;
-}
 
-  
-@media (max-width: 1200px){
-.footer-cell{
-    flex-basis: 300px;
-  }
-}
-@media (max-width: 900px){
-.footer-cell{
-    flex-basis: 250px;
-  font-size: 0.9em;
-
-  }
-.footer-cell h6{
-  font-size: 1.2em;
-
-}
-.footer-cell div:last-child{
-    width:100%;
-  }
-}
-@media (max-width: 750px){
-.footer-cell{
-    flex-basis: 400px;
-    text-align: center;
-    font-size: 1em;
-
-  }
-  .footer-cell h6{
-  font-size: 1.5em;
-
-}
+.content{
+  background-color: #DCD9D0;
+  box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+  padding: 2em;
 }

@@ -138,7 +138,7 @@ const korpa = {
     tabelaKorpa.append(trTotal);
     
     const btnNaruci = document.createElement('button');
-    btnNaruci.className = "btnNaruci";
+    btnNaruci.className = "btnNaruci mb-3";
     btnNaruci.textContent = "Naruči";
     btnNaruci.addEventListener('click', () => {
       if(user_id === -1){
@@ -146,37 +146,41 @@ const korpa = {
         return;
       }
 
-      // šalje podatke laravelu
-      let napomena = document.querySelector('#napomena').value;
-      let gaziste = document.querySelector("#gaziste").value;
-      let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
-      axios({
-            method: 'post',  
-            url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
-            data: {
-              user_id: user_id,
-              napomena_user: napomena,
-              gaziste: gaziste,
-              stavke: sveIzKorpe,
-            }
-        })
-          .then(resp=> {
-            poruke.poruka(resp.data.msg, resp.data.boja)
-            if (resp.data.boja === 'zeleno'){
-              sessionStorage.removeItem('korpa');
-              document.querySelector('#proizvodi').innerHTML = '';
-              document.querySelector('#napomena').value = '';
-              this.napraviTabelu();
-            }
-            // console.log(resp.data);
+      if (this.prikaziKorpu().length !== 0) {
+        // šalje podatke laravelu
+        let napomena = document.querySelector('#napomena').value;
+        let gaziste = document.querySelector("#gaziste").value;
+        let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
+        axios({
+              method: 'post',  
+              url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
+              data: {
+                user_id: user_id,
+                napomena_user: napomena,
+                gaziste: gaziste,
+                stavke: sveIzKorpe,
+              }
           })
-          .catch(err => {
-            poruke.poruka('Došlo je do greške!', 'crveno');
-            console.log(err);
-          })
+            .then(resp=> {
+              poruke.poruka(resp.data.msg, resp.data.boja)
+              if (resp.data.boja === 'zeleno'){
+                sessionStorage.removeItem('korpa');
+                document.querySelector('#proizvodi').innerHTML = '';
+                document.querySelector('#napomena').value = '';
+                this.napraviTabelu();
+              }
+              // console.log(resp.data);
+            })
+            .catch(err => {
+              poruke.poruka('Došlo je do greške!', 'crveno');
+              console.log(err);
+            })
+        } else {
+          poruke.poruka('Korpa je prazna!', 'crveno');
+        }
     });
 
-
+  
     div.append(tabelaKorpa, btnNaruci);
   }
 }

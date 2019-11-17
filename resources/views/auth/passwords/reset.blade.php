@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('header-footer')
+  <link href="{{ asset('/css/header-footer.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container marginForme">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
+@section('header-footer')
+  <link href="{{ asset('/css/header-footer.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
+  <div class="d-flex justify-content-center">
     <script>
       document.addEventListener('DOMContentLoaded', ()=>{
             korpa.napraviTabelu();
         });
     </script>
-    <div class="container">
+    <div class="container-fluid container-korpa">
       <div id="proizvodi"></div>
       @if (Auth::check())
       <div id="selekt" class="col-mb-3">
@@ -38,5 +41,4 @@
         <p>Napomena:</p>
         <textarea name="napomena" id="napomena" class="txtAreaKorpa"></textarea>  
       @endif
-</div>
 @endsection
