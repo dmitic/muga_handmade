@@ -7,34 +7,26 @@ const proizvod = {
     },
 
     odabranProizvod: function(proizvod) {
-        // console.log(proizvod);
-
-        // const divRow = document.createElement("div");
-        // divRow.className = "row";
-
         const div = document.createElement("div");
         div.className = "proizvod-detaljnije row col-md-12";
 
         // za carousel
         let carousel = `<div class="col-md-6"><div class="d-flex justify-content-center">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:600px;">
+        <div id="carouselSlike" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:600px;">
             <div class="carousel-inner" style="max-height:800px; max-width:600px;">`
-            
+            // proizvod.slike = proizvod.slike.length !== 0 ? proizvod.slike : [{slika: 'no-image.png'}]; // ružno izgleda ova slika na pozadini ako nađemo lepšu odkomentarisati
             proizvod.slike.forEach((slika, ind)=>{
-                if (ind === 0)
-                    carousel += `<div class="carousel-item active">`;
-                else
-                    carousel += `<div class="carousel-item">`;
+                carousel += ind === 0 ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
                 carousel +=`<img src='/images/${slika.slika}' class="d-block w-100 img-responsive" style="max-height:800px; max-width:800px;" alt="...">
                 </div>`
             })
-            
+
             carousel += `</div>
-            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselSlike" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselSlike" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -42,12 +34,6 @@ const proizvod = {
             </div></div>`;
 
         div.innerHTML = carousel;
-
-        // const img = document.createElement('img');
-        // img.src = `/images/${proizvod.slike[0].slika}`;
-        // img.alt = `${proizvod.naziv}`;
-        // img.className = 'slika-velika';
-        // div.append(img);
 
         const divDesni = document.createElement("div");
         divDesni.className = "col-md-6";
@@ -68,26 +54,18 @@ const proizvod = {
                         tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
                                 'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
                                 tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
-            //   (naziv === 'napomena') ? 
-            //             tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
-            //                     'Trenutno nema napomene' : proizvod[naziv]}</strong>` : 
-            //                     tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
-
               tr.append(tdKey);
               tr.append(tdValue)
               tabela.append(tr);
             }
         }
-
         divDesni.append(tabela);
-        // div.append(tabela);
 
         const kupi = document.createElement("button");
         kupi.className = "btnKupi";
         kupi.textContent = "Kupi";
         kupi.addEventListener("click", () => {
           if(user_id === -1){
-            // alert("Morate biti ulogovani da bi dodali proizvod u korpu!");
             poruke.poruka("Morate biti ulogovani da bi dodali proizvod u korpu!", "crveno");
             return;
           }
@@ -100,9 +78,6 @@ const proizvod = {
             )} din`;
         });
         divDesni.append(kupi);
-
-        // divDesni.append(div);
-
         div.append(divDesni);
         return div;
     },
@@ -116,5 +91,3 @@ const proizvod = {
         }
     }
 };
-
-// proizvod.prikazi(proizvod.nadji_ID(2));

@@ -31,6 +31,6 @@ class SlikeController extends Controller
             }
         }
 
-        return back()->withErrors(['poruka' => 'Slika je uspešno obrisana.']);
+        return back()->withErrors(['poruka' => 'Slika je uspešno obrisana.', 'bojaStatus' => 'success']);
     }
 }

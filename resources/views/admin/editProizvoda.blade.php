@@ -1,11 +1,11 @@
 @extends('admin.layout.app')
 
 @section('page-header')
-@if ($proizvod->naziv)
-<h3 class="page-header">Izmena proizvoda: {{ $proizvod->naziv }}</h3>
-@else
-<h3 class="page-header">Dodavanje novog proizvoda</h3>
-@endif
+  @if ($proizvod->naziv)
+    <h3 class="page-header">Izmena proizvoda: {{ $proizvod->naziv }}</h3>
+  @else
+    <h3 class="page-header">Dodavanje novog proizvoda</h3>
+  @endif
 @endsection
 
 @section('content')
@@ -170,6 +170,12 @@
                   <label for="file-upload" class="custom-file-upload"><i class="fa fa-cloud-upload"></i> Odaberi sliku
                     za proizvod</label>
                   <input id="file-upload" name="slika" type="file" />
+                  <small class="text-danger">
+                      @error('slika')
+                        <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+                        {{ $message }}
+                      @enderror
+                    </small>
                   <p class="help-block">Izaberi sliku proizvoda</p>
                 </div>
               </div>

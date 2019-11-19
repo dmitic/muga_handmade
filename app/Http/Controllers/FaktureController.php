@@ -22,11 +22,6 @@ class FaktureController extends Controller
         return view('admin.fakture.realizovane', compact('fakture'));
     }
 
-    public function realizuj(Fakture $faktura){
-        $faktura->update([ 'completed_at' => now() ]);
-        return back()->withErrors(['poruka' => 'Narudžbenica je realizovana!']);
-    }
-
     // vraća samo nerealizovane fakture
     public function neRealizovaneIndex(){
         $fakture = Fakture::with('stavke')
@@ -56,4 +51,10 @@ class FaktureController extends Controller
         $faktura->delete();
         return back()->withErrors(['poruka' => 'Narudžbenica je obrisana!']);
     }
+
+    public function realizuj(Fakture $faktura){
+        $faktura->update([ 'completed_at' => now() ]);
+        return back()->withErrors(['poruka' => 'Narudžbenica je realizovana!']);
+    }
+
 }

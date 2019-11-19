@@ -68,25 +68,17 @@ class MainController extends Controller
         return $faktura;
     }
 
+    // formatiranje broja narudžbenice
     public function formatiranjeNarudzbenice($faktura){
         $narudzbenica_br = date("Y") . '-' . date("m") . '-'; //. $faktura->id;
-        switch (strlen($faktura->id)){
-            case 1:
-                $narudzbenica_br .= '0000' . $faktura->id;
-                break;
-            case 2:
-                $narudzbenica_br .= '000' . $faktura->id;
-                break;
-            case 3:
-                $narudzbenica_br .= '00' . $faktura->id;
-                break;
-            case 4:
-                $narudzbenica_br .= '0' . $faktura->id;
-                break;
-            default:
-                $narudzbenica_br .= $faktura->id;
+        
+        $tmpLen = strlen($faktura->id);
+        while ($tmpLen < 5){
+            $narudzbenica_br .= '0'; 
+            $tmpLen++;
         }
-        // $faktura->update(['narudzbenica_br' => $narudzbenica_br]);
+        $narudzbenica_br .= $faktura->id;
+
         return $narudzbenica_br;
     }
 

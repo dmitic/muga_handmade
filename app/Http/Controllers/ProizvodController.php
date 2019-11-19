@@ -31,6 +31,10 @@ class ProizvodController extends Controller
 
     public function create(Proizvod $proizvod){
         // snimanje/update proizvoda u bazu i validacija
+        request()->validate([
+            'slika' => 'image|nullable',
+        ]);
+
         $proizvod = Proizvod::updateOrCreate(['id' => $proizvod->id], request()->validate([
             'naziv' => 'required|max:255',
             'tip_obuce' => 'required|max:255',
@@ -46,12 +50,12 @@ class ProizvodController extends Controller
         ]));
 
         return Helper::dodajSliku($proizvod)
-                    ->withErrors(['poruka' => 'Proizvod je uspešno dodat/izmenjen.']);
+                    ->withErrors(['poruka' => 'Proizvod je uspešno dodat/izmenjen.', 'bojaStatus' => 'success']);
     }
 
     public function dodajSlikuPojedinacno(Proizvod $proizvod){
-        return Helper::dodajSliku($proizvod)
-                    ->withErrors(['poruka' => 'Slika je uspešno dodata.']);
+        return Helper::dodajSliku($proizvod);
+                    // ->withErrors(['poruka' => 'Slika je uspešno dodata.']);
     }
 
     public function destroy(Proizvod $proizvod){

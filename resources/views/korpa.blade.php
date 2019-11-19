@@ -14,7 +14,11 @@
   <div class="d-flex justify-content-center">
     <script>
       document.addEventListener('DOMContentLoaded', ()=>{
+        // if (korpa.prikaziKorpu().length !== 0) {
             korpa.napraviTabelu();
+        // } else {
+        //   document.querySelector('#proizvodi').innerHTML = `<h2>Prazno</h2>`;
+        // }
         });
     </script>
     <div class="container-fluid container-korpa">
@@ -23,6 +27,7 @@
       <div id="selekt" class="col-mb-3">
         Dužina gazišta:
           <script>
+            
             const duzine = ["0","20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5", "31", "31.5", "32", "32.5", "33", "33.5", "34", "34.5", "35"];
             const selectList = document.createElement("select");
                   selectList.id = "gaziste";
@@ -37,6 +42,7 @@
                       option.text = duzine[ind] + " cm";
                       selectList.appendChild(option);
                   });
+            
           </script>
           <span id="tuts" class="col-mb-3">
               {{-- <a href="#" class="badge badge-light" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a> --}}

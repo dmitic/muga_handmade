@@ -57,7 +57,8 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => ':attribute mora biti validna, dozvoljeni formati su: jpg, jpeg, png, bmp i tiff.',
+    // 'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -171,6 +172,7 @@ return [
         'djon' => 'Đon',
         'sezona' => 'Sezona',
         'cena' => 'Cena',
+        'slika' => 'Slika',
 
         'current_password' => 'Važeća šifra',
         'new_password' => 'Nova šifra',

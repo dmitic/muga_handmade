@@ -5,13 +5,19 @@
 @endsection
 
 @section('content')
-@error('poruka')
+
+{{-- prikazivanja greške/statusa dodavanja/brisanja ili čega već --}}
+@if(!$errors->isEmpty())
+@php
+    $greske = $errors->default->toArray();
+@endphp
 <div class="row  text-center">
   <div class="col-md-12">
-    <div class="alert alert-success">{{ $message }}</div>
+    <div class="alert alert-{{$greske['bojaStatus'][0]}}">{{$greske['poruka'][0]}}</div>
   </div>
 </div>
-@enderror
+@endif
+
 <div class="d-flex">
   <div class="col-md-12">
     <div class="col-md-5">

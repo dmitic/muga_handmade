@@ -1,5 +1,6 @@
 const proizvodi = {
     prikaziProizvod: function(proizvod) {
+        let slika = (proizvod.slike.length > 0) ? proizvod.slike[0].slika : 'no-image.png';
         const div = `
         <div class="col-9 col-sm-6 col-md-6 col-lg-4 p-2 d-flex align-items-stretch">
             <div class="card p-md-2 p-sm-1">
@@ -7,8 +8,8 @@ const proizvodi = {
                 proizvod.id
             )}" class="card-link ">
               <img src="images/${
-                  proizvod.slike[0].slika
-              }" class="card-img-top" alt="${proizvod.naziv}">
+                slika
+            }" class="card-img-top" alt="${proizvod.naziv}">
             </a>
               <div class="card-body">
                 <h3 class="card-title">
@@ -28,64 +29,8 @@ const proizvodi = {
                     proizvod.id
                 )}" class="card-link ">Detaljnije</a></div>
             </div>
-          </div>
-        
-        `;
+          </div>`;
 
-        // const div = document.createElement("div");
-
-        // const link = document.createElement("a");
-        // link.className = "linkovi";
-        // link.href = `detaljnije/${proizvod.id}`;
-        // div.className = "proizvod";
-
-        // const img = document.createElement("img");
-        // img.src = `images/${proizvod.slike[0].slika}`;
-        // img.alt = `${proizvod.naziv}`;
-        // img.className = "img-mala";
-        // link.append(img);
-        // div.append(link);
-
-        // const naziv = document.createElement("p");
-        // naziv.innerHTML = `<strong>${proizvod.naziv}</strong>`;
-        // div.append(naziv);
-
-        // const cena = document.createElement("p");
-        // cena.innerHTML = `Cena: <strong>${formatiranje.format(
-        //     proizvod.cena
-        // )}</strong> dinara`;
-        // const detaljnije = document.createElement("button");
-        // detaljnije.className = "btnDetaljnije";
-        // detaljnije.textContent = "Detaljnije";
-        // div.append(naziv, cena);
-
-        // const linkDetaljnije = document.createElement("a");
-        // linkDetaljnije.className = "linkovi";
-        // linkDetaljnije.href = `/detaljnije/${encodeURIComponent(
-        //     proizvod.id
-        // )}`;
-        // linkDetaljnije.append(detaljnije);
-        // div.append(linkDetaljnije);
-
-        // const kupi = document.createElement("button");
-        // kupi.className = "btnKupi";
-        // kupi.textContent = "Kupi";
-        // kupi.addEventListener("click", () => {
-
-        //     if(user_id === -1){
-        //         poruke.poruka("Morate biti ulogovani da bi dodali proizvod u korpu!", "crveno");
-        //         return;
-        //     }
-        //     korpa.dodaj(proizvod.id, proizvod.naziv, proizvod.cena, proizvod.slike[0].slika);
-        //     poruke.poruka("Proizvod je uspešno dodat u korpu!", "zeleno");
-        //     document.querySelector(
-        //         "#korpa"
-        //     ).innerHTML = `Korpa: ${formatiranje.format(
-        //         korpa.ukupanIznos()
-        //     )} din`;
-        // });
-
-        // div.append(kupi);
         return div;
     },
 
@@ -107,6 +52,10 @@ const proizvodi = {
         if (niz.length === 0) {
             this.nePostoji("Traženi proizvod ne postoji!");
         }
+
+        // vraća na sekciju kolekcije
+        document.getElementById("shoes-collection").scrollIntoView(true);
+
     },
 
     pretragaPoBoji: function(inpBoja, data) {
@@ -119,6 +68,7 @@ const proizvodi = {
         if (niz.length === 0) {
             this.nePostoji("Traženi proizvod ne postoji!");
         }
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
     pretragaPoSezoni: function(inpSezona, data) {
@@ -131,6 +81,7 @@ const proizvodi = {
         if (niz.length === 0) {
             this.nePostoji("Traženi proizvod ne postoji!");
         }
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
     pretragaPoPolu: function(inpPol, data) {
@@ -143,6 +94,7 @@ const proizvodi = {
         if (niz.length === 0) {
             this.nePostoji("Traženi proizvod ne postoji!");
         }
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
     pretragaPoCeni: function(inpCena, nacin, data) {
@@ -163,6 +115,7 @@ const proizvodi = {
         } else {
             this.prikaziSve(niz);
         }
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
     sortiranje: function(polje, sort, data) {
@@ -175,6 +128,7 @@ const proizvodi = {
             );
         else data.sort((p1, p2) => (p1[polje] > p2[polje] ? sort : -sort));
         this.prikaziSve(data);
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
     nePostoji: function(msg) {
@@ -182,6 +136,7 @@ const proizvodi = {
         div.className = "proizvod-nema";
         div.innerHTML = msg;
         this.getInput("shoes-collection").append(div);
+        document.getElementById("shoes-collection").scrollIntoView(true);
     },
     getInput: function(trazeniId) {
         return document.querySelector(`#${trazeniId}`);
