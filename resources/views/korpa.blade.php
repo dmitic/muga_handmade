@@ -21,5 +21,6 @@
         });
     </script>
     <div class="container-fluid container-korpa">
-      <div id="proizvodi"></div>    
+      <div id="proizvodi"></div>
+    </div>
 @endsection

@@ -5,7 +5,7 @@
 }
 .container-korpa {
     max-width: 1400px;
-    height: 377px;
+    min-height: 377px;
 }
 
 

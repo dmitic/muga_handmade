@@ -136,21 +136,6 @@ const korpa = {
       tabelaKorpa.append(tr);
     }
 
-    const tmp = `
-        <div id="selekt" class="col-mb-3">
-        <label for="gaziste">Dužina gazišta</label>
-        <select name="gaziste" id="gaziste" style="width: 100px;">
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
-        <span id="tuts" class="col-mb-3">
-            <a href="#" class="card-link" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a>
-        </span>
-        <p>Dodatne napomene</p>
-        <textarea name="napomena" id="napomena" class="txtAreaKorpa"></textarea>
-      </div>
-    `;
-
     const dodatnaPolja = document.createElement('div');
       dodatnaPolja.id = 'selekt';
       dodatnaPolja.className = 'col-mb-3';
