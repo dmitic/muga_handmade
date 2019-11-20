@@ -28,7 +28,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-2 filters ">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-10 filters ">
 
             <div id="filter">
                 <input type="text" id="inp" placeholder="Pretraga po imenu">
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div id="shoes-collection" class="row col-md-10 products justify-content-center "></div>
+        <div id="shoes-collection" class="row col-xl-10 col-lg-9 col-md-8 col-sm-8 col-xs-10 products justify-content-center "></div>
     </div>
 </div>
 @endsection

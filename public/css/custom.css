@@ -256,3 +256,18 @@ tr:nth-child(even) {background-color: rgb(242, 242, 242);}
     margin-bottom: 2em;
         
 }
+
+@media(max-width: 600px){
+    .font_size {
+        font-size: 1rem !important;
+        padding: 0 15px;
+    }
+    
+    .font_size_cena {
+        font-size: 1rem !important;
+        font-weight: bold;
+    }
+    .font-srednji {
+        font-size: 1.2rem !important;
+    }
+}
