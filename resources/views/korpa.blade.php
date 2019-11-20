@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('header-footer')
-  <link href="{{ asset('/css/header-footer.css') }}" rel="stylesheet">
+@section('korpa')
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script|Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 @endsection
 
 @section('pocetna-link')
@@ -14,43 +17,9 @@
   <div class="d-flex justify-content-center">
     <script>
       document.addEventListener('DOMContentLoaded', ()=>{
-        // if (korpa.prikaziKorpu().length !== 0) {
-            korpa.napraviTabelu();
-        // } else {
-        //   document.querySelector('#proizvodi').innerHTML = `<h2>Prazno</h2>`;
-        // }
+          korpa.prikaziKorpu().length !== 0 ? korpa.napraviTabelu() : korpa.nePostoji();
         });
     </script>
     <div class="container-fluid container-korpa">
-      <div id="proizvodi"></div>
-      @if (Auth::check())
-      <div id="selekt" class="col-mb-3">
-        Dužina gazišta:
-          <script>
-            
-            const duzine = ["0","20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5", "31", "31.5", "32", "32.5", "33", "33.5", "34", "34.5", "35"];
-            const selectList = document.createElement("select");
-                  selectList.id = "gaziste";
-                  selectList.name = "gaziste";
-                  selectList.style ="width: 100px;"
-                  document.querySelector("#selekt").appendChild(selectList);
-
-                  duzine.forEach((duzina, ind) => {
-                      const option = document.createElement("option");
-                      option.id ="duzGaz";
-                      option.value = duzine[ind];
-                      option.text = duzine[ind] + " cm";
-                      selectList.appendChild(option);
-                  });
-            
-          </script>
-          <span id="tuts" class="col-mb-3">
-              {{-- <a href="#" class="badge badge-light" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a> --}}
-              <a href="#" class="card-link" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a>
-            </span>
-      </div>
-      
-        <p>Napomena:</p>
-        <textarea name="napomena" id="napomena" class="txtAreaKorpa"></textarea>  
-      @endif
+      <div id="proizvodi"></div>    
 @endsection

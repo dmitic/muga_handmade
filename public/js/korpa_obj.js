@@ -66,6 +66,14 @@ const korpa = {
     return tmp.reduce((acc, clan) => acc += clan, 0);
   },
 
+  nePostoji: function() {
+    const divPrazno = document.createElement("div");
+    divPrazno.className = "proizvod-nema";
+    divPrazno.style = "margin: 0 auto;";
+    divPrazno.innerHTML = 'Vaša korpa je prazna.';
+    document.querySelector('#proizvodi').append(divPrazno);
+  },
+
   napraviTabelu: function(){
 
     const div = document.querySelector('#proizvodi');
@@ -128,60 +136,123 @@ const korpa = {
       tabelaKorpa.append(tr);
     }
 
+    const tmp = `
+        <div id="selekt" class="col-mb-3">
+        <label for="gaziste">Dužina gazišta</label>
+        <select name="gaziste" id="gaziste" style="width: 100px;">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        <span id="tuts" class="col-mb-3">
+            <a href="#" class="card-link" target="_blank">Uputstvo za merenje unutrašnje dužine gazišta</a>
+        </span>
+        <p>Dodatne napomene</p>
+        <textarea name="napomena" id="napomena" class="txtAreaKorpa"></textarea>
+      </div>
+    `;
+
+    const dodatnaPolja = document.createElement('div');
+      dodatnaPolja.id = 'selekt';
+      dodatnaPolja.className = 'col-mb-3';
+
+    const lblGaziste = document.createElement('label');
+      lblGaziste.setAttribute('for', 'gaziste');
+      lblGaziste.textContent = 'Dužina gazišta: ';
+
+      const duzine = ["0","20", "20.5", "21", "21.5", "22", "22.5", "23", "23.5", "24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28", "28.5", "29", "29.5", "30", "30.5", "31", "31.5", "32", "32.5", "33", "33.5", "34", "34.5", "35"];
+      const selectList = document.createElement("select");
+        selectList.id = "gaziste";
+        selectList.name = "gaziste";
+        selectList.style ="width: 100px;"
+
+        duzine.forEach((duzina, ind) => {
+            const option = document.createElement("option");
+            option.id ="duzGaz";
+            option.value = duzine[ind];
+            option.text = duzine[ind] + " cm";
+            selectList.append(option);
+        });
+
+      const spanUputsvto = document.createElement('span');
+        spanUputsvto.id = 'tuts';
+        spanUputsvto.className = 'col-mb-3';
+
+      const linkUputsvo = document.createElement('a');
+        linkUputsvo.href = '#';
+        linkUputsvo.className = 'card-link';
+        linkUputsvo.setAttribute('target', '_blank');
+        linkUputsvo.textContent = ' Uputstvo za merenje unutrašnje dužine gazišta';
+
+      const pNapomene = document.createElement('p');
+        pNapomene.className = "mt-3";
+        pNapomene.textContent = 'Dodatne napomene:';
+
+      const txtAreaNapomene = document.createElement('textarea');
+        txtAreaNapomene.name = 'napomena';
+        txtAreaNapomene.id = 'napomena';
+        txtAreaNapomene.className = 'txtAreaKorpa';
+
+
+    dodatnaPolja.append(lblGaziste, selectList, spanUputsvto, linkUputsvo, pNapomene, txtAreaNapomene);
+
+
+    
     const trTotal = document.createElement('tr');
     const tdTotal = document.createElement('td');
-    tdTotal.innerHTML= `Ukupan iznos: ${formatiranje.format(this.ukupanIznos())} dinara`;
-    tdTotal.id = 'korpaTotal';
-    tdTotal.colSpan = 5;
-    tdTotal.style = 'text-align: right; font-weight:700; font-size: 18px;';
-    trTotal.append(tdTotal);
-    tabelaKorpa.append(trTotal);
-    
-    const btnNaruci = document.createElement('button');
-    btnNaruci.className = "btnNaruci mb-3";
-    btnNaruci.textContent = "Naruči";
-    btnNaruci.addEventListener('click', () => {
-      if(user_id === -1){
-        poruke.poruka("Morate biti ulogovani da bi ste poslali narudžbinu!", "crveno");
-        return;
-      }
-
-      if (this.prikaziKorpu().length !== 0) {
-        // šalje podatke laravelu
-        let napomena = document.querySelector('#napomena').value;
-        let gaziste = document.querySelector("#gaziste").value;
-        let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
-        axios({
-              method: 'post',  
-              url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
-              data: {
-                user_id: user_id,
-                napomena_user: napomena,
-                gaziste: gaziste,
-                stavke: sveIzKorpe,
-              }
-          })
-            .then(resp=> {
-              poruke.poruka(resp.data.msg, resp.data.boja)
-              if (resp.data.boja === 'zeleno'){
-                sessionStorage.removeItem('korpa');
-                document.querySelector('#proizvodi').innerHTML = '';
-                document.querySelector('#napomena').value = '';
-                this.napraviTabelu();
-              }
-              // console.log(resp.data);
-            })
-            .catch(err => {
-              poruke.poruka('Došlo je do greške!', 'crveno');
-              console.log(err);
-            })
-        } else {
-          poruke.poruka('Korpa je prazna!', 'crveno');
+      tdTotal.innerHTML= `Ukupan iznos: ${formatiranje.format(this.ukupanIznos())} dinara`;
+      tdTotal.id = 'korpaTotal';
+      tdTotal.colSpan = 5;
+      tdTotal.style = 'text-align: right; font-weight:700; font-size: 18px;';
+      trTotal.append(tdTotal);
+      tabelaKorpa.append(trTotal);
+      
+      const btnNaruci = document.createElement('button');
+      btnNaruci.className = "btnNaruci mb-3";
+      btnNaruci.textContent = "Naruči";
+      btnNaruci.addEventListener('click', () => {
+        if(user_id === -1){
+          poruke.poruka("Morate biti ulogovani da bi ste poslali narudžbinu!", "crveno");
+          return;
         }
-    });
+
+        if (this.prikaziKorpu().length !== 0) {
+          // šalje podatke laravelu
+          let napomena = document.querySelector('#napomena').value;
+          let gaziste = document.querySelector("#gaziste").value;
+          let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
+          axios({
+                method: 'post',  
+                url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
+                data: {
+                  user_id: user_id,
+                  napomena_user: napomena,
+                  gaziste: gaziste,
+                  stavke: sveIzKorpe,
+                }
+            })
+              .then(resp=> {
+                poruke.poruka(resp.data.msg, resp.data.boja)
+                if (resp.data.boja === 'zeleno'){
+                  sessionStorage.removeItem('korpa');
+                  // document.querySelector('#napomena').value = '';
+                  document.querySelector('#proizvodi').innerHTML = '';
+                  // this.napraviTabelu();
+                  this.nePostoji();
+                }
+                console.log(resp.data);
+              })
+              .catch(err => {
+                poruke.poruka('Došlo je do greške!', 'crveno');
+                console.log(err);
+              })
+          } else {
+            poruke.poruka('Korpa je prazna!', 'crveno');
+          }
+      });
 
   
-    div.append(tabelaKorpa, btnNaruci);
+    div.append(tabelaKorpa, dodatnaPolja, btnNaruci);
+
   }
 }
 

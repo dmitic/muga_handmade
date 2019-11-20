@@ -85,3 +85,9 @@ Route::prefix('user')->group(function () {
     Route::get('/sifra', 'PromenaSifreController@index');
     Route::post('/sifra', 'PromenaSifreController@store')->name('promeniSifru');
 });
+
+//Linkovi
+Route::get('/poverljivost', 'LinksController@poverljivost');
+Route::get('/reklamacije', 'LinksController@returnPolicy');
+Route::get('/dostava', 'LinksController@delivery');
+Route::get('/uslovi', 'LinksController@termsOfUse');

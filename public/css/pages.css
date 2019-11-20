@@ -1,0 +1,87 @@
+.logo2{
+    box-shadow: none;
+}
+#start-nav{
+    background-color:#DCD9D0;
+    color:rgb(82, 79, 79) !important;
+}
+#start-nav, .content{
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+}
+.content{
+    background-image: url('../photos/pozadina3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2em;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+.layer{
+    background-color: rgba(220, 217, 208, 0.644);
+    padding: 1em;
+  }
+.content h1{
+    font-size: 2.5em;
+    padding: 0.5em;
+    text-shadow: 2px 2px 0px rgb(206, 184, 161), 3px 3px 0px #707070;
+}
+.content h2{
+    padding: 0.5em;
+}
+.content h4{
+    padding: 1.5em 0.5em 0.5em;
+}
+.content h5{
+    padding: 2.5em 0 1em 0;
+}
+.content ul{
+    padding: 0.5em  1.5em 0 1.5em;
+}
+.content ul li{
+    list-style-type: disc;
+    padding: 0.2em;
+}
+.content ul li ul li{
+    list-style-type: none;
+}
+.content .layer p{
+    padding: 1em;
+}
+.content .layer .note{
+    padding-top: 0em;
+    font-size: 0.8em;
+}
+.content a{
+    color: rgba(161, 94, 7, 0.781);
+}
+.content a:hover{
+    color: rgb(97, 61, 14);
+}
+.content .layer p span{
+    text-decoration: underline;
+}
+
+@media (max-width: 900px){
+    .content h1{
+        text-align: center;
+    }
+}
+@media (max-width: 500px){
+    .content h1{
+        font-size: 1.6em;
+        padding: 0.2em;
+    }
+    .content h2, .content h4, .content h5{
+        font-size: 1.3em;
+    }
+    .content ul{
+        padding: 0.5em  0.5em 0 0.5em;
+    }
+    .layer>p{
+        padding: 1.5em;
+    }
+
+}
+

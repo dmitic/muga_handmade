@@ -5,9 +5,110 @@
 }
 .container-korpa {
     max-width: 1400px;
+    height: 377px;
 }
 
 
+#inp,
+#minCena,
+#maxCena,
+#btnMinCena,
+#btnMaxCena,
+#btnIme,
+#boja,
+#sezona,
+#duzGaz,
+#pol,
+#polje,
+#sort {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 3px;
+}
+
+#polje,
+#sort {
+    width: 44%;
+}
+
+#filter {
+    position: sticky;
+    top: 0;
+    background-color: rgb(231, 228, 223);
+    border: 1px solid rgb(146, 146, 146);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 100%;
+    padding: 30px 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+hr {
+    margin: 3px 15px 12px;
+}
+
+.marginForme {
+    margin: 3em auto !important;
+}
+
+.font-srednji {
+    font-size: 1.5rem !important;
+}
+
+.font_size {
+    font-size: 1.1rem !important;
+    padding: 0 15px;
+}
+
+.font_size_cena {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+}
+
+.proizvod-nema {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 700;
+    border: var(--border-sivi);
+    box-shadow: var(--box-shadow-veci);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 1em;
+}
+
+/***** Carousel *****/
+.carInner {
+    max-height:800px; 
+    max-width:600px; 
+    background-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px rgba(126, 112, 105, 0.623);
+}
+
+.carSlide {
+    max-height:800px; 
+    max-width:600px;
+}
+
+.carimg {
+    max-height:800px; 
+    max-width:800px;
+}
+
+.content{
+    background-color: #DCD9D0;
+    box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
+    padding: 2em;
+}
 
 /***** dugmad *****/
 .btnDetaljnije, .btnKupi, .btnObrisi, .btnNaruci {
@@ -154,28 +255,4 @@ tr:nth-child(even) {background-color: rgb(242, 242, 242);}
     resize: vertical;
     margin-bottom: 2em;
         
-}
-
-
-.marginForme {
-    margin: 3em auto !important;
-}
-
-.font-srednji {
-    font-size: 1.2rem !important;
-}
-
-.proizvod-nema {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    align-items: center;
-    font-size: 26px;
-    font-weight: 700;
-    border: var(--border-sivi);
-    box-shadow: var(--box-shadow-veci);
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 1em;
 }

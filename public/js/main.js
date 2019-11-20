@@ -3,31 +3,20 @@ const proizvodi = {
         let slika = (proizvod.slike.length > 0) ? proizvod.slike[0].slika : 'no-image.png';
         const div = `
         <div class="col-9 col-sm-6 col-md-6 col-lg-4 p-2 d-flex align-items-stretch">
-            <div class="card p-md-2 p-sm-1">
-            <a href="/detaljnije/${encodeURIComponent(
-                proizvod.id
-            )}" class="card-link ">
-              <img src="images/${
-                slika
-            }" class="card-img-top" alt="${proizvod.naziv}">
+            <div class="card ">
+            <a href="/detaljnije/${proizvod.id}" class="card-link ">
+              <img src="images/${slika}" class="card-img-top p-md-2 p-sm-1" alt="${proizvod.naziv}">
             </a>
               <div class="card-body">
                 <h3 class="card-title">
                     <strong>
-                        <a href="/detaljnije/${encodeURIComponent(
-                            proizvod.id
-                        )}" class="card-link font-srednji">${proizvod.naziv}</a>
+                        <a href="/detaljnije/${proizvod.id}" class="card-link font-srednji">${proizvod.naziv}</a>
                     </strong>
                 </h3>
-                <p class="card-text">${
-                    proizvod.opis !== null
-                        ? proizvod.opis
-                        : "Trenutno ne postoji opis..."
-                }</p>
-                </div>
-                <div class="card-text text-right font_size"><a href="/detaljnije/${encodeURIComponent(
-                    proizvod.id
-                )}" class="card-link ">Detaljnije</a></div>
+                <p class="card-text">${proizvod.opis !== null? proizvod.opis: "Trenutno ne postoji opis..."}</p>
+            </div>
+                <span class="card-text text-right card-link font_size mb-3"><a href="/detaljnije/${proizvod.id}" class="card-link ">Detaljnije</a></span>
+                <span class="card-footer text-center font_size_cena">${formatiranje.format(proizvod.cena)} RSD</span>
             </div>
           </div>`;
 

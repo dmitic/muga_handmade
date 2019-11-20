@@ -12,26 +12,28 @@ const proizvod = {
 
         // za carousel
         let carousel = `<div class="col-md-6"><div class="d-flex justify-content-center">
-        <div id="carouselSlike" class="carousel slide carousel-fade" data-ride="carousel" style="max-height:800px; max-width:600px;">
-            <div class="carousel-inner" style="max-height:800px; max-width:600px;">`
-            // proizvod.slike = proizvod.slike.length !== 0 ? proizvod.slike : [{slika: 'no-image.png'}]; // ružno izgleda ova slika na pozadini ako nađemo lepšu odkomentarisati
+        <div id="carouselSlike" class="carousel slide carousel-fade carSlide" data-ride="carousel">
+            <div class="carousel-inner carInner">`;
+
+            proizvod.slike = proizvod.slike.length !== 0 ? proizvod.slike : [{slika: 'no-image.png'}];
+
             proizvod.slike.forEach((slika, ind)=>{
                 carousel += ind === 0 ? `<div class="carousel-item active">` : `<div class="carousel-item">`;
-                carousel +=`<img src='/images/${slika.slika}' class="d-block w-100 img-responsive" style="max-height:800px; max-width:800px;" alt="...">
-                </div>`
-            })
+                carousel +=`<img src='/images/${slika.slika}' class="d-block w-100 img-responsive carimg";" alt="${proizvod.naziv}">
+                </div>`;
+            });
 
             carousel += `</div>
-            <a class="carousel-control-prev" href="#carouselSlike" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselSlike" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                <a class="carousel-control-prev" href="#carouselSlike" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselSlike" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            </div></div>`;
+        </div>`;
 
         div.innerHTML = carousel;
 

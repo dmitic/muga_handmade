@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('header-footer')
-  <link href="{{ asset('/css/header-footer.css') }}" rel="stylesheet">
+@section('pagesCss')
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script|Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/pages.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 @endsection
 
 @section('content')
