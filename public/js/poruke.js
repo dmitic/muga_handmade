@@ -1,5 +1,5 @@
 const poruke = {
-  poruka: function(poruka, boja) {
+  poruka(poruka, boja) {
   if (document.querySelector('.msg')) document.querySelector('.msg').remove();
   const div = document.createElement('div');
   div.className = `msg ${boja}`;
@@ -9,7 +9,7 @@ const poruke = {
   if(document.querySelector('.msg')){
     setTimeout(function(){
       if (document.querySelector('.msg')) document.querySelector('.msg').remove();
-    }, 2000);
+    }, 3000);
     }
   }
 }

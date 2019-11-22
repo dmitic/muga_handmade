@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2019 at 03:08 PM
+-- Generation Time: Nov 22, 2019 at 01:15 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -61,14 +61,6 @@ CREATE TABLE `fakture` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `fakture`
---
-
-INSERT INTO `fakture` (`id`, `narudzbenica_br`, `user_id`, `name`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `napomena_user`, `napomena_admin`, `ukup_suma`, `completed_at`, `created_at`, `updated_at`) VALUES
-(2, '2019-11-00002', 1, 'dmitic', 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', 'asd asd asd asd', NULL, '9781.80', '2019-11-17 10:44:18', '2019-11-17 10:44:09', '2019-11-17 10:44:18'),
-(3, '2019-11-00003', 1, 'dmitic', 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', 'fbd yghfjzfh kjkxgh', NULL, '7781.80', NULL, '2019-11-17 10:56:04', '2019-11-17 10:56:04');
 
 -- --------------------------------------------------------
 
@@ -144,7 +136,16 @@ INSERT INTO `proizvodi` (`id`, `naziv`, `tip_obuce`, `materijali`, `postava`, `d
 (6, 'M02 – Muške cipele \"Oxford\" #2', 'Plitka', 'Velur', 'Koža', 'Mikro-Guma, presvučen kožom', 'plava', NULL, 'Muške', 'Proleće/Leto/Jesen', NULL, '3590.90', '2019-11-14 11:52:54', '2019-11-14 11:52:54'),
 (7, 'W06 – Ženske čizme poluduboke', 'Duboka', 'Velur', 'Filc(čoja), Vuna, Koža', 'TR Guma', 'Siva', 'Polu-duboke čizme, izradjene od govedjeg špalt-vlelura, sa postavom koju možete odabrati po želji, može biti od filca, vune ili kože, sa visokim djonom I krupnim kramponima, teško promočive, idealne za zimu I hladno vreme.', 'Ženske', 'Jesen/Zima', NULL, '5890.90', '2019-11-14 12:01:11', '2019-11-14 12:01:11'),
 (9, 'W06 – Ženske čizme poluduboke', 'Duboka', 'Nubuk', 'Filc(čoja), Vuna, Koža', 'TR Guma', 'Crvena', NULL, 'Ženske', 'Jesen/Zima', NULL, '3890.90', '2019-11-14 12:36:57', '2019-11-14 12:36:57'),
-(10, 'W03 – Ženske cipele \"Paris\"', 'Plitka', 'Velur + Presovani Velur', 'Koža', 'Mikro-Guma Eva', 'roza', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '2990.00', '2019-11-14 12:45:30', '2019-11-14 19:14:18');
+(10, 'W03 – Ženske cipele \"Paris\"', 'Plitka', 'Velur + Presovani Velur', 'Koža', 'Mikro-Guma Eva', 'roza', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '2990.00', '2019-11-14 12:45:30', '2019-11-14 19:14:18'),
+(123, 'W05 – Ženske patike \"MHM.CAS\"', 'Plitka', 'Boks', 'Koža', 'TR Guma', 'Bela', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '6390.00', '2019-11-22 10:34:12', '2019-11-22 10:34:12'),
+(124, 'W04 – Ženske cipele \"Oxford\" #1', 'Plitka', 'Napa', 'Koža', 'Kožni đon (Krupon)', 'plava, crvena', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '3690.00', '2019-11-22 10:36:26', '2019-11-22 10:36:26'),
+(125, 'W05 – Ženske patike \"MHM.CAS\"', 'Plitka', 'Velur + Velur (print)', 'Koža', 'TR Guma', 'crna, srebrna', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '6990.00', '2019-11-22 10:38:19', '2019-11-22 10:55:06'),
+(126, 'M02 – Muške cipele \"Oxford\" #2', 'Plitka', 'Velur + Boks + Lakovana koža', 'Koža', 'TR Guma', 'Crna', 'Wingtip Oxford cipele, uredjene na elegantom djonu, sa polu-visokom štiklom, uz gradaciju materijala, od najmanje sjajnog Velura, preko polu-sjajne boks kože, sa posebnim akcentom na najsjaniju, lakovanu kožu, ostavljaju izuzetno jak vizuelni utisak. Idealne za svečane prilike, uz prefinjeni, elegantni odevni stil.', 'Muške', 'Proleće/Leto/Jesen', NULL, '5690.90', '2019-11-22 10:40:33', '2019-11-22 10:40:33'),
+(127, 'W04 – Ženske cipele \"Oxford\" #1', 'Plitka', 'Napa + Velur', 'Koža', 'Mikro-Guma Eva', 'srebrna, crna', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '4990.90', '2019-11-22 10:42:05', '2019-11-22 10:42:05'),
+(128, 'W02 – Baletanke #2', 'Plitka', 'Velur + Lakovana koža', 'Koža', 'TR Guma', 'siva, crvena', NULL, 'Ženske', 'Proleće/Leto/Jesen', NULL, '6890.90', '2019-11-22 10:44:14', '2019-11-22 10:44:14'),
+(129, 'M02 – Muške cipele \"Oxford\" #2', 'Plitka', 'Boks + Nubuk', 'Koža', 'Mikro-Guma, presvučen kožom', 'zelena, crna', 'Wingtip Oxford cipele predstavljaju najidealniji model cipela za kombinovanje najrazličitijih materijala I boja, takodje idealne uz sportski djon, elegantni ili casual djon. Koja je Vaša idealna kombinacija, #shoeporn fantazija?', 'Muške', 'Proleće/Leto/Jesen', NULL, '3890.90', '2019-11-22 10:45:54', '2019-11-22 10:45:54'),
+(130, 'M05 – Muške patike \"MHM.CAS\"', 'Plitka', 'Boks + Velur (print)', 'Koža', 'TR Guma', 'Crna', 'Dugi niz godina “Military fazon” je prisutan na modnoj sceni, I verujemo da će tu I ostati, bar još neko vreme. Svakodnevna casual varijanta, u crnoj boji, izradjena od, crne boks kože u kombinaciji sa velurom sa, već spomenutim, Military print-om, da razbije monotoniju I “otvori” izgled patike, a opet decentne I neupadljive.', 'Muške', 'Proleće/Leto/Jesen', NULL, '2890.90', '2019-11-22 10:47:31', '2019-11-22 10:47:31'),
+(131, 'M02 – Muške cipele \"Oxford\" #2', 'Plitka', 'Velur', 'Koža', 'Mikro-Guma Eva', 'Plava', 'Teget sako ~ 75e, kratke teget pantalone ~ 75e, goli gležnjevi ~ 15e, kratke čarape (kurtonke) ~ 10e, svečana bela košulja ~ 60e, žuta kravata, žuti tregeri ili žuta leptirača ~ 15e...i možeš da budeš: mladoženja ~ 10.000e; kum ~ 500e; starojko ~ 150e; daleki, nepoznati rodjak ~50e….cipele koje bi se uklopile u celu priču – NEPROCENLJIVE, a za njih će se pobrinuti MUGA Handmade Shoes!!!!', 'Muške', 'Proleće/Leto/Jesen', NULL, '4690.90', '2019-11-22 10:49:02', '2019-11-22 10:49:02');
 
 -- --------------------------------------------------------
 
@@ -180,15 +181,42 @@ INSERT INTO `slike` (`id`, `proizvod_id`, `slika`) VALUES
 (15, 6, 'M02_–_Muske_cipele_Oxford_2/1573735974_7_(2).jpg'),
 (16, 6, 'M02_–_Muske_cipele_Oxford_2/1573735992_7_(3).jpg'),
 (17, 6, 'M02_–_Muske_cipele_Oxford_2/1573735999_7_(4).jpg'),
-(18, 7, 'W06_–_zenske_čizme_poluduboke/1573736471_12_(1).jpg'),
-(19, 7, 'W06_–_zenske_čizme_poluduboke/1573736485_12_(2).jpg'),
-(20, 7, 'W06_–_zenske_čizme_poluduboke/1573736491_12_(3).jpg'),
-(21, 9, 'W06_–_zenske_čizme_poluduboke/1573738617_51_(1).jpg'),
-(22, 9, 'W06_–_zenske_čizme_poluduboke/1573738629_51_(2).jpg'),
-(23, 9, 'W06_–_zenske_čizme_poluduboke/1573738638_51_(3).jpg'),
 (24, 10, 'W03_–_zenske_cipele_Paris/1573739130_53_(1).jpg'),
 (25, 10, 'W03_–_zenske_cipele_Paris/1573739223_53_(2).jpg'),
-(26, 10, 'W03_–_zenske_cipele_Paris/1573739234_53_(4).jpg');
+(26, 10, 'W03_–_zenske_cipele_Paris/1573739234_53_(4).jpg'),
+(134, 123, 'W05_–_zenske_patike_MHM.CAS/1574422471_83_(1).jpg'),
+(135, 123, 'W05_–_zenske_patike_MHM.CAS/1574422483_83_(3).jpg'),
+(136, 123, 'W05_–_zenske_patike_MHM.CAS/1574422498_83_(4).jpg'),
+(137, 124, 'W04_–_zenske_cipele_Oxford_1/1574422600_67_(1).jpg'),
+(138, 124, 'W04_–_zenske_cipele_Oxford_1/1574422612_67_(2).jpg'),
+(139, 124, 'W04_–_zenske_cipele_Oxford_1/1574422622_67_(3).jpg'),
+(140, 125, 'W05_–_zenske_patike_MHM.CAS/1574422720_68_(1).jpg'),
+(141, 125, 'W05_–_zenske_patike_MHM.CAS/1574422733_68_(2).jpg'),
+(142, 125, 'W05_–_zenske_patike_MHM.CAS/1574422746_68_(3).jpg'),
+(143, 126, 'M02_–_Muske_cipele_Oxford_2/1574422845_8_(1).jpg'),
+(144, 126, 'M02_–_Muske_cipele_Oxford_2/1574422853_8_(2).jpg'),
+(145, 126, 'M02_–_Muske_cipele_Oxford_2/1574422860_8_(4).jpg'),
+(146, 127, 'W04_–_zenske_cipele_Oxford_1/1574422967_56_(1).jpg'),
+(147, 127, 'W04_–_zenske_cipele_Oxford_1/1574422979_56_(3).jpg'),
+(148, 127, 'W04_–_zenske_cipele_Oxford_1/1574422989_56_(4).jpg'),
+(149, 128, 'W02_–_Baletanke_2/1574423067_57_(1).jpg'),
+(150, 128, 'W02_–_Baletanke_2/1574423079_57_(4).jpg'),
+(151, 128, 'W02_–_Baletanke_2/1574423090_57_(5).jpg'),
+(152, 129, 'M02_–_Muske_cipele_Oxford_2/1574423164_9_(1).jpg'),
+(153, 129, 'M02_–_Muske_cipele_Oxford_2/1574423174_9_(2).jpg'),
+(154, 129, 'M02_–_Muske_cipele_Oxford_2/1574423180_9_(4).jpg'),
+(155, 130, 'M05_–_Muske_patike_MHM.CAS/1574423265_10_(1).jpg'),
+(156, 130, 'M05_–_Muske_patike_MHM.CAS/1574423272_10_(2).jpg'),
+(157, 130, 'M05_–_Muske_patike_MHM.CAS/1574423278_10_(3).jpg'),
+(158, 131, 'M02_–_Muske_cipele_Oxford_2/1574423366_11_(1).jpg'),
+(159, 131, 'M02_–_Muske_cipele_Oxford_2/1574423372_11_(2).jpg'),
+(160, 131, 'M02_–_Muske_cipele_Oxford_2/1574423379_11_(3).jpg'),
+(161, 9, 'W06_–_zenske_cizme_poluduboke/1574424357_51_(1).jpg'),
+(162, 9, 'W06_–_zenske_cizme_poluduboke/1574424368_51_(2).jpg'),
+(163, 9, 'W06_–_zenske_cizme_poluduboke/1574424377_51_(3).jpg'),
+(164, 7, 'W06_–_zenske_cizme_poluduboke/1574424391_12_(1).jpg'),
+(165, 7, 'W06_–_zenske_cizme_poluduboke/1574424398_12_(2).jpg'),
+(166, 7, 'W06_–_zenske_cizme_poluduboke/1574424404_12_(3).jpg');
 
 -- --------------------------------------------------------
 
@@ -209,15 +237,6 @@ CREATE TABLE `stavke` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `stavke`
---
-
-INSERT INTO `stavke` (`id`, `fakture_id`, `proizvod_id`, `naziv_proizvoda`, `boja`, `gaziste`, `pojedinacna_cena`, `kolicina`, `ukupna_cena`, `created_at`, `updated_at`) VALUES
-(3, 2, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '22.5', '3890.90', 1, '3890.90', '2019-11-17 10:44:09', '2019-11-17 10:44:09'),
-(4, 2, 7, 'W06 – Ženske čizme poluduboke', 'Siva', '22.5', '5890.90', 1, '5890.90', '2019-11-17 10:44:09', '2019-11-17 10:44:09'),
-(5, 3, 9, 'W06 – Ženske čizme poluduboke', 'Crvena', '28.0', '3890.90', 2, '7781.80', '2019-11-17 10:56:04', '2019-11-17 10:56:04');
 
 -- --------------------------------------------------------
 
@@ -243,7 +262,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dmitic', 'dmitic@gmail.com', NULL, '$2y$10$YvL46X/bqROIgarYHolYgOOklO7WU9kGrYZM4XYhuYSfe.cK7RyXu', 1, '0694490641', NULL, '2019-11-15 18:56:19', '2019-11-16 11:00:31');
+(1, 'admin', 'admin@admin.com', NULL, '$2y$10$4j656YMwtcdKg/Ttj/yKH.LujnL/4I4dhWV/AskRgaeBEvDSqwW7y', 1, '12345678', 'BlMRCfWiI2AKv8xVEBNrQCtHQYZdQVAT9WCZTwet8ZhCKZ0MGMQKYSgdkeRa', '2019-11-15 18:56:19', '2019-11-22 11:10:31');
 
 -- --------------------------------------------------------
 
@@ -269,7 +288,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `first_name`, `last_name`, `address`, `zip`, `city`, `state`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Dragan', 'Mitic', 'Stojana Novakovica 6', 37000, 'Krusevac', 'Serbia', '2019-11-16 11:00:31', '2019-11-16 11:00:31');
+(1, 1, 'Admin', 'Adminović', 'Adminova 35', 12852, 'Admingrad', 'Adminija', '2019-11-16 11:00:31', '2019-11-22 11:10:31');
 
 --
 -- Indexes for dumped tables
@@ -347,7 +366,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `fakture`
 --
 ALTER TABLE `fakture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1029;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -359,25 +378,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `proizvodi`
 --
 ALTER TABLE `proizvodi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `slike`
 --
 ALTER TABLE `slike`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `stavke`
 --
 ALTER TABLE `stavke`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_details`

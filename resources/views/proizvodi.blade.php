@@ -51,8 +51,12 @@
                     <option value="Crna">Crna</option>
                     <option value="Crvena">Crvena</option>
                     <option value="Plava">Plava</option>
-                    <option value="Roze">Roze</option>
-                    <option value="Orange">Orange</option>
+                    <option value="Roza">Roza</option>
+                    <option value="Braon">Braon</option>
+                    <option value="Bela">Bela</option>
+                    <option value="Siva">Siva</option>
+                    <option value="Zelena">Zelena</option>
+                    <option value="Srebrna">Srebrna</option>
                 </select>
                 <hr>
                 <input type="number" id="maxCena" placeholder="Maksimalna cena">
@@ -65,8 +69,8 @@
                     <option value="cena">Cena</option>
                 </select>
                 <select id="sort">
-                    <option value="-1">Opadajuće</option>
-                    <option value="1">Rastuće</option>
+                    <option value="1">⇑</option>
+                    <option value="-1">⇓</option>
                 </select>
             </div>
         </div>

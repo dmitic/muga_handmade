@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 08:55 PM
+-- Generation Time: Nov 22, 2019 at 01:09 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -56,15 +56,42 @@ INSERT INTO `slike` (`id`, `proizvod_id`, `slika`) VALUES
 (15, 6, 'M02_–_Muske_cipele_Oxford_2/1573735974_7_(2).jpg'),
 (16, 6, 'M02_–_Muske_cipele_Oxford_2/1573735992_7_(3).jpg'),
 (17, 6, 'M02_–_Muske_cipele_Oxford_2/1573735999_7_(4).jpg'),
-(18, 7, 'W06_–_zenske_čizme_poluduboke/1573736471_12_(1).jpg'),
-(19, 7, 'W06_–_zenske_čizme_poluduboke/1573736485_12_(2).jpg'),
-(20, 7, 'W06_–_zenske_čizme_poluduboke/1573736491_12_(3).jpg'),
-(21, 9, 'W06_–_zenske_čizme_poluduboke/1573738617_51_(1).jpg'),
-(22, 9, 'W06_–_zenske_čizme_poluduboke/1573738629_51_(2).jpg'),
-(23, 9, 'W06_–_zenske_čizme_poluduboke/1573738638_51_(3).jpg'),
 (24, 10, 'W03_–_zenske_cipele_Paris/1573739130_53_(1).jpg'),
 (25, 10, 'W03_–_zenske_cipele_Paris/1573739223_53_(2).jpg'),
-(26, 10, 'W03_–_zenske_cipele_Paris/1573739234_53_(4).jpg');
+(26, 10, 'W03_–_zenske_cipele_Paris/1573739234_53_(4).jpg'),
+(134, 123, 'W05_–_zenske_patike_MHM.CAS/1574422471_83_(1).jpg'),
+(135, 123, 'W05_–_zenske_patike_MHM.CAS/1574422483_83_(3).jpg'),
+(136, 123, 'W05_–_zenske_patike_MHM.CAS/1574422498_83_(4).jpg'),
+(137, 124, 'W04_–_zenske_cipele_Oxford_1/1574422600_67_(1).jpg'),
+(138, 124, 'W04_–_zenske_cipele_Oxford_1/1574422612_67_(2).jpg'),
+(139, 124, 'W04_–_zenske_cipele_Oxford_1/1574422622_67_(3).jpg'),
+(140, 125, 'W05_–_zenske_patike_MHM.CAS/1574422720_68_(1).jpg'),
+(141, 125, 'W05_–_zenske_patike_MHM.CAS/1574422733_68_(2).jpg'),
+(142, 125, 'W05_–_zenske_patike_MHM.CAS/1574422746_68_(3).jpg'),
+(143, 126, 'M02_–_Muske_cipele_Oxford_2/1574422845_8_(1).jpg'),
+(144, 126, 'M02_–_Muske_cipele_Oxford_2/1574422853_8_(2).jpg'),
+(145, 126, 'M02_–_Muske_cipele_Oxford_2/1574422860_8_(4).jpg'),
+(146, 127, 'W04_–_zenske_cipele_Oxford_1/1574422967_56_(1).jpg'),
+(147, 127, 'W04_–_zenske_cipele_Oxford_1/1574422979_56_(3).jpg'),
+(148, 127, 'W04_–_zenske_cipele_Oxford_1/1574422989_56_(4).jpg'),
+(149, 128, 'W02_–_Baletanke_2/1574423067_57_(1).jpg'),
+(150, 128, 'W02_–_Baletanke_2/1574423079_57_(4).jpg'),
+(151, 128, 'W02_–_Baletanke_2/1574423090_57_(5).jpg'),
+(152, 129, 'M02_–_Muske_cipele_Oxford_2/1574423164_9_(1).jpg'),
+(153, 129, 'M02_–_Muske_cipele_Oxford_2/1574423174_9_(2).jpg'),
+(154, 129, 'M02_–_Muske_cipele_Oxford_2/1574423180_9_(4).jpg'),
+(155, 130, 'M05_–_Muske_patike_MHM.CAS/1574423265_10_(1).jpg'),
+(156, 130, 'M05_–_Muske_patike_MHM.CAS/1574423272_10_(2).jpg'),
+(157, 130, 'M05_–_Muske_patike_MHM.CAS/1574423278_10_(3).jpg'),
+(158, 131, 'M02_–_Muske_cipele_Oxford_2/1574423366_11_(1).jpg'),
+(159, 131, 'M02_–_Muske_cipele_Oxford_2/1574423372_11_(2).jpg'),
+(160, 131, 'M02_–_Muske_cipele_Oxford_2/1574423379_11_(3).jpg'),
+(161, 9, 'W06_–_zenske_cizme_poluduboke/1574424357_51_(1).jpg'),
+(162, 9, 'W06_–_zenske_cizme_poluduboke/1574424368_51_(2).jpg'),
+(163, 9, 'W06_–_zenske_cizme_poluduboke/1574424377_51_(3).jpg'),
+(164, 7, 'W06_–_zenske_cizme_poluduboke/1574424391_12_(1).jpg'),
+(165, 7, 'W06_–_zenske_cizme_poluduboke/1574424398_12_(2).jpg'),
+(166, 7, 'W06_–_zenske_cizme_poluduboke/1574424404_12_(3).jpg');
 
 --
 -- Indexes for dumped tables
@@ -85,7 +112,7 @@ ALTER TABLE `slike`
 -- AUTO_INCREMENT for table `slike`
 --
 ALTER TABLE `slike`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- Constraints for dumped tables

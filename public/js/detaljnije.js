@@ -1,12 +1,12 @@
 korpa.ucitaj_iz_session();
 const proizvod = {
-    nadji_ID: function() {
+    nadji_ID() {
         let loc = window.location.href;
         let a1 = loc.split("/");
         return a1[a1.length-1];
     },
 
-    odabranProizvod: function(proizvod) {
+    odabranProizvod(proizvod) {
         const div = document.createElement("div");
         div.className = "proizvod-detaljnije row col-md-12";
 
@@ -51,11 +51,7 @@ const proizvod = {
 
               tdKey.textContent = `${naziv.replace('_', ' ')}:`;
               tdKey.className = "tdKey";
-              //   (naziv === 'cena') ? tdValue.innerHTML = `<strong>${formatiranje.format(Number(proizvod[naziv]))} RSD</strong>` : tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
-              //   (naziv === 'opis') ? 
-              //             tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
-              //                     'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
-              //                     tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
+              
               (naziv === 'opis') ? 
                         tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
                                 'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
@@ -90,7 +86,7 @@ const proizvod = {
         return div;
     },
 
-    prikazi: function(id) {
+    prikazi(id) {
         for (let jedanProizvod of podaci) {
             if (jedanProizvod.id == id) {
                 const el = this.odabranProizvod(jedanProizvod);

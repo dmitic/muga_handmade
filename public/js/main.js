@@ -1,5 +1,5 @@
 const proizvodi = {
-    prikaziProizvod: function(proizvod) {
+    prikaziProizvod(proizvod) {
         let slika = (proizvod.slike.length > 0) ? proizvod.slike[0].slika : 'no-image.png';
         const div = `
         <div class="col-9 col-sm-6 col-md-6 col-lg-4 p-2 d-flex align-items-stretch">
@@ -19,83 +19,68 @@ const proizvodi = {
                 <span class="card-footer text-center font_size_cena">${formatiranje.format(proizvod.cena)} RSD</span>
             </div>
           </div>`;
-
+  
         return div;
     },
-
-    prikaziSve: function(nizProizvoda) {
+  
+    prikaziSve(nizProizvoda) {
         this.getInput("shoes-collection").innerHTML = "";
         for (let proizvod of nizProizvoda) {
             const el = this.prikaziProizvod(proizvod);
-            // this.getInput("proizvodi").append(el);
             this.getInput("shoes-collection").innerHTML += el;
         }
     },
-    pretragaPoNazivu: function(inpProizvod, data) {
-        this.getInput("minCena").value = "";
-        this.getInput("maxCena").value = "";
+    
+    pretragaPoNazivu(inpProizvod, data) {
+        this.resetPolja('inp');
         const niz = data.filter(proizvod =>
             proizvod.naziv.toLowerCase().includes(inpProizvod.toLowerCase())
         );
         this.prikaziSve(niz);
-        if (niz.length === 0) {
-            this.nePostoji("Traženi proizvod ne postoji!");
-        }
-
+        if (niz.length === 0) this.nePostoji("Traženi proizvod ne postoji!");
         // vraća na sekciju kolekcije
         document.getElementById("shoes-collection").scrollIntoView(true);
-
     },
-
-    pretragaPoBoji: function(inpBoja, data) {
-        this.getInput("minCena").value = "";
-        this.getInput("maxCena").value = "";
+  
+    pretragaPoBoji(inpBoja, data) {
+        this.resetPolja('boja');
         const niz = data.filter(proizvod =>
             proizvod.boja.toLowerCase().includes(inpBoja.toLowerCase())
         );
         this.prikaziSve(niz);
-        if (niz.length === 0) {
-            this.nePostoji("Traženi proizvod ne postoji!");
-        }
+        if (niz.length === 0) this.nePostoji("Traženi proizvod ne postoji!");
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
-
-    pretragaPoSezoni: function(inpSezona, data) {
-        this.getInput("minCena").value = "";
-        this.getInput("maxCena").value = "";
+  
+    pretragaPoSezoni(inpSezona, data) {
+        this.resetPolja('sezona');
         const niz = data.filter(proizvod =>
             proizvod.sezona.toLowerCase().includes(inpSezona.toLowerCase())
         );
         this.prikaziSve(niz);
-        if (niz.length === 0) {
-            this.nePostoji("Traženi proizvod ne postoji!");
-        }
+        if (niz.length === 0) this.nePostoji("Traženi proizvod ne postoji!");
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
-
-    pretragaPoPolu: function(inpPol, data) {
-        this.getInput("minCena").value = "";
-        this.getInput("maxCena").value = "";
+    
+    pretragaPoPolu(inpPol, data) {
+        this.resetPolja('pol');
         const niz = data.filter(proizvod =>
             proizvod.pol.toLowerCase().includes(inpPol.toLowerCase())
         );
         this.prikaziSve(niz);
-        if (niz.length === 0) {
-            this.nePostoji("Traženi proizvod ne postoji!");
-        }
+        if (niz.length === 0) this.nePostoji("Traženi proizvod ne postoji!");
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
-
-    pretragaPoCeni: function(inpCena, nacin, data) {
+  
+    pretragaPoCeni(inpCena, nacin, data) {
+        inpCena = Number(inpCena);
         let niz = [];
         if (nacin === "max") {
-            this.getInput("minCena").value = "";
-            this.getInput("inp").value = "";
+            this.resetPolja('maxCena');
             niz = data.filter(proizvod => proizvod.cena <= inpCena);
         }
         if (nacin === "min") {
-            this.getInput("maxCena").value = "";
-            this.getInput("inp").value = "";
+            this.resetPolja('minCena');
             niz = data.filter(proizvod => proizvod.cena >= inpCena);
         }
         if (niz.length === 0) {
@@ -106,11 +91,9 @@ const proizvodi = {
         }
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
-
-    sortiranje: function(polje, sort, data) {
-        this.getInput("inp").value = "";
-        this.getInput("minCena").value = "";
-        this.getInput("maxCena").value = "";
+  
+    sortiranje(polje, sort, data) {
+        this.resetPolja();
         if (polje === "cena")
             data.sort((p1, p2) =>
                 Number(p1[polje]) > Number(p2[polje]) ? sort : -sort
@@ -120,115 +103,104 @@ const proizvodi = {
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
 
-    nePostoji: function(msg) {
+    resetPolja(idPolja = ''){
+        if(idPolja !== "inp")
+            this.getInput("inp").value = "";
+        if(idPolja !== "minCena")
+            this.getInput("minCena").value = "";
+        if(idPolja !== "maxCena")
+            this.getInput("maxCena").value = "";
+        if(idPolja !== "sezona")
+            this.getInput("sezona").value = "";
+        if(idPolja !== "pol")
+            this.getInput("pol").value = "";
+        if(idPolja !== "boja")
+            this.getInput("boja").value = "";
+    },
+  
+    nePostoji(msg) {
         const div = document.createElement("div");
         div.className = "proizvod-nema";
         div.innerHTML = msg;
         this.getInput("shoes-collection").append(div);
         document.getElementById("shoes-collection").scrollIntoView(true);
     },
-    getInput: function(trazeniId) {
+  
+    getInput(trazeniId) {
         return document.querySelector(`#${trazeniId}`);
-    }
-};
-
-proizvodi.getInput("btnIme").addEventListener("click", () => {
-    const inp = proizvodi.getInput("inp").value;
-    axios("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoNazivu(inp, res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("btnMaxCena").addEventListener("click", () => {
-    let inp = Number(proizvodi.getInput("maxCena").value);
-    if (!inp) inp = Infinity;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoCeni(inp, "max", res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("btnMinCena").addEventListener("click", () => {
-    let inp = Number(proizvodi.getInput("minCena").value);
-    if (!inp) inp = -Infinity;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoCeni(inp, "min", res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("boja").addEventListener("change", () => {
-    const boja = proizvodi.getInput("boja").value;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoBoji(boja, res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("sezona").addEventListener("change", () => {
-    const sezona = proizvodi.getInput("sezona").value;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoSezoni(sezona, res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("pol").addEventListener("change", () => {
-    const pol = proizvodi.getInput("pol").value;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.pretragaPoPolu(pol, res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("polje").addEventListener("change", () => {
-    const polje = proizvodi.getInput("polje").value;
-    const sortiranje = proizvodi.getInput("sort").value;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.sortiranje(polje, sortiranje, res.data))
-        .catch(err => console.error(err));
-});
-
-proizvodi.getInput("sort").addEventListener("change", () => {
-    const polje = proizvodi.getInput("polje").value;
-    const sortiranje = proizvodi.getInput("sort").value;
-    axios
-        .get("http://127.0.0.1:8000/json")
-        .then(res => proizvodi.sortiranje(polje, sortiranje, res.data))
-        .catch(err => console.error(err));
-});
-
-// za entere
-proizvodi.getInput("inp").addEventListener("keyup", e => {
-    if (e.keyCode === 13) {
-        const inp = proizvodi.getInput("inp").value;
+    },
+  
+    aksiosUpit(inp, attr = '') {
+        let vr = this.getInput(inp).value;
         axios
             .get("http://127.0.0.1:8000/json")
-            .then(res => proizvodi.pretragaPoNazivu(inp, res.data))
+            .then(res => {
+                if (inp === 'inp')
+                    this.pretragaPoNazivu(vr, res.data);
+                if (inp === 'boja')
+                    this.pretragaPoBoji(vr, res.data);
+                if (inp === 'sezona')
+                    this.pretragaPoSezoni(vr, res.data);
+                if (inp === 'pol')
+                    this.pretragaPoPolu(vr, res.data);
+                if (inp === 'maxCena') {
+                    if (vr === '') vr = Infinity;
+                    this.pretragaPoCeni(vr, attr, res.data);
+                }
+                if (inp === 'minCena') {
+                    if (vr === '') vr = -Infinity;
+                    this.pretragaPoCeni(vr, attr, res.data);
+                }
+                if (inp === 'polje')  {
+                    attr = proizvodi.getInput("sort").value;
+                    this.sortiranje(vr, attr, res.data);
+                }
+            })
             .catch(err => console.error(err));
     }
-});
-
-proizvodi.getInput("maxCena").addEventListener("keyup", e => {
-    if (e.keyCode === 13) {
-        let inp = Number(proizvodi.getInput("maxCena").value);
-        if (!inp) inp = Infinity;
-        axios
-            .get("http://127.0.0.1:8000/json")
-            .then(res => proizvodi.pretragaPoCeni(inp, "max", res.data))
-            .catch(err => console.error(err));
-    }
-});
-
-proizvodi.getInput("minCena").addEventListener("keyup", e => {
-    let inp = Number(proizvodi.getInput("maxCena").value);
-    if (e.keyCode === 13) {
-        let inp = Number(proizvodi.getInput("minCena").value);
-        if (!inp) inp = -Infinity;
-        axios
-            .get("http://127.0.0.1:8000/json")
-            .then(res => proizvodi.pretragaPoCeni(inp, "min", res.data))
-            .catch(err => console.error(err));
-    }
-});
+  };
+  
+  proizvodi.getInput("btnIme").addEventListener("click", () => {
+    proizvodi.aksiosUpit('inp');
+  });
+  
+  proizvodi.getInput("boja").addEventListener("change", () => {
+    proizvodi.aksiosUpit('boja');
+  });
+  
+  proizvodi.getInput("sezona").addEventListener("change", () => {
+    proizvodi.aksiosUpit('sezona');
+  });
+  
+  proizvodi.getInput("pol").addEventListener("change", () => {
+    proizvodi.aksiosUpit('pol');
+  });
+  
+  proizvodi.getInput("btnMaxCena").addEventListener("click", () => {
+    proizvodi.aksiosUpit('maxCena', 'max');
+  });
+  
+  proizvodi.getInput("btnMinCena").addEventListener("click", () => {
+    proizvodi.aksiosUpit('minCena', 'min');
+  });
+  
+  proizvodi.getInput("polje").addEventListener("change", () => {
+    proizvodi.aksiosUpit('polje', 'sort');
+  });
+  
+  proizvodi.getInput("sort").addEventListener("change", () => {
+    proizvodi.aksiosUpit('polje', 'sort');
+  });
+  
+  // za entere
+  proizvodi.getInput("inp").addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) proizvodi.aksiosUpit('inp');
+  });
+  
+  proizvodi.getInput("maxCena").addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) proizvodi.aksiosUpit('maxCena', 'max');
+  });
+  
+  proizvodi.getInput("minCena").addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) proizvodi.aksiosUpit('minCena', 'min');
+  });

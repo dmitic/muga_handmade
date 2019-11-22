@@ -7,7 +7,7 @@ const korpa = {
   // niz čuva korpu
   niz: [],
 
-  dodaj: function(id, naziv, cena, slika){
+  dodaj(id, naziv, cena, slika){
     if(this.niz.length === 0) {
       this.niz.push({ id: id, naziv: naziv, slika: slika, kolicina: 1, cena: cena});
     } else {
@@ -23,12 +23,11 @@ const korpa = {
     this.snimi_u_session();
   },
   
-  ukupna_vr: function() {
-    
+  sadrzajKorpe() {
     return this.niz.map(proizvod =>  ({id: proizvod.id, naziv: proizvod.naziv, slika: proizvod.slika, kolicina: proizvod.kolicina, cena: proizvod.cena, ukupnaVrednost: proizvod.kolicina*proizvod.cena }));
   },
   
-  obrisi: function(id)  {
+  obrisi(id)  {
     for (let i = 0; i < this.niz.length; i++){
       if (this.niz[i].id === id) {
         this.niz.splice(this.niz.indexOf(this.niz[i]), 1);
@@ -37,21 +36,20 @@ const korpa = {
     this.snimi_u_session();
   }, 
   
-  snimi_u_session: function() { 
+  snimi_u_session() { 
     sessionStorage.setItem('korpa', JSON.stringify(this.niz));
   },
 
-  ucitaj_iz_session: function(){ 
+  ucitaj_iz_session(){ 
     this.niz = sessionStorage.getItem('korpa') === null ? [] : JSON.parse(sessionStorage.getItem('korpa'));
   },
 
-  prikaziKorpu: function(){
+  prikaziKorpu(){
     this.ucitaj_iz_session();
 
     let nizKorpa = [];
-
-    this.ukupna_vr().map((clan) => {
-      for (let clanKorpe of this.ukupna_vr()){
+    this.sadrzajKorpe().map((clan) => {
+      for (let clanKorpe of this.sadrzajKorpe()){
         if (clan.id === clanKorpe.id){
           nizKorpa.push({ id: clan.id, ime: clan.naziv, slika: clan.slika, kolicina: clan.kolicina, vrednost: clanKorpe.ukupnaVrednost });
         }
@@ -61,12 +59,12 @@ const korpa = {
     return nizKorpa;
   },
 
-  ukupanIznos: function(){
+  ukupanIznos(){
     let tmp = this.prikaziKorpu().map(vr => vr.vrednost);
     return tmp.reduce((acc, clan) => acc += clan, 0);
   },
 
-  nePostoji: function() {
+  nePostoji() {
     const divPrazno = document.createElement("div");
     divPrazno.className = "proizvod-nema";
     divPrazno.style = "margin: 0 auto;";
@@ -74,7 +72,7 @@ const korpa = {
     document.querySelector('#proizvodi').append(divPrazno);
   },
 
-  napraviTabelu: function(){
+  napraviTabelu(){
 
     const div = document.querySelector('#proizvodi');
 
@@ -219,9 +217,7 @@ const korpa = {
                 poruke.poruka(resp.data.msg, resp.data.boja)
                 if (resp.data.boja === 'zeleno'){
                   sessionStorage.removeItem('korpa');
-                  // document.querySelector('#napomena').value = '';
                   document.querySelector('#proizvodi').innerHTML = '';
-                  // this.napraviTabelu();
                   this.nePostoji();
                 }
                 // console.log(resp.data);
