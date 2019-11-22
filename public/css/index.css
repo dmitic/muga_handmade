@@ -3,11 +3,14 @@ body *{margin: 0; padding: 0; box-sizing: border-box; }
 a {text-decoration: none;}
 ol, ul, li {list-style-type: none;}
 
+
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+
 #start-section, .footer {
     box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.623);
 }
 #start-section #header-text h1, #start-nav, #text-about .section-heading h4, .footer-cell h6{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Courgette', cursive;
 }
 #start-section #header-text h1{
     color:#393836;
@@ -37,6 +40,19 @@ ol, ul, li {list-style-type: none;}
     margin-right: 0;
     margin-left:0;
     text-shadow: 4px 4px 6px rgb(230, 226, 226),-5px -4px 6px rgba(230, 226, 226);
+    border-bottom: 2px solid rgba(173, 170, 163, 0.781);
+    box-shadow: 0px 0px 5px 2px rgba(126, 112, 105, 0.623);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+#start-nav ul li{
+    text-transform: lowercase;
+    font-size: 1.2em;
+    
+}
+.little{
+font-size: 1em !important;
+white-space: nowrap;
+text-align: right;
 }
 .nav-cell a:hover{
     text-shadow: 4px 4px 6px rgb(41, 39, 39),-5px -4px 6px rgba(41, 39, 39);
@@ -96,9 +112,10 @@ button.navbar-toggler{
     font-weight: bold;
     padding: 10px;
     margin:4em;
-    font-family: 'Charm', cursive;
+    font-family: 'Courgette', cursive;
     box-shadow: 0px 0px 30px 5px rgba(158, 157, 156, 0.623),0px 0px 30px 5px rgba(156, 154, 154, 0.623),inset 0px 0px 30px 5px rgba(170, 168, 167, 0.623),inset 0px 0px 30px 5px rgba(161, 159, 159, 0.623);
 }
+
 .section-heading{
     text-align: left;
 }
@@ -112,10 +129,12 @@ button.navbar-toggler{
 }
 #text-about p{
     display: flex;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
     line-height: 1.6em;
     font-weight: normal;
-    color:#31332F;
+    color:rgb(25, 26, 24);
+    text-align: justify;
+    padding: 0 1em;
 }
 #text-about{
     display:inline-block;
@@ -147,7 +166,7 @@ p a:hover{
 .footer-cell h6{
     margin:1.5em 1em 1em;
     font-size: 1.7em;
-    text-transform: uppercase;
+    /* text-transform: capitalize; */
 }
 .footer-cell p{
     padding:0 2em 1em 2em ;

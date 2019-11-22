@@ -21,4 +21,16 @@ class LinksController extends Controller
     public function termsOfUse(){
         return view('terms-of-use');
     }
+
+    public function gaziste(){
+        return view('gaziste');
+    }
+
+    public function proizvodi(){
+        return view('proizvodi');
+    }
+
+    public function korpa(){
+        return view('korpa');
+    }
 }

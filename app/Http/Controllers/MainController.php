@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
 
-    public function index(){
-        return view('korpa');
-    }
-
     public function json_response(){
         return response()->json(Proizvod::with('slike')->orderBy('created_at', 'desc')->get());
     }

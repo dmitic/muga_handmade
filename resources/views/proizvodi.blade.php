@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('pagesCss')
+<link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script|Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}">
+<link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
+@endsection
+
 @section('main-js')
 <script src="{{ asset('js/main.js') }}" defer></script>
 <script>
@@ -12,26 +20,18 @@
 </script>
 @endsection
 
-@section('indeks')
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script|Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/contact.css') }}">
-    <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
-@endsection
-
-@section('indeksLogo')
-    <link href="{{ asset('/css/velikiLogo.css') }}" rel="stylesheet">
-@endsection
+<!-- @section('pocetna-link')
+  <li class="nav-item nav-cell ">
+    <a class="nav-link font-color" href="{{ url('/') }}#start-section">Početna&nbspstrana</a>
+  </li>
+@endsection -->
 
 @section('content')
-{{-- <div class="container-fluid">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-10 filters ">--}}  
-            {{-- dodati iznad style="height: 3000px" da bi scroll radio  u --}}
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-10 filters ">  {{-- dodati style="height: 3000px" da bi scroll radio --}}
  
-            {{-- <div id="filter">
+            <div id="filter">
                 <input type="text" id="inp" placeholder="Pretraga po imenu">
                 <button id="btnIme">Pronađi</button>
                 <hr>
@@ -74,20 +74,5 @@
 
         <div id="shoes-collection" class="row col-xl-10 col-lg-9 col-md-8 col-sm-8 col-xs-10 products justify-content-center "></div>
     </div>
-</div> --}}
-@endsection
-
-@section('prikazi-kontakt')
-    @include('includes.contact')
-@endsection
-
-@section('prikazi-about')
-    @include('includes.about')
-@endsection
-
-@section('animacija')
-    <div id="header-text" class="">
-        <h1>MUGA Handmade Shoes</h1>
-        {{-- <h1>ručna izrada<br> kožne obuće po meri</h1> --}}
-    </div>  
+</div>
 @endsection

@@ -1,7 +1,7 @@
 <!-- fourth section start--> 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div id="text-about">
+      <div id="text-about"> 
         <div class="section-heading">
             <a href="index.html#start-section"><img src="photos/logo2.jpg" id='logo3' alt="logo"></a>
             <h4>O nama</h4>

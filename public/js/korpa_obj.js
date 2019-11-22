@@ -163,7 +163,7 @@ const korpa = {
         spanUputsvto.className = 'col-mb-3';
 
       const linkUputsvo = document.createElement('a');
-        linkUputsvo.href = '#';
+        linkUputsvo.href = '/gaziste';
         linkUputsvo.className = 'card-link';
         linkUputsvo.setAttribute('target', '_blank');
         linkUputsvo.textContent = ' Uputstvo za merenje unutrašnje dužine gazišta';

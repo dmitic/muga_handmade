@@ -8,7 +8,7 @@
               </button>
               <div class="collapse navbar-collapse navbar-light " id="navbarNavDropdown">
                 <ul class="navbar-nav  ">
-                  @yield('pocetna-link')
+                  <!-- @yield('pocetna-link') -->
                   <li class="nav-item nav-cell ">
                     <a class="nav-link font-color" href="{{ url('/') }}#text-about">O&nbspnama</a>
                   </li>
@@ -16,7 +16,8 @@
                     <a class="nav-link font-color" href="{{ url('/') }}#contact">Kontakt</a>
                   </li>
                   <li class="nav-item nav-cell">
-                    <a class="nav-link font-color" href="{{ url('/') }}#shoes-collection">Kolekcija</a>
+                    <a class="nav-link font-color" href="/proizvodi">Kolekcija</a>
+                    {{-- <a class="nav-link font-color" href="{{ url('/') }}#shoes-collection">Kolekcija</a> --}}
                   </li>
                 </ul>
               </div>
@@ -31,24 +32,24 @@
               <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                   <ul class="navbar-nav">
-                        <li class="nav-item nav-cell">
+                        <li class="nav-item nav-cell little">
                                 <a href="/korpa" class="nav-link font-color" id="korpa">Korpa</a>
                             </li>
                             @guest
                             <!-- Authentication Links -->
-                            <li class="nav-item nav-cell">
+                            <li class="nav-item nav-cell little">
                                 <a class="nav-link font-color" href="{{ route('login') }}">{{ __('Uloguj se') }}</a>
                             </li>
                             @if (Route::has('register'))
-                            <li class="nav-item nav-cell">
+                            <li class="nav-item nav-cell little">
                                 <a class="nav-link font-color" href="{{ route('register') }}">{{ __('Registruj se') }}</a>
                             </li>
                             @endif
                             @else
-                            <li class="nav-item nav-cell">
+                            <li class="nav-item nav-cell little">
                                 <a class="nav-link font-color" href="/cp">Kontrolni panel</a>
                             </li>
-                            <li class="nav-item nav-cell">
+                            <li class="nav-item nav-cell little">
                                 <a class="nav-link font-color" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Izloguj se') }}

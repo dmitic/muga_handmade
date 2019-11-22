@@ -7,11 +7,11 @@
   <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 @endsection
 
-@section('pocetna-link')
+<!-- @section('pocetna-link')
   <li class="nav-item nav-cell ">
     <a class="nav-link font-color" href="{{ url('/') }}#start-section">Početna&nbspstrana</a>
   </li>
-@endsection
+@endsection -->
 
 @section('content')
   <div class="d-flex justify-content-center">

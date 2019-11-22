@@ -161,8 +161,12 @@ return [
         'zip' => 'Zip kod',
         'city' => 'Grad',
         'state' => 'Država',
+        'ime' => 'Ime',
+        'prezime' => 'Prezime',
         
         'email' => 'E-mail adresa',
+        'mail' => 'E-mail adresa',
+        'poruka' => 'Poruka',
         'password' => 'Šifra',
 
         'naziv' => 'Naziv proizvoda',

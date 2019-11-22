@@ -13,8 +13,9 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/json', 'MainController@json_response');
-Route::get('/korpa', 'MainController@index');
+Route::get('/korpa', 'LinksController@korpa');
 Route::get('/detaljnije/{id}', 'MainController@show');
+Route::get('/proizvodi', 'LinksController@proizvodi');
 Route::post('/posalji-narudzbenicu', 'MainController@create');
 
 Auth::routes();
@@ -91,3 +92,7 @@ Route::get('/poverljivost', 'LinksController@poverljivost');
 Route::get('/reklamacije', 'LinksController@returnPolicy');
 Route::get('/dostava', 'LinksController@delivery');
 Route::get('/uslovi', 'LinksController@termsOfUse');
+Route::get('/gaziste', 'LinksController@gaziste');
+
+//Mail
+Route::post('/send', 'SendEmailController@send');

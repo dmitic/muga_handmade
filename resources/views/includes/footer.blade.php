@@ -19,7 +19,7 @@
             <h6 class="bottom-line">Linkovi</h6>
             <p><a href="{{ url('/') }}#start-section">Početna</a></p>
             <p><a href="{{ url('/') }}#text-about">O nama</a></p>
-            <p><a href="{{ url('/') }}#shoes-collection">Kolekcija</a></p>
+            <p><a href="/proizvodi">Kolekcija</a></p>
             <p><a href="{{ url('/') }}#contact">Kontakt</a></p>
         </div>
     </div>
