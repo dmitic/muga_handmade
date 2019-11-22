@@ -14,6 +14,7 @@
             <p><a href="/dostava">Dostava obuće</a></p>
             <p><a href="/poverljivost">Poverljivost podataka</a></p>
             <p><a href="/reklamacije">Reklamacije</a></p>
+            <p><a href="/gaziste">Merenje gužine gazišta</a></p>
         </div>
         <div class="footer-cell ">
             <h6 class="bottom-line">Linkovi</h6>

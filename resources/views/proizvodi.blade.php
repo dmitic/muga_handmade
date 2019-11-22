@@ -12,19 +12,18 @@
 <script src="{{ asset('js/main.js') }}" defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
-            axios.get('http://127.0.0.1:8000/json')
-                .then(res => proizvodi.prikaziSve(res.data))
-                .catch(err => console.error(err));
-            document.querySelector('#korpa').innerHTML = `Korpa`;                //: ${formatiranje.format(korpa.ukupanIznos())} din
-        });
+        axios.get('http://127.0.0.1:8000/json')
+            .then(res => proizvodi.prikaziSve(res.data))
+            .catch(err => console.error(err));
+    });
 </script>
 @endsection
 
-<!-- @section('pocetna-link')
+ {{-- @section('pocetna-link')
   <li class="nav-item nav-cell ">
     <a class="nav-link font-color" href="{{ url('/') }}#start-section">Početna&nbspstrana</a>
   </li>
-@endsection -->
+@endsection --}}
 
 @section('content')
 <div class="container-fluid">

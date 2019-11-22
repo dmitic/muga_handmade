@@ -17,7 +17,7 @@ class TestUserRole
     {
         // dd(\Auth::user()->is_admin);
         if(\Auth::user()->is_admin === false)
-            return redirect('/user');
+            return redirect('/user/detaljnije');
         return $next($request);
     }
 }

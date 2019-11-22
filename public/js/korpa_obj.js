@@ -207,7 +207,7 @@ const korpa = {
           let sveIzKorpe = JSON.parse(sessionStorage.getItem('korpa'));
           axios({
                 method: 'post',  
-                url: 'http://127.0.0.1:8000//posalji-narudzbenicu',
+                url: 'http://127.0.0.1:8000/posalji-narudzbenicu',
                 data: {
                   user_id: user_id,
                   napomena_user: napomena,
@@ -224,7 +224,7 @@ const korpa = {
                   // this.napraviTabelu();
                   this.nePostoji();
                 }
-                console.log(resp.data);
+                // console.log(resp.data);
               })
               .catch(err => {
                 poruke.poruka('Došlo je do greške!', 'crveno');

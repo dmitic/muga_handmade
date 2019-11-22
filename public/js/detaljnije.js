@@ -51,11 +51,17 @@ const proizvod = {
 
               tdKey.textContent = `${naziv.replace('_', ' ')}:`;
               tdKey.className = "tdKey";
-              (naziv === 'cena') ? tdValue.innerHTML = `<strong>${formatiranje.format(Number(proizvod[naziv]))} RSD</strong>` : tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
+              //   (naziv === 'cena') ? tdValue.innerHTML = `<strong>${formatiranje.format(Number(proizvod[naziv]))} RSD</strong>` : tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
+              //   (naziv === 'opis') ? 
+              //             tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
+              //                     'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
+              //                     tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
               (naziv === 'opis') ? 
                         tdValue.innerHTML = `<strong>${(proizvod[naziv] === null) ?
                                 'Trenutno nema opisa' : proizvod[naziv]}</strong>` : 
-                                tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
+                                (naziv === 'cena') ? 
+                                            tdValue.innerHTML = `<strong>${formatiranje.format(Number(proizvod[naziv]))} RSD</strong>` 
+                                            : tdValue.innerHTML = `<strong>${proizvod[naziv]}</strong>`;
               tr.append(tdKey);
               tr.append(tdValue)
               tabela.append(tr);

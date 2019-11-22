@@ -7,18 +7,19 @@
   <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 @endsection
 
-<!-- @section('pocetna-link')
+{{-- @section('pocetna-link')
   <li class="nav-item nav-cell ">
     <a class="nav-link font-color" href="{{ url('/') }}#start-section">Početna&nbspstrana</a>
   </li>
-@endsection -->
+@endsection --}}
 
 @section('content')
 <script>
     const podaci = <?= json_encode($proizvodi, JSON_UNESCAPED_UNICODE); ?>;
     document.addEventListener('DOMContentLoaded', ()=>{
       proizvod.prikazi(proizvod.nadji_ID());
-      document.querySelector('#korpa').innerHTML = `Korpa: ${formatiranje.format(korpa.ukupanIznos())} din`; 
+      if(user_id !== -1)
+        document.querySelector('#korpa').innerHTML = `Korpa: ${formatiranje.format(korpa.ukupanIznos())} din`; 
     });
 </script>  
     </header>

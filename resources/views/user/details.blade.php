@@ -1,7 +1,7 @@
 @extends('user.layout.app')
 
 @section('page-header')
-<h2 class="page-header">Moji podaci</h2>
+<h2 class="page-header">Moji podaci <small style="color:red;">Ukoliko niste upisali sve Vaše podatke, molimo Vas upišite!</small></h2>
 @endsection
 
 @section('content')
