@@ -8,7 +8,6 @@ use App\Fakture;
 use App\Proizvod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-// use Illuminate\Contracts\Support\Jsonable;
 
 class MainController extends Controller
 {
@@ -16,11 +15,6 @@ class MainController extends Controller
     public function json_response(){
         return response()->json(Proizvod::with('slike')->orderBy('created_at', 'desc')->get());
     }
-
-    // public function json_response_paginate(){
-    //     return Proizvod::with('slike')->orderBy('created_at', 'desc')->paginate(5);
-    //     // return response()->json(Proizvod::with('slike')->orderBy('created_at', 'desc')->get());
-    // }
 
     public function show($id){
         $proizvodi = Proizvod::with('slike')
