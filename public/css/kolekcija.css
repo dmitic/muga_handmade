@@ -1,0 +1,51 @@
+.content{
+  box-shadow: inset 0px 0px 30px 5px rgba(126, 112, 105, 0.423), inset 0px 0px 30px 5px rgba(126, 112, 105, 0.423);
+  background-image: url('../photos/ruke1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2em;
+  font-weight: bold;
+  font-family: 'Courgette', cursive;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.layer{
+  background-color: rgba(255, 253, 209, 0.444);
+  padding: 1em;
+}
+.content h1{
+  font-size: 2.5em;
+  padding: 0.5em;
+  text-shadow: 2px 2px 0px rgb(206, 184, 161), 3px 3px 0px #707070;
+}
+.content h2{
+  padding: 0.5em;
+}
+.content .layer p{
+  padding: 1em;
+}
+.content .layer .note{
+  padding-top: 0em;
+  font-size: 0.8em;
+}
+.content .layer p span{
+  text-decoration: underline;
+}
+
+@media (max-width: 900px){
+  .content h1{
+      text-align: center;
+  }
+}
+@media (max-width: 500px){
+  .content h1{
+      font-size: 1.6em;
+      padding: 0.2em;
+  }
+  .content h2{
+      font-size: 1.3em;
+  }
+  .layer>p{
+      padding: 1.5em;
+  }
+}

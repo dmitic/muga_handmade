@@ -13,7 +13,12 @@
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
         axios.get('http://127.0.0.1:8000/json')
-            .then(res => proizvodi.prikaziSve(res.data))
+        // axios.get('http://127.0.0.1:8000/json_paginate')
+            .then(res => {
+                // console.log(res.data.data.length);
+                // proizvodi.prikaziSve(res.data.data);
+                proizvodi.prikaziSve(res.data);
+            })
             .catch(err => console.error(err));
     });
 </script>

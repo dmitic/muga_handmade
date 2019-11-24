@@ -76,6 +76,11 @@ const korpa = {
 
     const div = document.querySelector('#proizvodi');
 
+    // divTab uveden da bi se pojavio scroll kad je screen manji od minimalne širine tabele
+    const divTab = document.createElement('div');
+    divTab.className = "table-responsive";
+    // divTab.style="overflow-x:auto;";
+
     const tabelaKorpa = document.createElement('table');
     tabelaKorpa.className = "tabela tablea-korpa";
 
@@ -232,8 +237,9 @@ const korpa = {
       });
 
   
-    div.append(tabelaKorpa, dodatnaPolja, btnNaruci);
-
+    // div.append(tabelaKorpa, dodatnaPolja, btnNaruci);
+    divTab.append(tabelaKorpa, dodatnaPolja, btnNaruci);
+    div.append(divTab);
   }
 }
 

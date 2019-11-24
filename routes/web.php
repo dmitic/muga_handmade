@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/json', 'MainController@json_response');
+// Route::get('/json_paginate', 'MainController@json_response_paginate');
 Route::get('/korpa', 'LinksController@korpa');
 Route::get('/detaljnije/{id}', 'MainController@show');
 Route::get('/proizvodi', 'LinksController@proizvodi');

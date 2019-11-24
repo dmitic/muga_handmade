@@ -7,9 +7,8 @@
     <div class="content">
         @yield('content')
     </div>
-    @yield('prikazi-about')
-    
     @yield('prikazi-kontakt')
+    @yield('prikazi-about')
 </main>
 
 @include('includes.footer')
