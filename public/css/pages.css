@@ -20,6 +20,13 @@
     font-size: 1.1em;
     line-height: 1.5em;
 }
+.fontinit{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+.fontinit_p{
+    font-family: 'Montserrat', sans-serif;
+}
 .layer{
     background-color: rgba(220, 217, 208, 0.644);
     padding: 1em;

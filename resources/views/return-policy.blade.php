@@ -14,8 +14,8 @@
 @endsection --}}
 
 @section('content')
-<div class="layer">
-    <h1>Tekst o reklamacijama</h1>
+<div class="layer fontinit_p">
+    <h1>TEKST O REKLAMACIJAMA</h1>
     <p>Poštovani kupci, <br>važno je naglasiti u slučaju nezadovoljstva klijenta vizuelnim izgledom finalnog produkta, da su svi produkti MUGA Handmade Shoes unikatni i potpadaju pod kategoriju limitirane obuće i samim tim se rade po ličnom izboru i željama klijenata, povraćaj novca nije moguća opcija od trenutka slanja vaše porudžbine, prijema i potvrde porudžbine od strane MUGA Handmade Shoes.</p>
     <p>Povraćaj MUGA Handmade Shoes modela u cilju popravke ili zamene sa novim parom cipela je moguć samo u slučaju fizickih oštećenja istog para cipela koji su nastali u procesu proizvodnje. Oštećenja koja MUGA Handmade Shoes prihvata su: fizičko ostećenje unutrašnjeg dela cipele ili tabanice nastalih u samom procesu proizvodnje.</p>
     <p>U slučaju povraćaja robe, ista mora biti neotpakovana, nekorišćena, neoštećena, sa netaknutim zvaničnim logom firme pošiljaoca</p>

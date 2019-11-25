@@ -14,7 +14,7 @@
 @endsection --}}
 
 @section('content')
-<div class="layer">
+<div class="layer fontinit_p">
     <h1>USLOVI KORIŠĆENJA</h1>
     <p>Korišćenjem internet stranica <a href="http://www.mugashoes.rs">www.mugashoes.rs </a> smatra se da ste u potpunosti upoznati i saglasni sa ovde navedenim <a href="/uslovi">Uslovima korišćenja</a> / <a href="/reklamacije">Return Policy</a> / <a href="/poverljivost">Izjavom o poverljivosti podataka</a>. Ukoliko se sa istima ne slažete i ne prihvatate ih, molimo Vas da ne koristite ovu internet stranicu.</p>
     <p>Uslovi korišćenja odnose se na korišćenje internet stranica <a href="http://www.mugashoes.rs">www.mugashoes.rs </a> od strane korisnika. Svakim daljim korišćenjem ovih Internet stranica nakon upoznavanja sa Uslovima korišćenja, smatra se da su korisnici saglasni sa ovde navedenim uslovima i pravilima i da pristaju na korišćenje Internet stranica u skladu sa tim uslovima</p>

@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="container marginForme">
+<div class="container marginForme fontinit">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

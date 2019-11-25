@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/index.css') }}">
+<link href="{{ asset('/css/pages_kol.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 @endsection
 

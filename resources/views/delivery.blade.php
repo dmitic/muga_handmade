@@ -14,7 +14,7 @@
 @endsection --}}
 
 @section('content')
-<div class="layer">
+<div class="layer fontinit_p">
   <h1 class="h1">INFORMACIJE O ISPORUCI ROBE</h1>
   <h2>MUGA Handmade Shoes dostavlja svoje produkte na sledeće načine:</h2>
   <ul>

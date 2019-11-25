@@ -25,10 +25,7 @@
         </div>
     </div>
     <div>
-        <p>copyright<a href="mailto:iwanna.solutions@gmail.com">
-                <i class="fa fa-copyright" aria-hidden="true"></i>
-                &nbsp; iwanna.solutions@gmail.com</a>
-        </p>
+        <p>copyright &copy; MUGA Handmade Shoes 2019.</p>
     </div>
 </div>
 {{-- </div> --}}

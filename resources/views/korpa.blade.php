@@ -4,6 +4,7 @@
   <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script|Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/pages_kol.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 @endsection
 

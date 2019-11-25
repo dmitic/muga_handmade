@@ -17,12 +17,12 @@
 @section('content')
 <!-- second section start-->
     <div class="layer">
-        <h1 class="h1">Rucna izrada muške i ženske obuce po meri.</h1>
-        <h2>Modeli iz kolekcije su radeni od razlicitih vrsta kože, prirodnog porekla, dok su donovi gumeni.</h2>
-        <p>Možete iskoristiti neki od postojecih modela kao uzor za Vaš idealan par obuce, ili možete kreirati svoju
-            kombinaciju po želji . Dovoljno je samo da odaberete željeni model obuce, i u delu ‘opis’, u okviru Vaše
+        <h1 class="h1">Ručna izrada muške i ženske obuće po meri.</h1>
+        <h2>Modeli iz kolekcije su rađeni od različitih vrsta kože, prirodnog porekla, dok su đonovi gumeni.</h2>
+        <p>Možete iskoristiti neki od postojećih modela kao uzor za Vaš idealan par obuće, ili možete kreirati svoju
+            kombinaciju po želji . Dovoljno je samo da odaberete željeni model obuće, i u delu ‘dodatne napomene’, u okviru Vaše
             ‘korpe’, bliže definišete Vašu kombinaciju boja i materijala.</p>
-        <p>Vreme cekanja na izradu modela je 10-ak dana.</p>
+        <p>Vreme čekanja na izradu modela je 10-ak dana.</p>
         <p class="text-right"><a class="btn btn-default btn-lg" href="/proizvodi"><span style="font-size:2em;text-decoration:none">Pogledajte proizvode iz naše kolekcije</span></a></p>
     </div>
 <!-- second section end-->

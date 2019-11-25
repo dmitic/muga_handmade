@@ -13,24 +13,24 @@
       </div>
       
      <div class="contact-cell">
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <a href="#!" class="close" data-dismiss="alert"><i class="fa fa-times-circle"></i></a>
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-       @endif
-       @if ($message = Session::get('poslat'))
-        <div class="alert alert-success">
-            <a href="#!" class="close" data-dismiss="alert"><i class="fa fa-times-circle"></i></a>
-          {{ $message }}
-        </div>
-       @endif
       <form method="post" action="{{url('send')}}">
         @csrf
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <a href="#!" class="close" data-dismiss="alert"><i class="fa fa-times-circle"></i></a>
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+          @if ($message = Session::get('poslat'))
+            <div class="alert alert-success">
+                <a href="#!" class="close" data-dismiss="alert"><i class="fa fa-times-circle"></i></a>
+              {{ $message }}
+            </div>
+          @endif
           <div class="form-group">
             <label for="">E-mail adresa</label>
           <input type="email" name="mail" class="form-control" id="" placeholder="ime@primer.com" value="{{ old('mail') }}">

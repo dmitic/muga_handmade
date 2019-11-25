@@ -14,7 +14,7 @@
 @endsection --}}
 
 @section('content')
-<div class="layer">
+<div class="layer fontinit_p">
     <h1 class="h1">POVERLJIVOST PODATAKA</h1>
     <p>U ime MUGA Handmade Shoes obavezujemo se da ćemo čuvati privatnost svih naših kupaca. </p>
     <p>Prikupljamo samo neophodne, osnovne podatke o kupcima/ korisnicima i podatke neophodne za poslovanje i informisanje korisnika u skladu sa dobrim poslovnim običajima i u cilju pružanja kvalitetne usluge.</p>

@@ -14,8 +14,8 @@
 @endsection --}}
 
 @section('content')
-<div class="layer">
-  <h1 class="h1">Dužina gazišta</h1>
+<div class="layer fontinit_p">
+  <h1 class="h1">MERENJE DUŽINE GAZIŠTA</h1>
   <p>Da li vam se desilo da kupujete cipele i da zatražite da probate broj koji inače nosite, a da su vam cipele male
     ili čak velike!? Šta ako pronađete željenu obuću online!? Kako je kupiti ako ne možete da je probate pre toga?
     Čini se da je razlika između kalupa proizvođača ranije nekako bila manja. Znalo se da Italijani imaju jedini nešto
