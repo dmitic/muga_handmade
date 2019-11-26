@@ -67,7 +67,7 @@ const proizvod = {
 
         const kupi = document.createElement("button");
         kupi.className = "btnKupi";
-        kupi.textContent = "Kupi";
+        kupi.textContent = "Dodaj u korpu";
         kupi.addEventListener("click", () => {
           if(user_id === -1){
             poruke.poruka("Morate biti ulogovani da bi dodali proizvod u korpu!", "crveno");

@@ -32,6 +32,12 @@
   text-decoration: underline;
 }
 
+/* #start-nav{
+  border-bottom: none;
+} */
+
+
+
 @media (max-width: 900px){
   .content h1{
       text-align: center;
