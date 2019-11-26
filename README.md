@@ -12,7 +12,7 @@ Za izradu korisničkog interfejsa (UI) korišćen je primarno [bootstrap](https:
 
 ## Struktura
 
-Sama aplikacija je zamišljena kao svojevrsna online reklama proizvoda i web šop, u real verziji neće biti cena jer su mu i cene po dogovoru.
+Sama aplikacija je zamišljena kao svojevrsna online reklama proizvoda i web šop, u real verziji neće biti cena jer su mu cene po dogovoru.
 
 ## Uputstvo
 
