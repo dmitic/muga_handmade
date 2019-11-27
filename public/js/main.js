@@ -1,6 +1,5 @@
 const proizvodi = {
     prikaziProizvod(proizvod) {
-        // console.log(proizvod);
         let slika = (proizvod.slike.length > 0) ? proizvod.slike[0].slika : 'no-image.png';
         const div = `
         <div class="col-9 col-sm-6 col-md-6 col-lg-4 p-2 d-flex align-items-stretch">
@@ -26,8 +25,6 @@ const proizvodi = {
   
     prikaziSve(nizProizvoda) {
         this.getInput("shoes-collection").innerHTML = "";
-        // for (let i = 0; i < nizProizvoda.length; i++){
-            // const el = this.prikaziProizvod(nizProizvoda[i]);
         for (let proizvod of nizProizvoda) {
             const el = this.prikaziProizvod(proizvod);
             this.getInput("shoes-collection").innerHTML += el;

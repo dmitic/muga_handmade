@@ -10,7 +10,6 @@
 
 @section('content')
   @if ($narudzbenica)
-  {{-- @if ($narudzbenica) --}}
     <div class="card mb-3">
     @if (count($stavke) > 0)
       <div class="row">

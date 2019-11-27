@@ -66,7 +66,7 @@ class MainController extends Controller
 
     // formatiranje broja narudžbenice
     public function formatiranjeNarudzbenice($faktura){
-        $narudzbenica_br = date("Y") . '-' . date("m") . '-'; //. $faktura->id;
+        $narudzbenica_br = date("Y") . '-' . date("m") . '-';
         
         $tmpLen = strlen($faktura->id);
         while ($tmpLen < 5){

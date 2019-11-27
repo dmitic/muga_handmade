@@ -55,7 +55,6 @@ class ProizvodController extends Controller
 
     public function dodajSlikuPojedinacno(Proizvod $proizvod){
         return Helper::dodajSliku($proizvod);
-                    // ->withErrors(['poruka' => 'Slika je uspešno dodata.']);
     }
 
     public function destroy(Proizvod $proizvod){

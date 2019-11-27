@@ -17,7 +17,6 @@
                   </li>
                   <li class="nav-item nav-cell">
                     <a class="nav-link font-color" href="/proizvodi">Kolekcija</a>
-                    {{-- <a class="nav-link font-color" href="{{ url('/') }}#shoes-collection">Kolekcija</a> --}}
                   </li>
                 </ul>
               </div>

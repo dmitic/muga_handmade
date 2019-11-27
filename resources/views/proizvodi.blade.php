@@ -14,10 +14,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
         axios.get('http://127.0.0.1:8000/json')
-        // axios.get('http://127.0.0.1:8000/json_paginate')
             .then(res => {
-                // console.log(res.data.data.length);
-                // proizvodi.prikaziSve(res.data.data);
                 proizvodi.prikaziSve(res.data);
             })
             .catch(err => console.error(err));
@@ -34,7 +31,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-10 filters ">  {{-- dodati style="height: 3000px" da bi scroll radio --}}
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-10 filters "> 
  
             <div id="filter">
                 <input type="text" id="inp" placeholder="Pretraga po imenu">

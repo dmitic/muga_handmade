@@ -13,7 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/json', 'MainController@json_response');
-// Route::get('/json_paginate', 'MainController@json_response_paginate');
 Route::get('/korpa', 'LinksController@korpa');
 Route::get('/detaljnije/{id}', 'MainController@show');
 Route::get('/proizvodi', 'LinksController@proizvodi');
@@ -30,8 +29,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/', 'ProizvodController@index');
     Route::get('/home', 'ProizvodController@index');
-    // Route::get('/', 'AdminController@index');
-    // Route::get('/home', 'AdminController@index');
 
     // Proizvodi rute
     Route::get('/pretragaProizvodi', 'ProizvodController@search');

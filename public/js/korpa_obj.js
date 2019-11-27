@@ -225,7 +225,6 @@ const korpa = {
                   document.querySelector('#proizvodi').innerHTML = '';
                   this.nePostoji();
                 }
-                // console.log(resp.data);
               })
               .catch(err => {
                 poruke.poruka('Došlo je do greške!', 'crveno');
@@ -237,7 +236,6 @@ const korpa = {
       });
 
   
-    // div.append(tabelaKorpa, dodatnaPolja, btnNaruci);
     divTab.append(tabelaKorpa, dodatnaPolja, btnNaruci);
     div.append(divTab);
   }

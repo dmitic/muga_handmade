@@ -85,7 +85,6 @@
             <td>{{ $proizvod->napomena }}</td>
             <td style="text-align:center; width:180px;">
               <form action="{{ route('brisiProizvod', ['proizvod' => $proizvod->id]) }}" method="post">
-              {{-- <form action="/admin/proizvodi/{{$proizvod->id}}" method="post"> --}}
                 @csrf
                 @method('DELETE')
                 <a href="{{ route('izmeniProizvod', ['proizvod' => $proizvod->id]) }}" class="btn btn-primary"

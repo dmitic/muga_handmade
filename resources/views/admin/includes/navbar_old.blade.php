@@ -8,7 +8,6 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		{{-- <a class="navbar-brand" href="/home">Admin Panel Home</a> --}}
 		<a class="navbar-brand" href="/">Homepage</a>
 	</div>
 	<!-- Top Menu Items -->
@@ -20,12 +19,6 @@
 				<li>
 					<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
 				</li>
-				{{-- <li>
-                  <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-              </li> --}}
-				{{-- <li>
-                  <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-              </li> --}}
 				<li class="divider"></li>
 				<li>
 					{{-- LOGOUT ruta --}}
